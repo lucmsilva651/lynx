@@ -11,7 +11,7 @@ First, [make a fork of this repo](https://github.com/lucmsilva651/lynx/fork), or
 ```
 git clone https://github.com/lucmsilva651/lynx
 ```
-Next, go to the repository directory and create a ``config.env`` file and put the content below:
+Next, go to the repository directory, create a ``config.env`` file and put the content below:
 ```
 # insert your bot token here
 # get it with @BotFather on Telegram
