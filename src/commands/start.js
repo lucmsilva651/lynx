@@ -1,6 +1,12 @@
 // start command handler
 module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, "Welcome to Lynx!\n\nI was made with love by Lucas Gabriel (lucmsilva)!\n\nCheck out my source code:\nhttps://github.com/lucmsilva651/lynx")
-  console.log("INFO: /start executed.")
+  const userName = msg.from.first_name;
+  const userId = msg.from.id;
+
+  const message = `Hello! I am Lynx!\nI was made with love by Lucas Gabriel (lucmsilva)!\n\nSee /help for the bot commands!`
+  
+  bot.sendMessage(chatId, message)
+    .catch(error => console.error('ERROR: Message cannot be send:', error));
+  console.log(`INFO: /start executed by ${userName}, ${userId}`)
 }
