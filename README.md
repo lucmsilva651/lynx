@@ -1,8 +1,9 @@
 # Lynx (Node.js Telegram Bot)
-Welcome to the Lynx source code!
+Lynx is a a simple Telegram bot made in Node.js.
 
 ## Requirements
- - Node.js
+ - A Telegram bot (create one at [@BotFather](https://t.me/botfather))
+ - Node.js 20 (or above)
  - node-telegram-bot-api
 
 ## Develop or contribute with Lynx
