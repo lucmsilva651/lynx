@@ -22,7 +22,7 @@ Put your bot token that you created at [@BotFather](https://t.me/botfather) at t
 At last, run the bot with ``npm start``.
 
 ## Notes
-The source code itself of the bot is at ``src/lynx_main.js``. You can rename this file and change the ``package.json`` file as your needs.
+The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``. You can rename this file and change the ``package.json`` file as your needs.
 
 ## About/License
 MIT - 2024 Lucas Gabriel (lucmsilva).
