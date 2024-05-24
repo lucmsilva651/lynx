@@ -7,7 +7,7 @@ module.exports = function(bot, msg) {
   - /start: start the bot
   - /help: send this message
   - /whois: send some information about yourself\n\nSee my source code in:
-  https://github.com/lucmsilva651/lynx.\n\nThanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible.`;
+  - https://github.com/lucmsilva651/lynx.\n\nThanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible.`;
   
   bot.sendMessage(chatId, message)
     .catch(error => console.error('ERROR: Message cannot be send:', error));
