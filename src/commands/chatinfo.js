@@ -20,7 +20,8 @@ module.exports = function(bot, msg) {
   } else {
     chatHandleOutput = `Chat handle: none (private group)`;
   }
-
+  
+  // if chatName returns undefined, the chat is not a group or channel
   if (chatName) {
     chatNameOutput = `Chat name: ${chatName}\n${chatHandleOutput}\nChat ID: ${chatId}\n\n${isForumOutput}`;
   } else {
