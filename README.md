@@ -15,14 +15,17 @@ Next, go to the repository directory, create a ``config.env`` file and put the c
 ```
 # insert your bot token here
 # get it with @BotFather on Telegram
-TGBOT_TOKEN=0000000000:AAAaaAAaaaaAaAaaAAAaaa_aaaaAAAAAaaa
+TGBOT_TOKEN=0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa
 ``` 
 Put your bot token that you created at [@BotFather](https://t.me/botfather) at the variable ``TGBOT_TOKEN`` (as the example above) and save the file.
 
 At last, run the bot with ``npm start``.
 
 ## Notes
-The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``. You can rename this file and change the ``package.json`` file as your needs.
+- The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``.
+  - You can rename this file and change the ``package.json`` file as your needs.
+- The name of the command file will always be the command itself.
+  - Example: ``whois.js`` will always be ``/whois`` on Telegram.
 
 ## About/License
 MIT - 2024 Lucas Gabriel (lucmsilva).
