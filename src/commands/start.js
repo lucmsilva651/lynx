@@ -1,4 +1,3 @@
-// start command handler
 module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
   const userName = msg.from.first_name;
@@ -7,6 +6,6 @@ module.exports = function(bot, msg) {
   const message = `Hello! I am Lynx!\nI was made with love by Lucas Gabriel (lucmsilva)!\n\nSee /help for the bot commands!`
   
   bot.sendMessage(chatId, message)
-    .catch(error => console.error('ERROR: Message cannot be send:', error));
+    .catch(error => console.error('ERROR: Message cannot be sent:', error));
   console.log(`INFO: /start executed by ${userName}, ${userId}`)
 }
