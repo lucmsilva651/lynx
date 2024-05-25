@@ -9,7 +9,7 @@ module.exports = function(bot, msg) {
   - /whois: send some information about yourself\n\nSee my source code in:
   - https://github.com/lucmsilva651/lynx.\n\nThanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible.`;
   
-  bot.sendMessage(chatId, message)
+  bot.sendMessage(chatId, message, {disable_web_page_preview: true})
     .catch(error => console.error('ERROR: Message cannot be send:', error));
   console.log(`INFO: /help executed by ${userName}, ${userId}`);
 }
