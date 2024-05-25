@@ -21,4 +21,5 @@ bot.on('message', (msg) => {
   }
 });
 
-console.log("INFO: Lynx started.")
+const date = Date();
+console.log(`INFO: Lynx started at ${date}\n`)
