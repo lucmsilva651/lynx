@@ -1,12 +1,13 @@
 module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
-  const chatName = msg.chat.title;
   const userName = msg.from.first_name;
   const userId = msg.from.id;
+  const chatName = msg.chat.title;
   const chatHandle = msg.chat.username;
   const isForum = msg.chat.is_forum;
-  let isForumOutput = "";
+  let chatNameOutput = "";
   let chatHandleOutput = "";
+  let isForumOutput = "";
 
   if (isForum) {
     isForumOutput = "This chat is a forum (has topics enabled)";
@@ -20,7 +21,13 @@ module.exports = function(bot, msg) {
     chatHandleOutput = `Chat handle: none (private group)`;
   }
 
-  const message = `Chat name: ${chatName}\n${chatHandleOutput}\nChat ID: ${chatId}\n\n${isForumOutput}`;
+  if (chatName) {
+    chatNameOutput = `Chat name: ${chatName}\n${chatHandleOutput}\nChat ID: ${chatId}\n\n${isForumOutput}`;
+  } else {
+    chatNameOutput = `Whoops!\nThis command doesn't work in PM.`
+  }
+  
+  const message = chatNameOutput;
 
   bot.sendMessage(chatId, message)
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
