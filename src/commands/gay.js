@@ -14,7 +14,7 @@ module.exports = function (bot, msg) {
     isGay = `${userName} is not gay.`;
   } else {
     isGay = `${userName} is a gay.`;
-  }
+  };
 
   const message = `${isGay}`;
 

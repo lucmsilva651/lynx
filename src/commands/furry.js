@@ -14,7 +14,7 @@ module.exports = function(bot, msg) {
     isFurry = `${userName} is not furry`;
   } else {
     isFurry = `${userName} is a furry.`;
-  }
+  };
 
   const message = `${isFurry}`;
   
