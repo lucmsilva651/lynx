@@ -8,7 +8,7 @@ Lynx is a a simple Telegram bot made in Node.js.
 
 ## Notes
 - The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``.
-  - You can rename this file and change the ``package.json`` file as your needs.
+  - You can edit this file and the ``package.json`` file as your needs.
 - The name of the command file will always be the command itself.
   - Example: ``whois.js`` will always be ``/whois`` on Telegram.
 
