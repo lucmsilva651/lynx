@@ -11,9 +11,9 @@ module.exports = function (bot, msg) {
   const randomValue = getRandomInt(2);
 
   if (randomValue === 0) {
-    isGay = `${userName} is not gay.`;
+    isGay = `You (${userName}) are not a gay.`;
   } else {
-    isGay = `${userName} is a gay.`;
+    isGay = `Yes, you (${userName}) are a gay.`;
   };
 
   const message = `${isGay}`;

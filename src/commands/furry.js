@@ -11,9 +11,9 @@ module.exports = function(bot, msg) {
   const randomValue = getRandomInt(2);
 
   if (randomValue === 0) {
-    isFurry = `${userName} is not furry`;
+    isFurry = `You (${userName}) are not a furry.`;
   } else {
-    isFurry = `${userName} is a furry.`;
+    isFurry = `Yes, you (${userName}) are a furry.`;
   };
 
   const message = `${isFurry}`;
