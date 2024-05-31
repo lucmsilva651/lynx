@@ -12,7 +12,7 @@ module.exports = function(bot, msg) {
     userPremiumOutput = "You have a Telegram Premium subscription.";
   } else {
     userPremiumOutput = "You don't have a Telegram Premium subscription.";
-  }
+  };
 
   const message = `Your name is: ${userName}\nYour username is: @${userHandle}\nYour ID is: ${userId}\nYou are a bot: ${isBot}\nYour language: ${userLang}\n\n${userPremiumOutput}`;
 

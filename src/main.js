@@ -21,5 +21,9 @@ bot.on('message', (msg) => {
   }
 });
 
+bot.on('polling_error', (error) => {
+  console.error('Polling error:', error);
+});
+
 const date = Date();
 console.log(`INFO: Lynx started at ${date}\n`)
