@@ -6,7 +6,7 @@ module.exports = function (bot, msg) {
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  }
+  };
 
   const randomValue = getRandomInt(2);
 
