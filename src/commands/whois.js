@@ -6,6 +6,7 @@ module.exports = function(bot, msg) {
   const isBot = msg.from.is_bot;
   const userPremium = msg.from.is_premium;
   const userLang = msg.from.language_code;
+  let haveUsername = "";
   let userPremiumOutput = "";
   
   if (userPremium) {
@@ -14,7 +15,13 @@ module.exports = function(bot, msg) {
     userPremiumOutput = "You don't have a Telegram Premium subscription.";
   };
 
-  const message = `Your name is: ${userName}\nYour username is: @${userHandle}\nYour ID is: ${userId}\nYou are a bot: ${isBot}\nYour language: ${userLang}\n\n${userPremiumOutput}`;
+  if (userHandle) {
+    haveUsername = `Your username is: @${userHandle}`;
+  } else {
+    haveUsername = "Your username is: none";
+  };
+
+  const message = `Your name is: ${userName}\n${haveUsername}\nYour ID is: ${userId}\nYou are a bot: ${isBot}\nYour language: ${userLang}\n\n${userPremiumOutput}`;
 
   bot.sendMessage(chatId, message)
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
