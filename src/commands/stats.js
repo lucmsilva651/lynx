@@ -8,7 +8,7 @@ module.exports = function (bot, msg) {
   function formatUptime(uptime) {
     const hours = Math.floor(uptime / 3600);
     const minutes = Math.floor((uptime % 3600) / 60);
-    const seconds = uptime % 60;
+    const seconds = Math.floor(uptime % 60);
     return `${hours}h ${minutes}m ${seconds}s`;
   }
 
@@ -21,7 +21,7 @@ module.exports = function (bot, msg) {
     const freeMemory = (os.freemem() / (1024 ** 3)).toFixed(2) + ' GB';
     const uptime = formatUptime(os.uptime());
 
-    return `📊 *Server Stats*\n\n` +
+    return `*Server Stats*\n\n` +
       `*OS:* ${platform} ${release}\n` +
       `*CPU:* ${cpuModel} (${cpuCores} cores)\n` +
       `*RAM:* ${freeMemory} / ${totalMemory}\n` +
