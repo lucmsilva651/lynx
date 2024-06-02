@@ -1,10 +1,12 @@
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
-const logMessage = require('./logger');
-const { isBlocked } = require('./blocklist');
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
+
+// import logger and blocklist
+const logMessage = require('./logger');
+const { isBlocked } = require('./blocklist');
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandHandlers = {};
