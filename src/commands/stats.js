@@ -47,7 +47,7 @@ module.exports = function (bot, msg) {
   const isAdmin = admins.includes(msg.from.id.toString());
   if (isAdmin) {
     bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
-      .catch(error => console.error('WARN: Message cannot be sent:', error));
+      .catch(error => console.error('WARN: Message cannot be sent: ', error));
   } else {
     return;
   }

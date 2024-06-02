@@ -36,5 +36,5 @@ module.exports = function(bot, msg) {
 	`In case of usage block, as mentioned above, the terms will be immediately cancelled for the user.`;
 
 	bot.sendMessage(chatId, message, { parse_mode: 'Markdown', disable_web_page_preview: true })
-		.catch(error => console.error('WARN: Message cannot be sent:', error));
+		.catch(error => console.error('WARN: Message cannot be sent: ', error));
 };

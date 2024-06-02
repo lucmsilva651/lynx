@@ -8,5 +8,5 @@ module.exports = function(bot, msg) {
   `Also, you can use /help to show the bot commands!`;
   
   bot.sendPhoto(chatId, lynxProfilePhoto, { caption: message, parse_mode: 'Markdown' } )
-    .catch(error => console.error('WARN: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent: ', error));
 }

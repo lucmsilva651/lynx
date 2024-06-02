@@ -10,6 +10,6 @@ module.exports = function(bot, msg) {
   const message = `*Generated value:* ${randomValue}`;
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
-    .catch(error => console.error('WARN: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent: ', error));
   }
   
