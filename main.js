@@ -4,7 +4,7 @@ const path = require('path');
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 const { isBlocked } = require('./blocklist');
-const { isOnSpamWatch } = require('./blocklist');
+const { isOnSpamWatch } = require('./spamwatch');
 require('./logger');
 
 const commandsPath = path.join(__dirname, 'commands');
