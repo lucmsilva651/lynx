@@ -3,9 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
-
-const logMessage = require('./logger');
 const { isBlocked } = require('./blocklist');
+require('./logger');
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandHandlers = {};
@@ -30,7 +29,7 @@ bot.on('message', (msg) => {
     commandHandlers[messageText](bot, msg);
   }
 
-  console.log(`INFO: User ${userName}, ${userId} sended a message with the content:
+  console.log(`INFO: User ${userName}, ${userId} sended a command or message with the content:
   • ${messageText}\n`)
 });
 
@@ -38,5 +37,4 @@ bot.on('polling_error', (error) => {
   console.error('WARN: Polling error:', error);
 });
 
-const date = new Date().toString();
 console.log(`INFO: Lynx started\n`);
