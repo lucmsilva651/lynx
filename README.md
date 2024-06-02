@@ -7,22 +7,13 @@ Lynx is a a simple Telegram bot made in Node.js.
  - Node.js 20 LTS (or above)
  - node-telegram-bot-api (install with ``npm install node-telegram-bot-api``)
 
-## Notes
-- The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``.
-  - You can edit this file and the ``package.json`` file as your needs.
-- The name of the command file will always be the command itself.
-  - Example: ``whois.js`` will always be ``/whois`` on Telegram.
-- Also, to see your changes, please restart the bot before making a issue.
-
-## Develop or contribute with Lynx
+## Run it yourself, develop or contribute with Lynx
 First, [make a fork of this repo](https://github.com/lucmsilva651/lynx/fork), or clone it with
 ```
 git clone https://github.com/lucmsilva651/lynx
 ```
 Next, go to the repository directory, create a ``config.env`` file and put the content below:
 ```
-# insert your bot token here
-# get it with @BotFather on Telegram
 TGBOT_TOKEN="0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa"
 TGBOT_ADMINS=[0000000000, 1111111111, 2222222222]
 SW_KEY="aAaAAaaAAaAA_AAAAAaaAAaaAAaaAAAAAAaaAaaAaaAAaaAAaAaAAaaAAaaAAaAaA"
@@ -32,6 +23,13 @@ SW_KEY="aAaAAaaAAaAA_AAAAAaaAAaaAAaaAAAAAAaaAaaAaaAAaaAAaAaAAaaAAaaAAaAaA"
 - **SW_KEY**: A API key to make a blocklist to banned SpamWatch users. You can refer to SpamWatch docs to create a API key for yourself.
 
 After editing the file, save all changes and run the bot with ``npm start``.
+
+## Notes
+- The source code itself of the bot is at ``src/main.js``, and the commands are in ``src/commands``.
+  - You can edit this file and the ``package.json`` file as your needs.
+- The name of the command file will always be the command itself.
+  - Example: ``whois.js`` will always be ``/whois`` on Telegram.
+- Also, to see your changes, please restart the bot before making a issue.
 
 ## About/License
 MIT - 2024 Lucas Gabriel (lucmsilva).
