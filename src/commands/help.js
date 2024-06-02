@@ -6,13 +6,13 @@ module.exports = function(bot, msg) {
 
   const message = `*Hello! I'm Lynx!*\n\nI'm a simple bot made entirely from scratch in Node.js by Lucas Gabriel (lucmsilva).\n\n` +
   `I am running on a *GitHub Codespaces* server (see /stats), so please refrain from overusing or spamming the bot!\n\n` +
-  `*Some commands to test*:
-  • */chatinfo*: send some information about the group
-  • */furry*: check if you are a furry
-  • */gay*: check if you are gay
-  • */help*: send this message
-  • */start*: start the bot
-  • */whois*: send some information about yourself\n\n` + 
+  `*Some commands to test:*
+  • */chatinfo* - send some information about the group
+  • */furry* - check if you are a furry
+  • */gay* - check if you are gay
+  • */help* - send this message
+  • */start* - start the bot
+  • */whois* - send some information about yourself\n\n` + 
   `*See my source code in:* [GitHub Repository](https://github.com/lucmsilva651/lynx)\n\n` + 
   `Thanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible ❤️`;
   
