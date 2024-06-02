@@ -5,7 +5,7 @@ module.exports = function(bot, msg) {
   const lynxFullPhoto = 'https://graph.org/file/a77382dab4d62ba626806.jpg';
 
   const message = `*Hello! I'm Lynx!*\n\nI'm a simple bot made entirely from scratch in Node.js by Lucas Gabriel (lucmsilva).\n\n` +
-  `I might be running on a GitHub Codespaces server (see /stats), so please refrain from overusing or spamming the bot!\n\n` +
+  `I am running on a *GitHub Codespaces* server (see /stats), so please refrain from overusing or spamming the bot!\n\n` +
   `*Some commands to test*:
   • */chatinfo*: send some information about the group
   • */furry*: check if you are a furry

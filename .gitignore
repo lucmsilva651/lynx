@@ -1,2 +1,5 @@
 *.env
+*.gpg
+*.asc
+*.txt
 node_modules
