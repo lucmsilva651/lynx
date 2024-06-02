@@ -1,7 +1,6 @@
 module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
   const userName = msg.from.first_name;
-  const userId = msg.from.id;
   let isGay = "";
 
   function getRandomInt(max) {
@@ -20,5 +19,4 @@ module.exports = function(bot, msg) {
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('WARN: Message cannot be sent:', error));
-  console.log(`INFO: /gay executed by ${userName}, ${userId}`);
 }

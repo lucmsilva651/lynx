@@ -1,7 +1,5 @@
 module.exports = function(bot, msg) {
     const chatId = msg.chat.id;
-    const userName = msg.from.first_name;
-    const userId = msg.from.id;
 
     const opts = {
         reply_to_message_id: msg.message_id,
@@ -20,5 +18,4 @@ module.exports = function(bot, msg) {
 
     bot.sendMessage(chatId, message, opts,{ parse_mode: 'Markdown' })
     .catch(error => console.error('WARN: Message cannot be sent:', error));
-  console.log(`INFO: /customize executed by ${userName}, ${userId}`);
 }

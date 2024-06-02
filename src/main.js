@@ -22,7 +22,7 @@ bot.on('message', (msg) => {
   const messageText = msg.text;
 
   if (isBlocked(userId)) {
-    console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command/message ${messageText}.`);
+    console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command or message "${messageText}".\n`);
     return;
   }
 

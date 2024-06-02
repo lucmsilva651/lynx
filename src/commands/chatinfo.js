@@ -1,7 +1,5 @@
 module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
-  const userName = msg.from.first_name;
-  const userId = msg.from.id;
   const chatName = msg.chat.title;
   const chatHandle = msg.chat.username;
   const isForum = msg.chat.is_forum;
@@ -32,5 +30,4 @@ module.exports = function(bot, msg) {
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('WARN: Message cannot be sent:', error));
-  console.log(`INFO: /chatinfo executed by ${userName}, ${userId}`);
 }
