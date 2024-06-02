@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lucmsilva651/lynx#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "telegraf": "^4.16.3"
   }
 }
