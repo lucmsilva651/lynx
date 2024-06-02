@@ -6,10 +6,14 @@ module.exports = function(bot, msg) {
   `I am running on a *GitHub Codespaces* server (see /stats), so please refrain from overusing or spamming the bot!\n\n` +
   `*Some commands to test:*
   • */chatinfo* - send some information about the group
+  • */customize* - customize your pronouns (WIP)
   • */furry* - check if you are a furry
   • */gay* - check if you are gay
   • */help* - send this message
+  • */privacy* - read the Privacy Policy
+  • */random* - pick a random number between 0-10
   • */start* - start the bot
+  • */stats* - show where the bot is running
   • */whois* - send some information about yourself\n\n` +
   `*See my source code in:* [GitHub Repository](https://github.com/lucmsilva651/lynx)\n\n` +
   `Thanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible ❤️`;
