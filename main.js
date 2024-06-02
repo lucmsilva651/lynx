@@ -20,17 +20,18 @@ bot.on('message', (msg) => {
   const userId = msg.from.id;
   const messageText = msg.text;
 
-  if (isBlocked(userId)) {
-    console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command or message "${messageText}".\n`);
-    return;
+  if (msg.chat.type == 'private') {
+    if (isBlocked(userId)) {
+      console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command or message "${messageText}".\n`);
+      return;
+    }
+    console.log(`INFO: User ${userName}, ${userId} sended a command or message with the content:
+    • ${messageText}\n`)
   }
 
   if (commandHandlers[messageText]) {
     commandHandlers[messageText](bot, msg);
   }
-
-  console.log(`INFO: User ${userName}, ${userId} sended a command or message with the content:
-  • ${messageText}\n`)
 });
 
 bot.on('polling_error', (error) => {
