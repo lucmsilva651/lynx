@@ -4,7 +4,6 @@ const path = require('path');
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
-// import logger and blocklist
 const logMessage = require('./logger');
 const { isBlocked } = require('./blocklist');
 
@@ -18,17 +17,21 @@ fs.readdirSync(commandsPath).forEach(file => {
 });
 
 bot.on('message', (msg) => {
+  const userName = msg.from.first_name;
   const userId = msg.from.id;
+  const messageText = msg.text;
 
   if (isBlocked(userId)) {
-    console.log(`WARN: Blocked user ${userId} tried to access the bot.`);
+    console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command/message ${messageText}.`);
     return;
   }
 
-  const messageText = msg.text;
   if (commandHandlers[messageText]) {
     commandHandlers[messageText](bot, msg);
   }
+
+  console.log(`INFO: User ${userName}, ${userId} sended a message with the content:
+  • ${messageText}\n`)
 });
 
 bot.on('polling_error', (error) => {
