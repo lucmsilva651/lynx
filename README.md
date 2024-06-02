@@ -23,11 +23,13 @@ Next, go to the repository directory, create a ``config.env`` file and put the c
 ```
 # insert your bot token here
 # get it with @BotFather on Telegram
-TGBOT_TOKEN=0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa
+TGBOT_TOKEN="0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa"
+TGBOT_ADMINS=[0000000000, 1111111111, 2222222222]
 ``` 
-Put your bot token that you created at [@BotFather](https://t.me/botfather) at the variable ``TGBOT_TOKEN`` (as the example above) and save the file.
+- **TGBOT_TOKEN**: Put your bot token that you created at [@BotFather](https://t.me/botfather) at the variable ``TGBOT_TOKEN`` (as the example above).
+- **TGBOT_ADMINS**: Put the ID of the people responsible for managing the bot (as the example above). They can use some administrative + exclusive commands on any group.
 
-At last, run the bot with ``npm start``.
+After editing the file, save all changes and run the bot with ``npm start``.
 
 ## About/License
 MIT - 2024 Lucas Gabriel (lucmsilva).
