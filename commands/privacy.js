@@ -32,8 +32,8 @@ module.exports = function(bot, msg) {
 	`or secondary accounts by a blocked user is detected, those ` +
 	`accounts will also be blocked.\n\n` +
 	`*6. Source Code*\n` +
-	`If you wish to review the source code, please visit:` +
-	`[https://github.com/lucmsilva651/lynx](https://github.com/lucmsilva651/lynx/).\n\n` +
+	`If you wish to review the source code, please visit the ` +
+	`[Lynx GitHub Repository](https://github.com/lucmsilva651/lynx/).\n\n` +
 	`*7. Terms Modification*\n` +
 	`These terms may be changed or invalidated at any time, with or without prior notice.\n\n` +
 	`*8. Immediate Cancellation of Terms*\n` +
