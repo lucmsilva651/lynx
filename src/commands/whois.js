@@ -10,20 +10,20 @@ module.exports = function(bot, msg) {
   let userPremiumOutput = "";
   
   if (userPremium) {
-    userPremiumOutput = "You have a Telegram Premium subscription.";
+    userPremiumOutput = "*You have a Telegram Premium subscription.*";
   } else {
-    userPremiumOutput = "You don't have a Telegram Premium subscription.";
-  };
+    userPremiumOutput = "*You don't have a Telegram Premium subscription.*";
+  }
 
   if (userHandle) {
-    haveUsername = `Your username is: @${userHandle}`;
+    haveUsername = `*Your username is:* @${userHandle}`;
   } else {
-    haveUsername = "Your username is: none";
-  };
+    haveUsername = "*Your username is:* none";
+  }
 
-  const message = `Your name is: ${userName}\n${haveUsername}\nYour ID is: ${userId}\nYou are a bot: ${isBot}\nYour language: ${userLang}\n\n${userPremiumOutput}`;
+  const message = `*Your name is:* ${userName}\n${haveUsername}\n*Your ID is:* ${userId}\n*You are a bot:* ${isBot}\n*Your language:* ${userLang}\n\n${userPremiumOutput}`;
 
-  bot.sendMessage(chatId, message)
+  bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
-  console.log(`INFO: /whois executed by ${userName}, ${userId}`)
+  console.log(`INFO: /whois executed by ${userName}, ${userId}`);
 }

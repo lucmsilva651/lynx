@@ -26,4 +26,4 @@ bot.on('polling_error', (error) => {
 });
 
 const date = Date();
-console.log(`INFO: Lynx started at ${date}\n`)
+console.log(`INFO: Lynx started at: \n• ${date}\n`)

@@ -10,27 +10,27 @@ module.exports = function(bot, msg) {
   let isForumOutput = "";
 
   if (isForum) {
-    isForumOutput = "This chat is a forum (has topics enabled)";
+    isForumOutput = "*This chat is a forum (has topics enabled).*";
   } else {
-    isForumOutput = "This chat is not a forum (doesn't have topics enabled)";
-  };
+    isForumOutput = "*This chat is not a forum (doesn't have topics enabled).*";
+  }
 
   if (chatHandle) {
-    chatHandleOutput = `Chat handle: @${chatHandle}`;
+    chatHandleOutput = `*Chat handle:* @${chatHandle}`;
   } else {
-    chatHandleOutput = `Chat handle: none (private group)`;
-  };
+    chatHandleOutput = `*Chat handle:* none (private group)`;
+  }
   
   // if chatName returns undefined, the chat is not a group or channel
   if (chatName) {
-    chatNameOutput = `Chat name: ${chatName}\n${chatHandleOutput}\nChat ID: ${chatId}\n\n${isForumOutput}`;
+    chatNameOutput = `*Chat name:* ${chatName}\n${chatHandleOutput}\n*Chat ID:* ${chatId}\n\n${isForumOutput}`;
   } else {
-    chatNameOutput = `Whoops!\nThis command doesn't work in PM.`
-  };
+    chatNameOutput = "Whoops!\nThis command doesn't work in PM.";
+  }
   
   const message = chatNameOutput;
 
-  bot.sendMessage(chatId, message)
+  bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
   console.log(`INFO: /chatinfo executed by ${userName}, ${userId}`);
 }

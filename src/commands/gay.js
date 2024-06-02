@@ -1,4 +1,4 @@
-module.exports = function (bot, msg) {
+module.exports = function(bot, msg) {
   const chatId = msg.chat.id;
   const userName = msg.from.first_name;
   const userId = msg.from.id;
@@ -6,19 +6,19 @@ module.exports = function (bot, msg) {
 
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-  };
+  }
 
   const randomValue = getRandomInt(2);
 
   if (randomValue === 0) {
-    isGay = `You (${userName}) are not a gay.`;
+    isGay = `*You (${userName}) are not gay.*`;
   } else {
-    isGay = `Yes, you (${userName}) are a gay.`;
-  };
+    isGay = `*Yes, you (${userName}) are gay.*`;
+  }
 
   const message = `${isGay}`;
 
-  bot.sendMessage(chatId, message)
+  bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
-  console.log(`INFO: /gay executed by ${userName}, ${userId}`)
+  console.log(`INFO: /gay executed by ${userName}, ${userId}`);
 }
