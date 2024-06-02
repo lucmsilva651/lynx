@@ -12,7 +12,7 @@ const readBlocklist = () => {
     } catch (error) {
         if (error.code === 'ENOENT') {
             console.log('WARN: Blocklist file not found. Creating a new one.');
-            fs.writeFileSync(blocklistPath, ''); // Create an empty blocklist file
+            fs.writeFileSync(blocklistPath, '');
         } else {
             console.error('WARN: Error reading blocklist:', error);
         }
