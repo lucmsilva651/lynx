@@ -32,6 +32,5 @@ module.exports = function (bot, msg) {
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('ERROR: Message cannot be sent:', error));
-
   console.log(`INFO: /stats executed by ${userName}, ${userId}`);
 };
