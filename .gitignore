@@ -4,3 +4,4 @@
 *.txt
 node_modules
 __pycache__
+!requirements.txt
