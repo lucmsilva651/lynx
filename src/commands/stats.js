@@ -2,7 +2,7 @@ const os = require('os');
 
 module.exports = function (bot, msg) {
   const chatId = msg.chat.id;
-  const admins = process.env.TGBOT_ADMINS;
+  const botAdmin = process.env.TGBOT_ADMINS;
 
   function formatUptime(uptime) {
     const hours = Math.floor(uptime / 3600);
@@ -44,7 +44,7 @@ module.exports = function (bot, msg) {
 
   const message = getSystemInfo();
 
-  const isAdmin = admins.includes(msg.from.id.toString());
+  const isAdmin = botAdmin.includes(msg.from.id.toString());
   if (isAdmin) {
     bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
       .catch(error => console.error('WARN: Message cannot be sent: ', error));
