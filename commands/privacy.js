@@ -13,8 +13,8 @@ module.exports = function(bot, msg) {
 	`This data is used solely for the purpose of improving ` +
 	`and debugging the bot and is retained for a period `+
 	`of 60 days before being completely deleted. ` +
-	`Also, any messages sended on groups or channels are not `+
-	`collected by privacy reasons.\n\n` +
+	`Also, any messages sended on groups or channels that the ` +
+	`bot is present are not collected by privacy reasons.\n\n` +
 	`*2. Data Sharing*\n` +
 	`Message data, including text and identifiers, is not ` +
 	`shared with any companies or third-party entities.\n\n` +
