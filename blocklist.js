@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const blocklistPath = path.join(__dirname, '../blocklist.txt');
+const blocklistPath = path.join(__dirname, 'blocklist.txt');
 
 let blocklist = [];
 

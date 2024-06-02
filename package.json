@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"WARN: no test specified\" && exit 1",
-    "start": "node --env-file=config.env src/main.js"
+    "start": "node --env-file=config.env main.js"
   },
   "repository": {
     "type": "git",
