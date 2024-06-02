@@ -7,6 +7,6 @@ module.exports = function(bot, msg) {
   const message = `*Hello! I am Lynx!*\nI was made with love by Lucas Gabriel (lucmsilva)!\n\nSee /help for the bot commands!`;
   
   bot.sendPhoto(chatId, lynxProfilePhoto, { caption: message, parse_mode: 'Markdown' } )
-    .catch(error => console.error('ERROR: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent:', error));
   console.log(`INFO: /start executed by ${userName}, ${userId}`);
 }

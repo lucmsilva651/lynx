@@ -17,6 +17,6 @@ module.exports = function(bot, msg) {
   `Thanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible ❤️`;
   
   bot.sendPhoto(chatId, lynxFullPhoto, { caption: message, parse_mode: 'Markdown' })
-    .catch(error => console.error('ERROR: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent:', error));
   console.log(`INFO: /help executed by ${userName}, ${userId}`);
 }

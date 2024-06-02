@@ -4,7 +4,7 @@
   "description": "A simple Telegram bot made in Node.js",
   "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"WARN: no test specified\" && exit 1",
     "start": "node --env-file=config.env src/main.js"
   },
   "repository": {

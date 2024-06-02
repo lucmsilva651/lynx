@@ -34,7 +34,7 @@ const logMessage = async (message) => {
 
 console.log = (message) => {
     logMessage(message).catch(err => {
-        process.stderr.write(`Error writing to log: ${err}\n`);
+        process.stderr.write(`WARN: Error writing to log: ${err}\n`);
     });
 };
 

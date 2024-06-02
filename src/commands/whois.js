@@ -24,6 +24,6 @@ module.exports = function(bot, msg) {
   const message = `*Your name is:* ${userName}\n${haveUsername}\n*Your ID is:* ${userId}\n*You are a bot:* ${isBot}\n*Your language:* ${userLang}\n\n${userPremiumOutput}`;
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
-    .catch(error => console.error('ERROR: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent:', error));
   console.log(`INFO: /whois executed by ${userName}, ${userId}`);
 }

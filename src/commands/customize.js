@@ -19,6 +19,6 @@ module.exports = function(bot, msg) {
     const message = "Select your pronouns:";
 
     bot.sendMessage(chatId, message, opts,{ parse_mode: 'Markdown' })
-    .catch(error => console.error('ERROR: Message cannot be sent:', error));
+    .catch(error => console.error('WARN: Message cannot be sent:', error));
   console.log(`INFO: /customize executed by ${userName}, ${userId}`);
 }

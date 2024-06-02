@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
 const logMessage = require('./logger');
+const { isBlocked } = require('./blocklist'); // Importa a função de blocklist
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
@@ -15,6 +16,13 @@ fs.readdirSync(commandsPath).forEach(file => {
 });
 
 bot.on('message', (msg) => {
+  const userId = msg.from.id;
+
+  if (isBlocked(userId)) {
+    console.log(`WARN: Blocked user ${userId} tried to access the bot.`);
+    return;
+  }
+
   const messageText = msg.text;
   if (commandHandlers[messageText]) {
     commandHandlers[messageText](bot, msg);
@@ -22,7 +30,7 @@ bot.on('message', (msg) => {
 });
 
 bot.on('polling_error', (error) => {
-  console.error('Polling error:', error);
+  console.error('WARN: Polling error:', error);
 });
 
 const date = new Date().toString();
