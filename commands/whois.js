@@ -16,12 +16,12 @@ module.exports = function(bot, msg) {
   }
 
   if (userHandle) {
-    haveUsername = `*Your username is:* @${userHandle}`;
+    haveUsername = `*Your username is:* \`@${userHandle}\``;
   } else {
-    haveUsername = "*Your username is:* none";
+    haveUsername = `*Your username is:* \`none\``;
   }
 
-  const message = `*Your name is:* ${userName}\n${haveUsername}\n*Your ID is:* ${userId}\n*You are a bot:* ${isBot}\n*Your language:* ${userLang}\n\n${userPremiumOutput}`;
+  const message = `*Your name is:* \`${userName}\`\n${haveUsername}\n*Your ID is:* \`${userId}\`\n*You are a bot:* \`${isBot}\`\n*Your language:* \`${userLang}\`\n\n${userPremiumOutput}`;
 
   bot.sendMessage(chatId, message, { parse_mode: 'Markdown' })
     .catch(error => console.error('WARN: Message cannot be sent: ', error));

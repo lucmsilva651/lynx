@@ -14,14 +14,14 @@ module.exports = function(bot, msg) {
   }
 
   if (chatHandle) {
-    chatHandleOutput = `*Chat handle:* @${chatHandle}`;
+    chatHandleOutput = `*Chat handle:* \`@${chatHandle}`;
   } else {
-    chatHandleOutput = `*Chat handle:* none (private group)`;
+    chatHandleOutput = `*Chat handle:* \`none (private group)\``;
   }
   
   // if chatName returns undefined, the chat is not a group or channel
   if (chatName) {
-    chatNameOutput = `*Chat name:* ${chatName}\n${chatHandleOutput}\n*Chat ID:* ${chatId}\n\n${isForumOutput}`;
+    chatNameOutput = `*Chat name:* \`${chatName}\`\n${chatHandleOutput}\n*Chat ID:* \`${chatId}\`\n\n${isForumOutput}`;
   } else {
     chatNameOutput = "Whoops!\nThis command doesn't work in PM.";
   }
