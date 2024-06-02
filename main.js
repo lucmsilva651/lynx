@@ -4,6 +4,7 @@ const path = require('path');
 const token = process.env.TGBOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 const { isBlocked } = require('./blocklist');
+const { isOnSpamWatch } = require('./blocklist');
 require('./logger');
 
 const commandsPath = path.join(__dirname, 'commands');
@@ -21,7 +22,7 @@ bot.on('message', (msg) => {
   const messageText = msg.text;
 
   if (msg.chat.type == 'private') {
-    if (isBlocked(userId)) {
+    if (isBlocked(userId) || isOnSpamWatch(userId)) {
       console.log(`WARN: Blocked user ${userName}, ${userId} tried to access the bot with the command or message "${messageText}".\n`);
       return;
     }

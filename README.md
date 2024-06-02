@@ -25,9 +25,11 @@ Next, go to the repository directory, create a ``config.env`` file and put the c
 # get it with @BotFather on Telegram
 TGBOT_TOKEN="0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa"
 TGBOT_ADMINS=[0000000000, 1111111111, 2222222222]
+SW_KEY="aAaAAaaAAaAA_AAAAAaaAAaaAAaaAAAAAAaaAaaAaaAAaaAAaAaAAaaAAaaAAaAaA"
 ``` 
 - **TGBOT_TOKEN**: Put your bot token that you created at [@BotFather](https://t.me/botfather) at the variable ``TGBOT_TOKEN`` (as the example above).
 - **TGBOT_ADMINS**: Put the ID of the people responsible for managing the bot (as the example above). They can use some administrative + exclusive commands on any group.
+- **SW_KEY**: A API key to make a blocklist to banned SpamWatch users. You can refer to SpamWatch docs to create a API key for yourself.
 
 After editing the file, save all changes and run the bot with ``npm start``.
 
