@@ -3,7 +3,9 @@ module.exports = function(bot, msg) {
 
 	const message = `*Privacy Policy for Lynx Telegram Bot (@LynxBR_bot)*\n` + 
 	`Before using, you will need to read the privacy policy ` +
-	`to understand where your data goes when using this bot.\n\n` +
+	`to understand where your data goes when using this bot. ` +
+	`If you don't agree with any of these terms, stop using ` +
+	`the bot.\n\n` +
 	`*1. Data Collection and Use*\n` +
 	`All text messages sent to the Lynx bot, along with ` +
 	`their respective identifiers (username and ID), are ` +
