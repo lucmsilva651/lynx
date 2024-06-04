@@ -4,8 +4,8 @@
   "description": "A simple Telegram bot made in Node.js",
   "main": "src/main.js",
   "scripts": {
-    "run beta": "node --env-file=beta.env main.js",
-    "start": "node --env-file=config.env main.js"
+    "beta": "nodemon --env-file=beta.env main.js",
+    "start": "nodemon --env-file=config.env main.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lucmsilva651/lynx#readme",
   "dependencies": {
-    "node-telegram-bot-api": "^0.66.0"
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.3"
   }
 }
