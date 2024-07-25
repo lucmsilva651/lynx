@@ -1,7 +1,7 @@
 const { Telegraf } = require('telegraf');
-const config = require('./props/config.json');
+const Config = require('./props/config.json');
 
-const bot = new Telegraf(config.botToken);
+const bot = new Telegraf(Config.botToken);
 
 const loadCommands = () => {
   const fs = require('fs');

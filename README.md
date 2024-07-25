@@ -14,7 +14,7 @@ First, [make a fork of this repo](https://github.com/lucmsilva651/lynx/fork), or
 ```
 git clone https://github.com/lucmsilva651/lynx
 ```
-Next, go to the repository directory, create a ``config.env`` file and put the content below:
+Next, go to the repository directory, create a ``Config.env`` file and put the content below:
 ```
 TGBOT_TOKEN="0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa"
 TGBOT_ADMINS=[0000000000, 1111111111, 2222222222]

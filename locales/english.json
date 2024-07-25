@@ -6,6 +6,7 @@
   "varYes": "Yes",
   "varNo": "No",
   "varNone": "None",
+  "noPermission": "You don't have permissions to run this command.",
   "privateOnly": "This command should be used only on private chats, and not on groups.",
   "groupOnly": "This command should be used only on groups, and not on private chats.",
   "isGay": "Yes, you are *gay*!",
