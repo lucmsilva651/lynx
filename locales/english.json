@@ -1,0 +1,18 @@
+{
+  "lynxWelcome": "*Hello! I am Lynx!*\nI was made with love by Lucas Gabriel (lucmsilva)!\n\n*Before using, you will need to read the privacy policy (/privacy) to understand where your data goes when using this bot.*\n\nAlso, you can use /help to show the bot commands!",
+  "lynxHelp": "*Hello! I'm Lynx!*\n\nI'm a simple bot made entirely from scratch in Telegraf + Node.js by Lucas Gabriel (lucmsilva).\n\n*Some commands to test:*\n• */chatinfo* - send some information about the group\n• */customize* - customize your pronouns (WIP)\n• */furry* - check if you are a furry\n• */gay* - check if you are gay\n• */help* - send this message\n• */info* - send some information about yourself\n• */privacy* - read the Privacy Policy\n• */random* - pick a random number between 0-10\n• */start* - start the bot\n\n*See my source code in:* [GitHub Repository](https://github.com/lucmsilva651/lynx)\n\nThanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible ❤️",
+  "lynxPrivacy": "*Check out the link below to read the bot privacy policy:*\n• https://blog.eleu.me/posts/lynx-privacy-policy",
+  "unKnown": "Unknown",
+  "varYes": "Yes",
+  "varNo": "No",
+  "varNone": "None",
+  "privateOnly": "This command should be used only on private chats, and not on groups.",
+  "groupOnly": "This command should be used only on groups, and not on private chats.",
+  "isGay": "Yes, you are *gay*!",
+  "isNtGay": "Aahhh. You are not gay!",
+  "isFurry": "Yes, you are a freaky *furry*!",
+  "isNtFurry": "Aahhh. You are not a furry!",
+  "randomNum": "*Generated number (0-10):* `{number}`",
+  "userInfo": "*User info*\n\n*Your name is:* `{userName}`\n*Your username is:* `{userHandle}`\n*Your ID is:* `{userId}`\n*You are a bot:* `{isBot}`\n*Your language:* `{userLang}`\n*You are a Premium user:* `{userPremium}`",
+  "chatInfo": "*Group info*\n\n*Chat name:* `{chatName}`\n*Chat ID:* `{chatId}`\n*Chat handle:* `{chatHandle}`\n*Chat type:* `{chatType}`\n*Chat members count:* `{chatMembersCount}`\n*Is a forum:* `{isForum}`"
+}
