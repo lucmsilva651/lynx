@@ -14,15 +14,15 @@ First, [make a fork of this repo](https://github.com/lucmsilva651/lynx/fork), or
 ```
 git clone https://github.com/lucmsilva651/lynx
 ```
-Next, go to the repository directory, create a ``Config.env`` file and put the content below:
+Next, inside the repository directory, go to props folder and create a config.json file with the following content:
 ```
-TGBOT_TOKEN="0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa"
-TGBOT_ADMINS=[0000000000, 1111111111, 2222222222]
-SW_KEY="aAaAAaaAAaAA_AAAAAaaAAaaAAaaAAAAAAaaAaaAaaAAaaAAaAaAAaaAAaaAAaAaA"
+{
+  "botToken": "0000000000:AAAaaAAaaaaAaAaaAAAaaaAaaaaAAAAAaaa",
+  "admins": [0000000000, 1111111111, 2222222222]
+}
 ``` 
-- **TGBOT_TOKEN**: Put your bot token that you created at [@BotFather](https://t.me/botfather) at the variable ``TGBOT_TOKEN`` (as the example above).
-- **TGBOT_ADMINS**: Put the ID of the people responsible for managing the bot (as the example above). They can use some administrative + exclusive commands on any group.
-- **SW_KEY**: A API key to make a blocklist to banned SpamWatch users. You can refer to SpamWatch docs to create a API key for yourself.
+- **botToken**: Put your bot token that you created at [@BotFather](https://t.me/botfather), as the example above.
+- **admins**: Put the ID of the people responsible for managing the bot (as the example above). They can use some administrative + exclusive commands on any group.
 
 After editing the file, save all changes and run the bot with ``npm start``.
 
