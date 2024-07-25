@@ -6,7 +6,8 @@ module.exports = (bot) => {
     ctx.replyWithPhoto(
       resources.lynxFullPhoto, {
         caption: Strings.lynxHelp,
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   });

@@ -88,7 +88,8 @@ module.exports = (bot) => {
       const machineStats = getSystemInfo();
       ctx.reply(
         machineStats, {
-          parse_mode: 'Markdown'
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
         }
       );
     } else {
@@ -100,7 +101,8 @@ module.exports = (bot) => {
     const chatInfo = await getChatInfo(ctx);
     ctx.reply(
       chatInfo, {
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   });
@@ -109,7 +111,8 @@ module.exports = (bot) => {
     const userInfo = await getUserInfo(ctx);
     ctx.reply(
       userInfo, {
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id,
       }
     );
   });

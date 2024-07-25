@@ -6,13 +6,15 @@ function furryFunction(ctx) {
     ctx.replyWithAnimation(
       resources.furryGif, {
         caption: Strings.isFurry,
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   } else {
     ctx.reply(
       Strings.isNtFurry, {
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   }
@@ -23,13 +25,15 @@ function gayFunction(ctx) {
     ctx.replyWithAnimation(
       resources.gayFlag, {
         caption: Strings.isGay,
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   } else {
     ctx.reply(
       Strings.isNtGay, {
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
       }
     );
   }

@@ -5,7 +5,8 @@ module.exports = (bot) => {
     ctx.reply(
       Strings.lynxPrivacy, {
         parse_mode: 'Markdown',
-        disable_web_page_preview: true
+        disable_web_page_preview: true,
+        reply_to_message_id: ctx.message.message_id
       }
     );
   });
