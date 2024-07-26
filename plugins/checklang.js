@@ -1,5 +1,5 @@
 function getStrings(languageCode) {
-  if (languageCode === 'pt-br') {
+  if (languageCode === 'pt' || 'pt-br') {
     return require('../locales/portuguese.json');
   } else {
     return require('../locales/english.json');
