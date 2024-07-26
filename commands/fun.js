@@ -41,30 +41,22 @@ function gayFunction(ctx) {
   }
 }
 
-async function rollDice(ctx) {
-  ctx.telegram.sendDice(
-    ctx.chat.id, {
-      reply_to_message_id: ctx.message.message_id
-    }
-  );
-}
-
-async function spinSlot(ctx) {
-  ctx.telegram.sendDice(
-    ctx.chat.id, {
-      emoji: '🎰',
-      reply_to_message_id: ctx.message.message_id
-    }
-  );
-}
-
 module.exports = (bot) => {
-  bot.command('dice', (ctx) => {
-    rollDice(ctx);
+  bot.command('dice', async (ctx) => {
+    ctx.telegram.sendDice(
+      ctx.chat.id, {
+        reply_to_message_id: ctx.message.message_id
+      }
+    );
   });
 
-  bot.command('slot', (ctx) => {
-    spinSlot(ctx);
+  bot.command('slot', async (ctx) => {
+    ctx.telegram.sendDice(
+      ctx.chat.id, {
+        emoji: '🎰',
+        reply_to_message_id: ctx.message.message_id
+      }
+    );
   });
 
   bot.command('furry', (ctx) => {
