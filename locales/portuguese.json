@@ -15,5 +15,7 @@
   "isNtFurry": "Aahhh. Você não é um furry!",
   "randomNum": "*Número gerado (0-10):* `{number}`",
   "userInfo": "*Informações do usuário*\n\n*Seu nome é:* `{userName}`\n*Seu usuário é:* `{userHandle}`\n*Seu ID é:* `{userId}`\n*Você é um bot:* `{isBot}`\n*Seu idioma:* `{userLang}`\n*Você é um usuário premium:* `{userPremium}`",
-  "chatInfo": "*Informações do chat*\n\n*Nome do chat:* `{chatName}`\n*ID do chat:* `{chatId}`\n*Identificador:* `{chatHandle}`\n*Tipo de chat:* `{chatType}`\n*Número de membros:* `{chatMembersCount}`\n*É um fórum:* `{isForum}`"
+  "chatInfo": "*Informações do chat*\n\n*Nome do chat:* `{chatName}`\n*ID do chat:* `{chatId}`\n*Identificador:* `{chatHandle}`\n*Tipo de chat:* `{chatType}`\n*Número de membros:* `{chatMembersCount}`\n*É um fórum:* `{isForum}`",
+  "rollingDice": "Rolando um dado...",
+  "spinningSlot": "Vamos girar os rolos..."
 }
