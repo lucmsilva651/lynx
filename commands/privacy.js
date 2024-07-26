@@ -1,4 +1,4 @@
-const { getStrings } = require('./checklang.js');
+const { getStrings } = require('../plugins/checklang.js');
 
 module.exports = (bot) => {
   bot.command('privacy', (ctx) => {

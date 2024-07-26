@@ -1,5 +1,5 @@
 const resources = require('../props/resources.json');
-const { getStrings } = require('./checklang.js');
+const { getStrings } = require('../plugins/checklang.js');
 
 function furryFunction(ctx) {
   const Strings = getStrings(ctx.from.language_code);

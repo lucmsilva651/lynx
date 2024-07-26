@@ -1,4 +1,4 @@
-const { getStrings } = require('./checklang.js');
+const { getStrings } = require('../plugins/checklang.js');
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);

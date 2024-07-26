@@ -1,6 +1,6 @@
 const Config = require('../props/config.json');
 const os = require('os');
-const { getStrings } = require('./checklang.js');
+const { getStrings } = require('../plugins/checklang.js');
 
 function formatUptime(uptime) {
   const hours = Math.floor(uptime / 3600);
