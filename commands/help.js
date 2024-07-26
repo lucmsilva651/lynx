@@ -1,4 +1,4 @@
-const { getStrings } = require('./checklang');
+const { getStrings } = require('./checklang.js');
 const resources = require('../props/resources.json');
 
 module.exports = (bot) => {

@@ -1,5 +1,5 @@
 const resources = require('../props/resources.json');
-const { getStrings } = require('./checklang');
+const { getStrings } = require('./checklang.js');
 
 module.exports = (bot) => {
   bot.start((ctx) => {
