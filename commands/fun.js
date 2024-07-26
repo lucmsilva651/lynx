@@ -1,7 +1,8 @@
-const Strings = require('../locales/english.json');
 const resources = require('../props/resources.json');
+const { getStrings } = require('./checklang');
 
 function furryFunction(ctx) {
+  const Strings = getStrings(ctx.from.language_code);
   if (Math.random() < 0.5 ? "yes" : "no" === "yes") {
     ctx.replyWithAnimation(
       resources.furryGif, {
@@ -21,6 +22,7 @@ function furryFunction(ctx) {
 }
 
 function gayFunction(ctx) {
+  const Strings = getStrings(ctx.from.language_code);
   if (Math.random() < 0.5 ? "yes" : "no" === "yes") {
     ctx.replyWithAnimation(
       resources.gayFlag, {

@@ -1,7 +1,8 @@
-const Strings = require('../locales/english.json');
+const { getStrings } = require('./checklang');
 
 module.exports = (bot) => {
   bot.command('privacy', (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
     ctx.reply(
       Strings.lynxPrivacy, {
         parse_mode: 'Markdown',

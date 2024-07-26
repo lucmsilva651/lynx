@@ -1,6 +1,6 @@
-const Strings = require('../locales/english.json');
 const Config = require('../props/config.json');
 const os = require('os');
+const { getStrings } = require('./checklang');
 
 function formatUptime(uptime) {
   const hours = Math.floor(uptime / 3600);
@@ -34,6 +34,7 @@ function getSystemInfo() {
 
 // Função para obter informações do usuário
 async function getUserInfo(ctx) {
+  const Strings = getStrings(ctx.from.language_code);
   let userInfoTemplate = Strings.userInfo;
 
   const userName = ctx.from.first_name || Strings.unKnown;
@@ -56,6 +57,7 @@ async function getUserInfo(ctx) {
 
 // Função para obter informações do chat
 async function getChatInfo(ctx) {
+  const Strings = getStrings(ctx.from.language_code);
   if (ctx.chat.type === 'group' || ctx.chat.type === 'supergroup') {
     let chatInfoTemplate = Strings.chatInfo;
 
