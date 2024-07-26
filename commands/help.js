@@ -1,8 +1,9 @@
-const Strings = require('../locales/english.json');
+const { getStrings } = require('./checklang');
 const resources = require('../props/resources.json');
 
 module.exports = (bot) => {
   bot.help((ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
     ctx.replyWithPhoto(
       resources.lynxFullPhoto, {
         caption: Strings.lynxHelp,
