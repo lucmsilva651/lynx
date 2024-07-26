@@ -15,7 +15,5 @@
   "isNtFurry": "Aahhh. You are not a furry!",
   "randomNum": "*Generated number (0-10):* `{number}`",
   "userInfo": "*User info*\n\n*Your name is:* `{userName}`\n*Your username is:* `{userHandle}`\n*Your ID is:* `{userId}`\n*You are a bot:* `{isBot}`\n*Your language:* `{userLang}`\n*You are a Premium user:* `{userPremium}`",
-  "chatInfo": "*Group info*\n\n*Chat name:* `{chatName}`\n*Chat ID:* `{chatId}`\n*Chat handle:* `{chatHandle}`\n*Chat type:* `{chatType}`\n*Chat members count:* `{chatMembersCount}`\n*Is a forum:* `{isForum}`",
-  "rollingDice": "Rolling a dice...",
-  "spinningSlot": "Here goes the slot spin..."
+  "chatInfo": "*Group info*\n\n*Chat name:* `{chatName}`\n*Chat ID:* `{chatId}`\n*Chat handle:* `{chatHandle}`\n*Chat type:* `{chatType}`\n*Chat members count:* `{chatMembersCount}`\n*Is a forum:* `{isForum}`"
 }

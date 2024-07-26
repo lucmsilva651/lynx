@@ -42,25 +42,20 @@ function gayFunction(ctx) {
 }
 
 async function rollDice(ctx) {
-  const Strings = getStrings(ctx.from.language_code);
-  await ctx.reply(
-    Strings.rollingDice, {
-      parse_mode: 'Markdown',
+  ctx.telegram.sendDice(
+    ctx.chat.id, {
       reply_to_message_id: ctx.message.message_id
     }
   );
-  ctx.telegram.sendDice(ctx.chat.id);
 }
 
 async function spinSlot(ctx) {
-  const Strings = getStrings(ctx.from.language_code);
-  await ctx.reply(
-    Strings.spinningSlot, {
-      parse_mode: 'Markdown',
+  ctx.telegram.sendDice(
+    ctx.chat.id, {
+      emoji: '🎰',
       reply_to_message_id: ctx.message.message_id
     }
   );
-  ctx.telegram.sendDice(ctx.chat.id, { emoji: '🎰' });
 }
 
 module.exports = (bot) => {
