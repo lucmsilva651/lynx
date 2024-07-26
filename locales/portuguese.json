@@ -1,7 +1,7 @@
 {
-  "lynxWelcome": "*Olá! Eu sou o Lynx!*\nEu fui feito com amor por Lucas Gabriel (lucmsilva)!\n\n*Antes de usar, você precisará ler a política de privacidade (/privacy) para entender para onde seus dados vão ao usar este bot.\n\n*Além disso, você pode usar /help para mostrar os comandos do bot.",
-  "lynxHelp": "*Olá! Eu sou o Lynx!*\n\nSou um simples bot feito inteiramente do zero em Telegraf + Node.js por Lucas Gabriel (lucmsilva).\n\n*Alguns comandos para testar:*\n• */chatinfo* - manda algumas informações sobre o grupo\n• */customize* - customiza seus pronomes (WIP)\n• */furry* - checa se você é um furry\n• */gay* - checa se você é gay\n• */help* - manda essa mensagem\n• */privacy* - lê a política de privacidade\n• */random* - escolhe um número aleatório entre 0-10\n• */start* - Inicia o bot\n• */userinfo* - manda algumas informações sobre você\n\n*Veja o código fonte em:* [GitHub Repository](https://github.com/lucmsilva651/lynx)\n\nObrigado a todos os usuários, testers, contribuidores e outros. Sem vocês, talvez esse bot não seria possível ❤️",
-  "lynxPrivacy": "*Cheque o link abaixo para ler a política de privacidade do bot:*\n• https://blog.eleu.me/posts/lynx-privacy-policy",
+  "lynxWelcome": "*Olá! Eu sou o Lynx!*\nEu fui feito com amor por Lucas Gabriel (lucmsilva)!\n\n*Antes de usar, você precisará ler a política de privacidade (/privacy) para entender para onde seus dados vão ao usar este bot.\n\n*Além disso, você pode usar o /help para mostrar os comandos do bot.",
+  "lynxHelp": "*Olá! Eu sou o Lynx!*\n\nSou um simples bot feito inteiramente do zero em Telegraf e Node.js por Lucas Gabriel (lucmsilva).\n\n*Alguns comandos para testar:*\n• */chatinfo* - envia algumas informações sobre o grupo\n• */customize* - customiza seus pronomes (WIP)\n• */furry* - checa se você é um furry\n• */gay* - checa se você é gay\n• */help* - envia essa mensagem\n• */privacy* - envia a política de privacidade\n• */random* - escolhe um número aleatório entre 0-10\n• */start* - Inicia o bot\n• */userinfo* - envia algumas informações sobre você\n\n*Veja o código fonte em meu* [repositório no GitHub](https://github.com/lucmsilva651/lynx)*.*\n\nObrigado a todos os usuários, testadores, contribuidores e outros. Sem vocês, talvez esse bot não seria possível ❤️\n\n*Um agradecimento especial a @givfnz pelas várias contribuições ao bot!*",
+  "lynxPrivacy": "*Dê uma olhada no link abaixo para ler a política de privacidade do bot:*\n• https://blog.eleu.me/posts/lynx-privacy-policy",
   "unKnown": "Desconhecido",
   "varYes": "Sim",
   "varNo": "Não",
@@ -11,9 +11,9 @@
   "groupOnly": "Esse comando deve ser utilizado apenas em grupos, e não em chats privados.",
   "isGay": "Sim, você é *gay*!",
   "isNtGay": "Aahhh. Você não é gay!",
-  "isFurry": "Sim, você é um esquisito *furry*!",
+  "isFurry": "Sim, você é um *furry* esquisito!",
   "isNtFurry": "Aahhh. Você não é um furry!",
   "randomNum": "*Número gerado (0-10):* `{number}`",
-  "userInfo": "*Informações do usuário*\n\n*Seu nome é:* `{userName}`\n*Seu username é:* `{userHandle}`\n*Seu ID é:* `{userId}`\n*Você é um bot:* `{isBot}`\n*Seu idioma:* `{userLang}`\n*Você é um usuário premium:* `{userPremium}`",
-  "chatInfo": "*Informações do grupo*\n\n*Nome do chat:* `{chatName}`\n*ID do chat:* `{chatId}`\n*Identificador:* `{chatHandle}`\n*Tipo de chat* `{chatType}`\n*Número de membros:* `{chatMembersCount}`\n*É um fórum:* `{isForum}`"
+  "userInfo": "*Informações do usuário*\n\n*Seu nome é:* `{userName}`\n*Seu usuário é:* `{userHandle}`\n*Seu ID é:* `{userId}`\n*Você é um bot:* `{isBot}`\n*Seu idioma:* `{userLang}`\n*Você é um usuário premium:* `{userPremium}`",
+  "chatInfo": "*Informações do chat*\n\n*Nome do chat:* `{chatName}`\n*ID do chat:* `{chatId}`\n*Identificador:* `{chatHandle}`\n*Tipo de chat:* `{chatType}`\n*Número de membros:* `{chatMembersCount}`\n*É um fórum:* `{isForum}`"
 }
