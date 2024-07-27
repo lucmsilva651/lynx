@@ -1,4 +1,4 @@
-// specific commands to bot admins
+// specific commands to the crew
 const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
 const os = require('os');
@@ -34,7 +34,7 @@ function getSystemInfo() {
 }
 
 module.exports = (bot) => {
-  bot.command('stats', (ctx) => {
+  bot.command('getbotstats', (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
