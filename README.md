@@ -10,9 +10,11 @@ Lynx is a a simple Telegram bot made in Node.js.
  - Node.js dependencies: use ``npm install``
 
 ## Run it yourself, develop or contribute with Lynx
-First, [make a fork of this repo](https://github.com/lucmsilva651/lynx/fork), or clone it with
+First, clone the repo and init the submodules with
 ```
 git clone https://github.com/lucmsilva651/lynx
+cd lynx
+git submodule update --init --recursive
 ```
 Next, inside the repository directory, go to props folder and create a config.json file with the following content:
 ```
