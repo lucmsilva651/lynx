@@ -1,4 +1,6 @@
 const { getStrings } = require('../plugins/checklang.js');
+const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
+const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 async function getUserInfo(ctx) {
   const Strings = getStrings(ctx.from.language_code);
@@ -54,7 +56,7 @@ async function getChatInfo(ctx) {
 }
 
 module.exports = (bot) => {
-  bot.command('chatinfo', async (ctx) => {
+  bot.command('chatinfo', spamwatchMiddleware, async (ctx) => {
     const chatInfo = await getChatInfo(ctx);
     ctx.reply(
       chatInfo, {
@@ -64,7 +66,7 @@ module.exports = (bot) => {
     );
   });
 
-  bot.command('userinfo', async (ctx) => {
+  bot.command('userinfo', spamwatchMiddleware, async (ctx) => {
     const userInfo = await getUserInfo(ctx);
     ctx.reply(
       userInfo, {

@@ -1,5 +1,7 @@
 const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
+const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
+const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 async function collectInfo(ctx) {
   const Strings = getStrings(ctx.from.language_code);
@@ -14,7 +16,7 @@ async function collectInfo(ctx) {
 }
 
 module.exports = (bot) => {
-  bot.command('ban', async (ctx) => {
+  bot.command('ban', spamwatchMiddleware, async (ctx) => {
     const info = await collectInfo(ctx);
     const { Strings, chatId, userId, isAdmin, onCrew } = info;
 
@@ -56,7 +58,7 @@ module.exports = (bot) => {
     };
   });
 
-  bot.command('unban', async (ctx) => {
+  bot.command('unban', spamwatchMiddleware, async (ctx) => {
     const info = await collectInfo(ctx);
     const { Strings, chatId, userId, isAdmin, onCrew } = info;
 

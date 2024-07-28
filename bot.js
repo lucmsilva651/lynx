@@ -1,5 +1,6 @@
 const { Telegraf } = require('telegraf');
 const Config = require('./props/config.json');
+const { isOnSpamWatch } = require('./plugins/lib-spamwatch/spamwatch.js');
 
 const bot = new Telegraf(Config.botToken);
 
@@ -11,8 +12,8 @@ const loadCommands = () => {
   fs.readdirSync(commandsPath).forEach((file) => {
     const command = require(path.join(commandsPath, file));
     if (typeof command === 'function') {
-      command(bot);
-    };
+      command(bot, isOnSpamWatch);
+    }
   });
 };
 

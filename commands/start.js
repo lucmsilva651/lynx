@@ -1,8 +1,10 @@
 const resources = require('../props/resources.json');
 const { getStrings } = require('../plugins/checklang.js');
+const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
+const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 module.exports = (bot) => {
-  bot.start((ctx) => {
+  bot.start(spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     ctx.replyWithPhoto(
       resources.lunaCat, {

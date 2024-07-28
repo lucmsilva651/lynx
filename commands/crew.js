@@ -1,6 +1,8 @@
 // specific commands to the crew
 const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
+const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
+const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 const os = require('os');
 
 function formatUptime(uptime) {
@@ -34,7 +36,7 @@ function getSystemInfo() {
 }
 
 module.exports = (bot) => {
-  bot.command('getbotstats', (ctx) => {
+  bot.command('getbotstats', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
@@ -56,7 +58,7 @@ module.exports = (bot) => {
     }
   });
 
-  bot.command('setbotname', (ctx) => {
+  bot.command('setbotname', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
@@ -73,7 +75,7 @@ module.exports = (bot) => {
     }
   });
 
-  bot.command('setbotdesc', (ctx) => {
+  bot.command('setbotdesc', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {

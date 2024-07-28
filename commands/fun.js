@@ -1,5 +1,7 @@
 const resources = require('../props/resources.json');
 const { getStrings } = require('../plugins/checklang.js');
+const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
+const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 function furryFunction(ctx) {
   const Strings = getStrings(ctx.from.language_code);
@@ -42,7 +44,7 @@ function gayFunction(ctx) {
 }
 
 module.exports = (bot) => {
-  bot.command('dice', async (ctx) => {
+  bot.command('dice', spamwatchMiddleware, async (ctx) => {
     ctx.telegram.sendDice(
       ctx.chat.id, {
         reply_to_message_id: ctx.message.message_id
@@ -50,7 +52,7 @@ module.exports = (bot) => {
     );
   });
 
-  bot.command('slot', async (ctx) => {
+  bot.command('slot', spamwatchMiddleware, async (ctx) => {
     ctx.telegram.sendDice(
       ctx.chat.id, {
         emoji: '🎰',
@@ -59,11 +61,11 @@ module.exports = (bot) => {
     );
   });
 
-  bot.command('furry', (ctx) => {
+  bot.command('furry', spamwatchMiddleware, async (ctx) => {
     furryFunction(ctx);
   });
 
-  bot.command('gay', (ctx) => {
+  bot.command('gay', spamwatchMiddleware, async (ctx) => {
     gayFunction(ctx);
   });
 };
