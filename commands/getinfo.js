@@ -45,7 +45,11 @@ async function getChatInfo(ctx) {
     
     return chatInfoTemplate;
   } else {
-    return Strings.groupOnly;
+    return ctx.reply(
+      Strings.groupOnly, {
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    });
   }
 }
 
