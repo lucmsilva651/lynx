@@ -63,11 +63,18 @@ module.exports = (bot) => {
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
       const botName = ctx.message.text.split(' ').slice(1).join(' ');
+      const botNameReport = Strings.botNameChanged.replace({botName}, botName);
       ctx.telegram.setMyName(botName).catch(error => ctx.reply(
         "Error when changing bot name:\n" + error, {
           reply_to_message_id: ctx.message.message_id
         }
       ));
+      ctx.reply(
+        botNameReport, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        }
+      );
     } else {
       ctx.reply(Strings.botAdminOnly, {
         reply_to_message_id: ctx.message.message_id
@@ -80,11 +87,18 @@ module.exports = (bot) => {
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
       const botDesc = ctx.message.text.split(' ').slice(1).join(' ');
-      ctx.telegram.setMyName(botDesc).catch(error => ctx.reply(
+      const botDescReport = Strings.botDescChanged.replace({botDesc}, botDesc);
+      ctx.telegram.setMyDescription(botDesc).catch(error => ctx.reply(
         "Error when changing bot description:\n" + error, {
           reply_to_message_id: ctx.message.message_id
         }
       ));
+      ctx.reply(
+        botDescReport, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        }
+      );
     } else {
       ctx.reply(
         Strings.botAdminOnly, {

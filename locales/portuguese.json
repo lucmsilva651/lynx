@@ -10,6 +10,8 @@
   "botAdminOnly": "Esse comando é exclusivo a administradores gerais do bot. Não posso informar quem são, e nem o que esse comando faz.",
   "privateOnly": "Esse comando deve ser utilizado apenas em chats privados, e não em grupos.",
   "groupOnly": "Esse comando deve ser utilizado apenas em grupos, e não em chats privados.",
+  "botNameChanged": "*Nome do bot alterado para* `{botName}`",
+  "botDescChanged": "*Descrição do bot alterada para* `{botDesc}`",
   "invalidId": "Por favor, insira um ID de usuário válido.",
   "banSuccess": "Usuário com ID `{userId}` foi banido.",
   "banErr": "Não foi possível banir o usuário. Verifique se o ID está correto e se o bot tem permissões de administrador.\n\n`{tgErr}`",
