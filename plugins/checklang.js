@@ -1,8 +1,16 @@
+const languageFiles = {
+  'pt': '../locales/portuguese.json',
+  'pt-br': '../locales/portuguese.json',
+  'en': '../locales/english.json'
+};
+
 function getStrings(languageCode) {
-  if (languageCode === 'pt' || 'pt-br') {
-    return require('../locales/portuguese.json');
-  } else {
-    return require('../locales/english.json');
+  const filePath = languageFiles[languageCode] || languageFiles['en'];
+  try {
+    return require(filePath);
+  } catch (error) {
+    console.error(`Error loading language file for code ${languageCode}:`, error);
+    return require(languageFiles['en']);
   }
 }
 
