@@ -1,4 +1,3 @@
-// specific commands to the crew
 const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
@@ -63,18 +62,24 @@ module.exports = (bot) => {
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
       const botName = ctx.message.text.split(' ').slice(1).join(' ');
-      const botNameReport = Strings.botNameChanged.replace('{botName}', botName);
-      ctx.telegram.setMyName(botName).catch(error => ctx.reply(
-        "Error when changing bot name:\n" + error, {
-          reply_to_message_id: ctx.message.message_id
-        }
-      ));
-      ctx.reply(
-        botNameReport, {
-          parse_mode: 'Markdown',
-          reply_to_message_id: ctx.message.message_id
-        }
-      );
+      const botNameReport = Strings.botNameChanged ? Strings.botNameChanged.replace('{botName}', botName) : `Bot name changed to ${botName}`;
+      try {
+        await ctx.telegram.setMyName(botName);
+        ctx.reply(
+          botNameReport, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          }
+        );
+      } catch (error) {
+        const botNameErr = Strings.botNameErr ? Strings.botNameErr.replace('{tgErr}', error.message) : `Error setting bot name: ${error.message}`;
+        ctx.reply(
+          botNameErr, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          }
+        );
+      }
     } else {
       ctx.reply(Strings.botAdminOnly, {
         reply_to_message_id: ctx.message.message_id
@@ -87,23 +92,40 @@ module.exports = (bot) => {
     const userId = ctx.from.id || Strings.unKnown;
     if (Config.admins.includes(userId)) {
       const botDesc = ctx.message.text.split(' ').slice(1).join(' ');
-      const botDescReport = Strings.botDescChanged.replace('{botDesc}', botDesc);
-      ctx.telegram.setMyDescription(botDesc).catch(error => ctx.reply(
-        "Error when changing bot description:\n" + error, {
-          reply_to_message_id: ctx.message.message_id
-        }
-      ));
-      ctx.reply(
-        botDescReport, {
-          parse_mode: 'Markdown',
-          reply_to_message_id: ctx.message.message_id
-        }
-      );
+      const botDescReport = Strings.botDescChanged ? Strings.botDescChanged.replace('{botDesc}', botDesc) : `Bot description changed to ${botDesc}`;
+      try {
+        await ctx.telegram.setMyDescription(botDesc);
+        ctx.reply(
+          botDescReport, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          }
+        );
+      } catch (error) {
+        const botDescErr = Strings.botDescErr ? Strings.botDescErr.replace('{tgErr}', error.message) : `Error setting bot description: ${error.message}`;
+        ctx.reply(
+          botDescErr, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          }
+        );
+      }
     } else {
       ctx.reply(
         Strings.botAdminOnly, {
           reply_to_message_id: ctx.message.message_id
       });
     }
+  });
+
+  bot.command('botkickme', spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
+    const chatId = ctx.chat.id || Strings.unKnown;
+    ctx.reply(
+      Strings.kickingMyself, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+    });
+    ctx.telegram.leaveChat(chatId);
   });
 };
