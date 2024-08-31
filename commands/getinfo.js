@@ -4,48 +4,29 @@ const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(is
 
 async function getUserInfo(ctx) {
   const Strings = getStrings(ctx.from.language_code);
-  let userInfoTemplate = Strings.userInfo;
 
-  const userName = ctx.from.first_name || Strings.unKnown;
-  const userId = ctx.from.id || Strings.unKnown;
-  const userHandle = ctx.from.username ? `@${ctx.from.username}` : Strings.varNone;
-  const isBot = ctx.from.is_bot ? Strings.varYes : Strings.varNo;
-  const userPremium = ctx.from.is_premium ? Strings.varYes : Strings.varNo;
-  const userLang = ctx.from.language_code || Strings.unKnown;
+  userInfo = Strings.userInfo
+    .replace('{userName}', ctx.from.first_name || Strings.unKnown)
+    .replace('{userId}', ctx.from.id || Strings.unKnown)
+    .replace('{userHandle}', ctx.from.username ? `@${ctx.from.username}` : Strings.varNone)
+    .replace('{userPremium}', ctx.from.is_premium ? Strings.varYes : Strings.varNo)
+    .replace('{userLang}', ctx.from.language_code || Strings.unKnown);
 
-  userInfoTemplate = userInfoTemplate
-    .replace('{userName}', userName)
-    .replace('{userId}', userId)
-    .replace('{userHandle}', userHandle)
-    .replace('{isBot}', isBot)
-    .replace('{userPremium}', userPremium)
-    .replace('{userLang}', userLang);
-
-  return userInfoTemplate;
+  return userInfo;
 }
 
 async function getChatInfo(ctx) {
   const Strings = getStrings(ctx.from.language_code);
   if (ctx.chat.type === 'group' || ctx.chat.type === 'supergroup') {
-    let chatInfoTemplate = Strings.chatInfo;
-
-    const chatId = ctx.chat.id || Strings.unKnown;
-    const chatName = ctx.chat.title;
-    const chatHandle = ctx.chat.username ? `@${ctx.chat.username}` : Strings.varNone;
-    const chatType = ctx.chat.type || Strings.unKnown;
+    chatInfo = Strings.chatInfo
+      .replace('{chatId}', ctx.chat.id || Strings.unKnown)
+      .replace('{chatName}', ctx.chat.title || Strings.unKnown)
+      .replace('{chatHandle}', ctx.chat.username ? `@${ctx.chat.username}` : Strings.varNone)
+      .replace('{chatMembersCount}', await ctx.getChatMembersCount(ctx.chat.id || Strings.unKnown))
+      .replace('{chatType}', ctx.chat.type || Strings.unKnown)
+      .replace('{isForum}', ctx.chat.is_forum ? Strings.varYes : Strings.varNo);
     
-    const chatMembersCount = await ctx.telegram.getChatMembersCount(chatId);
-    const isForum = ctx.chat.is_forum ? Strings.varYes : Strings.varNo;
-    
-    chatInfoTemplate = chatInfoTemplate
-      .replace('{chatId}', chatId)
-      .replace('{chatName}', chatName)
-      .replace('{chatHandle}', chatHandle)
-      .replace('{chatMembersCount}', chatMembersCount)
-      .replace('{chatType}', chatType)
-      .replace('{isForum}', isForum);
-    
-    return chatInfoTemplate;
+    return chatInfo;
   } else {
     return ctx.reply(
       Strings.groupOnly, {

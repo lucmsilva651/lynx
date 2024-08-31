@@ -15,88 +15,50 @@ async function collectInfo(ctx) {
   return { Strings, chatId, userId, isAdmin, onCrew };
 }
 
-module.exports = (bot) => {
-  bot.command('ban', spamwatchMiddleware, async (ctx) => {
-    const info = await collectInfo(ctx);
-    const { Strings, chatId, userId, isAdmin, onCrew } = info;
+async function handleMember(ctx, action, successMessage, errorMessage) {
+  const { Strings, chatId, userId, isAdmin, onCrew } = await collectInfo(ctx);
 
-    if (onCrew || isAdmin) {
-      if (userId === NaN) {
-        return ctx.reply(
-          Strings.invalidId, {
-            parse_mode: 'Markdown',
-            reply_to_message_id: ctx.message.message_id
-          }
-        );
-      } else {
-        try {
-          await ctx.telegram.kickChatMember(chatId, userId);
-          const banReport = Strings.banSuccess.replace('{userId}', userId);
-          ctx.reply(
-            banReport, {
-              parse_mode: 'Markdown',
-              reply_to_message_id: ctx.message.message_id
-            }
-          );
-        } catch (err) {
-          const banErr = Strings.banErr.replace('{tgErr}', err);
-          ctx.reply(
-            banErr, {
-              parse_mode: 'Markdown',
-              reply_to_message_id: ctx.message.message_id
-            }
-          );
-        };
-      };
-    } else {
-      ctx.reply(
-        Strings.noPermission, {
-          parse_mode: 'Markdown',
-          reply_to_message_id: ctx.message.message_id
-        }
-      );
-    };
+  if (onCrew || isAdmin) {
+    if (isNaN(userId)) {
+      return ctx.reply(Strings.invalidId, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+    }
+    try {
+      await action(chatId, userId);
+      const report = successMessage.replace('{userId}', userId);
+      ctx.reply(report, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+    } catch (err) {
+      const error = errorMessage.replace('{tgErr}', err.message);
+      ctx.reply(error, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+    }
+  } else {
+    ctx.reply(Strings.noPermission, {
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    });
+  }
+}
+
+module.exports = (bot) => {
+  bot.command('ban', spamwatchMiddleware, (ctx) => {
+    handleMember(ctx, (chatId, userId) => ctx.telegram.kickChatMember(chatId, userId),
+      getStrings(ctx.from.language_code).banSuccess,
+      getStrings(ctx.from.language_code).banErr
+    );
   });
 
-  bot.command('unban', spamwatchMiddleware, async (ctx) => {
-    const info = await collectInfo(ctx);
-    const { Strings, chatId, userId, isAdmin, onCrew } = info;
-
-    if (onCrew || isAdmin) {
-      if (userId === NaN) {
-        return ctx.reply(
-          Strings.invalidId, {
-            parse_mode: 'Markdown',
-            reply_to_message_id: ctx.message.message_id
-          }
-        );
-      } else {
-        try {
-          await ctx.telegram.unbanChatMember(chatId, userId);
-          const unBanReport = Strings.unBanSuccess.replace('{userId}', userId);
-          ctx.reply(
-            unBanReport, {
-              parse_mode: 'Markdown',
-              reply_to_message_id: ctx.message.message_id
-            }
-          );
-        } catch (err) {
-          const unBanErr = Strings.unBanErr.replace('{tgErr}', err);
-          ctx.reply(
-            unBanErr, {
-              parse_mode: 'Markdown',
-              reply_to_message_id: ctx.message.message_id
-            }
-          );
-        };
-      };
-    } else {
-      ctx.reply(
-        Strings.noPermission, {
-          parse_mode: 'Markdown',
-          reply_to_message_id: ctx.message.message_id
-        }
-      );
-    };
+  bot.command('unban', spamwatchMiddleware, (ctx) => {
+    handleMember(ctx, (chatId, userId) => ctx.telegram.unbanChatMember(chatId, userId),
+      getStrings(ctx.from.language_code).unBanSuccess,
+      getStrings(ctx.from.language_code).unBanErr
+    );
   });
 };

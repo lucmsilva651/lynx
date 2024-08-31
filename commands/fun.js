@@ -3,69 +3,73 @@ const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
-function furryFunction(ctx) {
+function sendRandomReply(ctx, gifUrl, textKey, notTextKey) {
   const Strings = getStrings(ctx.from.language_code);
-  if (Math.random() < 0.5 ? "yes" : "no" === "yes") {
-    ctx.replyWithAnimation(
-      resources.furryGif, {
-        caption: Strings.isFurry,
+  const shouldSendGif = Math.random() < 0.5;
+
+  if (shouldSendGif) {
+    ctx.replyWithAnimation(gifUrl, {
+      caption: Strings[textKey],
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    }).catch(err => {
+      gifErr = gifErr.replace('{err}', err);
+      
+      ctx.reply(Strings.gifErr, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id
-      }
-    );
+      });
+    });
   } else {
-    ctx.reply(
-      Strings.isNtFurry, {
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
+    ctx.reply(Strings[notTextKey], {
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    });
   }
 }
 
-function gayFunction(ctx) {
+
+async function handleDiceCommand(ctx, emoji, delay) {
   const Strings = getStrings(ctx.from.language_code);
-  if (Math.random() < 0.5 ? "yes" : "no" === "yes") {
-    ctx.replyWithAnimation(
-      resources.gayFlag, {
-        caption: Strings.isGay,
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
-  } else {
-    ctx.reply(
-      Strings.isNtGay, {
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
-  }
+  
+  const result = await ctx.sendDice({ emoji, reply_to_message_id: ctx.message.message_id });
+  const botResponse = Strings.funEmojiResult
+    .replace('{emoji}', result.dice.emoji)
+    .replace('{value}', result.dice.value);
+
+  setTimeout(() => {
+    ctx.reply(botResponse, {
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    });
+  }, delay);
 }
 
 module.exports = (bot) => {
   bot.command('dice', spamwatchMiddleware, async (ctx) => {
-    ctx.telegram.sendDice(
-      ctx.chat.id, {
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
+    await handleDiceCommand(ctx, undefined, 4000);
   });
 
   bot.command('slot', spamwatchMiddleware, async (ctx) => {
-    ctx.telegram.sendDice(
-      ctx.chat.id, {
-        emoji: '🎰',
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
+    await handleDiceCommand(ctx, '🎰', 3000);
+  });
+
+  bot.command('ball', spamwatchMiddleware, async (ctx) => {
+    await handleDiceCommand(ctx, '⚽', 3000);
+  });
+
+  bot.command('idice', spamwatchMiddleware, async (ctx) => {
+    const stickerId = "CAACAgQAAxkBAAJxjWbSSP-8ZNEhEpAJjQsHsGf-UuEPAAJCAAPI-uwTAAEBVWWh4ucINQQ";
+    ctx.replyWithSticker(stickerId, {
+      reply_to_message_id: ctx.message.message_id
+    });
   });
 
   bot.command('furry', spamwatchMiddleware, async (ctx) => {
-    furryFunction(ctx);
+    sendRandomReply(ctx, resources.furryGif, 'isFurry', 'isNtFurry');
   });
 
   bot.command('gay', spamwatchMiddleware, async (ctx) => {
-    gayFunction(ctx);
+    sendRandomReply(ctx, resources.gayFlag, 'isGay', 'isNtGay');
   });
 };
