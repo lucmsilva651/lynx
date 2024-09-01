@@ -45,7 +45,24 @@ async function handleDiceCommand(ctx, emoji, delay) {
   }, delay);
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 module.exports = (bot) => {
+  bot.command('random', spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
+    const randomValue = getRandomInt(11);
+    const randomVStr = Strings.randomNum.replace('{number}', randomValue);
+
+    ctx.reply(
+      randomVStr, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      }
+    );
+  });
+
   bot.command('dice', spamwatchMiddleware, async (ctx) => {
     await handleDiceCommand(ctx, undefined, 4000);
   });
@@ -56,6 +73,14 @@ module.exports = (bot) => {
 
   bot.command('ball', spamwatchMiddleware, async (ctx) => {
     await handleDiceCommand(ctx, '⚽', 3000);
+  });
+
+  bot.command('dart', spamwatchMiddleware, async (ctx) => {
+    await handleDiceCommand(ctx, '🎯', 3000);
+  });
+
+  bot.command('bowling', spamwatchMiddleware, async (ctx) => {
+    await handleDiceCommand(ctx, '🎳', 3000);
   });
 
   bot.command('idice', spamwatchMiddleware, async (ctx) => {
