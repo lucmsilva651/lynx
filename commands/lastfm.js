@@ -4,6 +4,9 @@ const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
+const scrobbler_url = 'http://ws.audioscrobbler.com/2.0/';
+const api_key = Config.lastKey;
+
 module.exports = (bot) => {
   bot.command('lt', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
@@ -18,11 +21,11 @@ module.exports = (bot) => {
     };
 
     try {
-      const response = await axios.get('http://ws.audioscrobbler.com/2.0/', {
+      const response = await axios.get(scrobbler_url, {
         params: {
           method: 'user.getRecentTracks',
           user: lastfmUser,
-          api_key: Config.lastKey,
+          api_key,
           format: 'json',
           limit: 1
         },
@@ -32,6 +35,7 @@ module.exports = (bot) => {
       });
 
       const track = response.data.recenttracks.track[0];
+
 
       if (!track) {
         const noRecent = Strings.lastFmNoRecent.replace('{lastfmUser}', lastfmUser);
@@ -50,11 +54,38 @@ module.exports = (bot) => {
       const artistUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}`;
       const userUrl = `https://www.last.fm/user/${encodeURIComponent(lastfmUser)}`;
 
+      // Requesting the number of plays of last song
+      let num_plays = '';
+      try{
+      const response_plays = await axios.get(scrobbler_url, {
+          params: {
+            method: 'track.getInfo',
+            api_key,
+            track: trackName,
+            artist: artistName,
+            username: lastfmUser,
+            format: 'json',
+          },
+          headers: {
+            'User-Agent': "lynx-@LynxBR_bot-node-telegram-bot"
+          }
+        });
+        num_plays = response_plays.data.track.userplaycount;
+      }catch (err){
+        console.log(err)
+        ctx.reply('Error!', {
+          parse_mode: "Markdown",
+          reply_to_message_id: ctx.message.message_id
+        });
+      };
+
       const message = Strings.lastFmStatusFor
         .replace("{lastfmUser}", `[${lastfmUser}](${userUrl})`)
         .replace("{nowPlaying}", nowPlaying)
         .replace("{trackName}", `[${trackName}](${trackUrl})`)
-        .replace("{artistName}", `[${artistName}](${artistUrl})`);
+        .replace("{artistName}", `[${artistName}](${artistUrl})`)
+        .replace("{plays}", `${num_plays}`)
+        ;
 
       if (imageUrl) {
         ctx.replyWithPhoto(imageUrl, {
