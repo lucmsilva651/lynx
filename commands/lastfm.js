@@ -34,8 +34,8 @@ module.exports = (bot) => {
       const track = response.data.recenttracks.track[0];
 
       if (!track) {
-        const noResponse = Strings.lastFmNoResponse.replace('{lastfmUser}', lastfmUser);
-        return ctx.reply(noResponse, {
+        const noRecent = Strings.lastFmNoRecent.replace('{lastfmUser}', lastfmUser);
+        return ctx.reply(noRecent, {
           parse_mode: "Markdown",
           reply_to_message_id: ctx.message.message_id
         });
