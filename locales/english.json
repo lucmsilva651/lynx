@@ -7,6 +7,7 @@
   "varNo": "No",
   "varNone": "None",
   "kickingMyself": "*Since you don't need me, I'll get out of here.*",
+  "kickingMyselfErr": "Error leaving the chat.",
   "noPermission": "You don't have permissions to run this command.",
   "botAdminOnly": "This command is exclusive to the bot's general administrators. I can't disclose who they are, nor what this command does.",
   "privateOnly": "This command should be used only on private chats, and not on groups.",

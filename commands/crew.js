@@ -78,10 +78,12 @@ module.exports = (bot) => {
 
   bot.command('botkickme', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
-    ctx.reply(Strings.kickingMyself, {
-      parse_mode: 'Markdown',
-      reply_to_message_id: ctx.message.message_id
-    });
-    await ctx.telegram.leaveChat(ctx.chat.id);
+    handleAdminCommand(ctx, async () => {
+      ctx.reply(Strings.kickingMyself, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+      await ctx.telegram.leaveChat(ctx.chat.id);
+    }, '', Strings.kickingMyselfErr);
   });
 };
