@@ -10,6 +10,7 @@ const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(is
 const axios = require('axios');
 const { parse } = require('node-html-parser');
 const { Markup } = require('telegraf');
+const { inlineKeyboard } = require('telegraf/markup');
 
 class PhoneSearchResult {
   constructor(name, url) {
@@ -201,10 +202,16 @@ module.exports = (bot) => {
       return Markup.button.callback(result.name, `details:${result.url}:${ctx.from.id}`);
     });
 
-    ctx.reply(`<a href="tg://user?id=${userId}">${userName}</a>, Select a device:`, Markup.inlineKeyboard(buttons, { columns: 2 }), {
+    const testUser = `<a href="tg://user?id=${userId}">${userName}</a>, Select a device:`;
+    const options = {
       parse_mode: 'HTML',
-      disable_web_page_preview: true
-    });    
+      disable_web_page_preview: true,
+      reply_markup: {
+        inline_keyboard: results.map(result => [{ text: result.name, callback_data: result.url }]) 
+      }
+    };
+    ctx.reply(testUser, options);
+    
   });
 
   bot.action(/details:(.+):(.+)/, async (ctx) => {
