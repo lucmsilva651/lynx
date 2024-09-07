@@ -198,10 +198,6 @@ module.exports = (bot) => {
       return ctx.reply("No phones found.");
     }
 
-    const buttons = results.map((result) => {
-      return Markup.button.callback(result.name, `details:${result.url}:${ctx.from.id}`);
-    });
-
     const testUser = `<a href="tg://user?id=${userId}">${userName}</a>, Select a device:`;
     const options = {
       parse_mode: 'HTML',
