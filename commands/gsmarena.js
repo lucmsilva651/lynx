@@ -1,9 +1,3 @@
-// Ported and improved from Hitalo's PyKorone bot
-// Copyright (c) 2024 Hitalo M. (https://github.com/HitaloM)
-// Original code license: BSD-3-Clause
-// With some help from GPT (I don't really like AI but whatever)
-// If this were a kang, I would not be giving credits to him!
-
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
@@ -39,6 +33,7 @@ function parseSpecs(specsData) {
     "status": ["Launch", ["Status"]],
     "network": ["Network", ["Technology"]],
     "system": ["Platform", ["OS"]],
+    "models": ["Misc", ["Models"]],
     "weight": ["Body", ["Weight"]],
     "jack": ["Sound", ["3.5mm jack"]],
     "usb": ["Comms", ["USB"]],
@@ -51,6 +46,7 @@ function parseSpecs(specsData) {
     "platform_chipset": ["Platform", ["Chipset"]],
     "platform_cpu": ["Platform", ["CPU"]],
     "platform_gpu": ["Platform", ["GPU"]],
+    "memory": ["Memory", ["Internal"]],
     "main_camera_single": ["Main Camera", ["Single"]],
     "main_camera_dual": ["Main Camera", ["Dual"]],
     "main_camera_features": ["Main Camera", ["Features"]],
@@ -58,8 +54,7 @@ function parseSpecs(specsData) {
     "selfie_camera_single": ["Selfie Camera", ["Single"]],
     "selfie_camera_dual": ["Selfie Camera", ["Dual"]],
     "selfie_camera_features": ["Selfie Camera", ["Features"]],
-    "selfie_camera_video": ["Selfie Camera", ["Video"]],
-    "memory": ["Memory", ["Internal"]]
+    "selfie_camera_video": ["Selfie Camera", ["Video"]]
   };
 
   const parsedData = Object.keys(categories).reduce((acc, key) => {
@@ -78,16 +73,21 @@ function formatPhone(phone) {
   const formattedPhone = parseSpecs(phone);
   const attributesDict = {
     "Status": "status",
-    "Launch": "launch_date",
     "Network": "network",
-    "Weight": "weight",
     "OS": "system",
-    "Display Resolution": "display_resolution",
+    "Models": "models",
+    "Weight": "weight",
+    "3.5mm jack": "jack",
+    "USB": "usb",
+    "Sensors": "sensors",
+    "Battery": "battery",
+    "Charging": "charging",
     "Display Type": "display_type",
     "Display Size": "display_size",
+    "Display Resolution": "display_resolution",
+    "Chipset": "platform_chipset",
     "CPU": "platform_cpu",
     "GPU": "platform_gpu",
-    "Chipset": "platform_chipset",
     "Memory": "memory",
     "Rear Camera (Single)": "main_camera_single",
     "Rear Camera (Dual)": "main_camera_single",
@@ -96,12 +96,7 @@ function formatPhone(phone) {
     "Front Camera (Single)": "selfie_camera_single",
     "Front Camera (Dual)": "selfie_camera_single",
     "Front Camera (Features)": "selfie_camera_single",
-    "Front Camera (Video)": "selfie_camera_single",
-    "3.5mm jack": "jack",
-    "USB": "usb",
-    "Sensors": "sensors",
-    "Battery": "battery",
-    "Charging": "charging"
+    "Front Camera (Video)": "selfie_camera_single"
   };
 
   const attributes = Object.entries(attributesDict)
@@ -190,12 +185,12 @@ module.exports = (bot) => {
 
     const phone = ctx.message.text.split(" ").slice(1).join(" ");
     if (!phone) {
-      return ctx.reply("Please provide the phone name.");
+      return ctx.reply("Please provide the phone name.", { reply_with_message_id: ctx.message.message_id });
     }
 
     const results = await searchPhone(phone);
     if (results.length === 0) {
-      return ctx.reply("No phones found.");
+      return ctx.reply("No phones found.", { reply_with_message_id: ctx.message.message_id });
     }
 
     const testUser = `<a href="tg://user?id=${userId}">${userName}</a>, Select a device:`;
@@ -203,11 +198,11 @@ module.exports = (bot) => {
       parse_mode: 'HTML',
       disable_web_page_preview: true,
       reply_markup: {
-        inline_keyboard: results.map(result => [{ text: result.name, callback_data: result.url }]) 
+        inline_keyboard: results.map(result => [{ text: result.name, callback_data: `details:${result.url}:${ctx.from.id}` }])
       }
     };
     ctx.reply(testUser, options);
-    
+
   });
 
   bot.action(/details:(.+):(.+)/, async (ctx) => {
@@ -218,20 +213,18 @@ module.exports = (bot) => {
     const callbackQueryUserId = ctx.update.callback_query.from.id;
 
     if (userId !== callbackQueryUserId) {
-      return ctx.answerCbQuery("You are not allowed to interact with this.");
+      return ctx.answerCbQuery(`${userName}, you are not allowed to interact with this.`);
     }
+
+    ctx.answerCbQuery();
 
     const phoneDetails = await checkPhoneDetails(url);
 
     if (phoneDetails.name) {
       const message = formatPhone(phoneDetails);
-      ctx.editMessageText(`Here are the details for the phone you requested, <a href="tg://user?id=${userId}">${userName}</a>:\n\n${message}`, {
-        parse_mode: "HTML"
-      });
+      ctx.editMessageText(`<b><a href="tg://user?id=${userId}">${userName}</a>, there are the details of your device: </b>` + message, { parse_mode: 'HTML', disable_web_page_preview: false });
     } else {
-      ctx.editMessageText(`Unable to fetch phone details, <a href="tg://user?id=${userId}">${userName}</a>.`, {
-        parse_mode: "HTML"
-      });
+      ctx.reply("Error fetching phone details.", { reply_with_message_id: ctx.message.message_id });
     }
   });
 };
