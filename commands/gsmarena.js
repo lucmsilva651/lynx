@@ -1,3 +1,9 @@
+// Ported and improved from Hitalo's PyKorone bot
+// Copyright (c) 2024 Hitalo M. (https://github.com/HitaloM)
+// Original code license: BSD-3-Clause
+// With some help from GPT (I don't really like AI but whatever)
+// If this were a kang, I would not be giving credits to him!
+
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
