@@ -25,6 +25,9 @@ module.exports = (bot) => {
           api_key: Config.lastKey,
           format: 'json',
           limit: 1
+        },
+        headers: {
+          'User-Agent': "lastfm-node"
         }
       });
 
