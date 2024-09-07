@@ -37,7 +37,6 @@ const sendMessage = async (ctx, text, options = {}) => {
   }
 };
 
-// Função para iniciar o bot
 const startBot = async () => {
   try {
     await bot.launch();

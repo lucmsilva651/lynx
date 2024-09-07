@@ -57,7 +57,7 @@ module.exports = (bot) => {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id
       });
-    }, '', Strings.errorRetrievingStats); // No success message
+    }, '', Strings.errorRetrievingStats);
   });
 
   bot.command('setbotname', spamwatchMiddleware, async (ctx) => {
