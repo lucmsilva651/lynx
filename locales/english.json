@@ -1,6 +1,6 @@
 {
   "lynxWelcome": "*Hello! I am Lynx!*\nI was made with love by Lucas Gabriel (lucmsilva)!\n\n*Before using, you will need to read the privacy policy (/privacy) to understand where your data goes when using this bot.*\n\nAlso, you can use /help to show the bot commands!",
-  "lynxHelp": "*Hello! I'm Lynx!*\n\nI'm a simple bot made entirely from scratch in Telegraf and Node.js by Lucas Gabriel (lucmsilva).\n\n*Profile photo/help:* [@monkeycatluna on ig](https://www.instagram.com/monkeycatluna/)\n\n*Some commands to test:*\n• */chatinfo* - send some information about the group\n• */customize* - customize your pronouns (WIP)\n• */dice* - send an emoji of a dice (random results)\n• */furry* - check if you are a furry\n• */gay* - check if you are gay\n• */help* - send this message\n• */privacy* - read the Privacy Policy\n• */random* - pick a random number between 0-10\n• */start* - start the bot\n• */slot* - send an interactive emoji of a casino slot\n• */userinfo* - send some information about yourself\n\n*See my source code in my* [GitHub repository](https://github.com/lucmsilva651/lynx)*.*\n\nThanks to all users, testers, contributors, and others. Without you, perhaps this bot wouldn't be possible ❤️\n\n*Special thanks to @givfnz2 for his many contributions to the bot!*",
+  "lynxHelp": "*Help\n*Hey, I'm Lynx, a simple bot made entirely from scratch in Telegraf and Node.js by Lucas Gabriel (lucmsilva).\n\n*Click on the buttons below to know which commands you can use!*\n\n*Special thanks to @givfnz2 for his many contributions to the bot!*",
   "lynxPrivacy": "Check out [this link](https://blog.eleu.me/posts/lynx-privacy-policy) to read the bot privacy policy.",
   "unKnown": "Unknown",
   "varYes": "Yes",
@@ -37,5 +37,14 @@
   "lastFmStatusFor": "*Last.fm status for user* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} by {artistName} \n\n*Number of plays*: {plays}",
   "lastFmErr": "*Error retrieving data for Last.fm user* {lastfmUser}.",
   "currentCommit": "*Current commit:* `{commitHash}`",
-  "errorRetrievingCommit": "*Error retrieving commit:* {error}"
+  "errorRetrievingCommit": "*Error retrieving commit:* {error}",
+  "informationHelp": "[INFORMATION COMMANDS]\n• /chatinfo - send some information about the group\n• /userinfo - send some information about yourself\n• /d [DEVICE_MODEL] - search for a device and send its specs\n• /lt [USER_NAME]: send last song from USER_NAME's LastFM and number of plays. Also works with /lt, /lmu, /last, /lfm",
+  "funnyChecksHelp": "[CHECKS COMMANDS]\n• /gay: check if you are gay\n• /furry: check if you are a furry\n• /random: pick a random number between 0-10",
+  "interactiveEmojisHelp": "[INTERACTIVE EMOJIS COMMANDS]\n• /dice: Roll a dice\n• /idice: Infinitely roll a colored dice\n• /slot: Try to combine the figures!\n• /ball: Try to kick the ball in the goal!\n• /bowling: Try to hit the pins!\n• /dart: Try to hit the target! ",
+  "botInfoHelp": "[BOT INFO COMMANDS]\n• /help: Show bot's help\n• /start: Starts the bot\n• /privacy: Read the bot's Privacy Policy",
+  "information": "Informations",
+  "check": "Checks",
+  "intemojis": "Interactive emojis",
+  "botinfo": "Bot info",
+  "goback": "⬅️ Go back"
 }

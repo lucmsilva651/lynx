@@ -1,6 +1,6 @@
 {
   "lynxWelcome": "*Olá! Eu sou o Lynx!*\nEu fui feito com amor por Lucas Gabriel (lucmsilva)!\n\n*Antes de usar, você precisará ler a política de privacidade (/privacy) para entender para onde seus dados vão ao usar este bot.\n\n*Além disso, você pode usar o /help para mostrar os comandos do bot.",
-  "lynxHelp": "*Olá! Eu sou o Lynx!*\n\nSou um simples bot feito inteiramente do zero em Telegraf e Node.js por Lucas Gabriel (lucmsilva).\n\n*Foto de perfil/ajuda:* [@monkeycatluna no ig](https://www.instagram.com/monkeycatluna/)\n\n*Alguns comandos para testar:*\n• */chatinfo* - envia algumas informações sobre o grupo\n• */customize* - customiza seus pronomes (WIP)\n• */furry* - checa se você é um furry\n• */gay* - checa se você é gay\n• */help* - envia essa mensagem\n• */privacy* - envia a política de privacidade\n• */random* - escolhe um número aleatório entre 0-10\n• */start* - Inicia o bot\n• */userinfo* - envia algumas informações sobre você\n\n*Veja o código fonte em meu* [repositório no GitHub](https://github.com/lucmsilva651/lynx)*.*\n\nObrigado a todos os usuários, testadores, contribuidores e outros. Sem vocês, talvez esse bot não seria possível ❤️\n\n*Um agradecimento especial a @givfnz2 pelas várias contribuições ao bot!*",
+  "lynxHelp": "*Olá! Eu sou o Lynx!*\n\nSou um simples bot feito inteiramente do zero em Telegraf e Node.js por Lucas Gabriel (lucmsilva).\n\nClique nos botões abaixo para saber quais comandos utilizar.\n\n*Um agradecimento especial a @givfnz2 pelas várias contribuições ao bot!*",
   "lynxPrivacy": "Dê uma olhada [nesse link](https://blog.eleu.me/posts/lynx-privacy-policy) para ler a política de privacidade do bot.",
   "unKnown": "Desconhecido",
   "varYes": "Sim",
@@ -37,5 +37,14 @@
   "lastFmStatusFor": "*Status do Last.fm para o usuário* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} por {artistName}\n\n*Numero de plays*: {plays}",
   "lastFmErr": "*Erro ao recuperar dados para o usuário do Last.fm* {lastfmUser}.",
   "currentCommit": "*Commit atual:* `{commitHash}`",
-  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}"
+  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}",
+  "informationHelp": "Hello World",
+  "funnyChecksHelp": "Hello World",
+  "interactiveEmojisHelp": "Hello World",
+  "botInfoHelp": "[BOT INFO COMMANDS]\n • /help: Mostra a ajuda do bot\n • /start: Starts the bot\n • /privacy: Read the bot's Privacy Policy",
+  "information": "Informações",
+  "check": "Checagens",
+  "intemojis": "Emojis interativos",
+  "botinfo": "Infos do bot",
+  "goback": "⬅️ Voltar"
 }
