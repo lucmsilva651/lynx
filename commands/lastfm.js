@@ -8,7 +8,7 @@ const scrobbler_url = 'http://ws.audioscrobbler.com/2.0/';
 const api_key = Config.lastKey;
 
 module.exports = (bot) => {
-  bot.command(['lt', 'lmu', 'last' 'lfm'], spamwatchMiddleware, async (ctx) => {
+  bot.command(['lt', 'lmu', 'last', 'lfm'], spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userInput = ctx.message.text.split(" ");
     const lastfmUser = userInput[1];
