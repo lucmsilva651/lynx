@@ -43,7 +43,7 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     const options = {reply_markup: JSON.stringify({
       inline_keyboard: [
-        [{ text: String.goback, callback_data: '5' }],
+        [{ text: Strings.goback, callback_data: '5' }],
       ]})
     };
     switch (callbackData) {
@@ -61,7 +61,7 @@ module.exports = (bot) => {
         break;
       case '4':
         await ctx.answerCbQuery();
-        await ctx.editMessageText(Strings.botinfo, options);
+        await ctx.editMessageText(Strings.botInfoHelp, options);
         break;
       case '5':
         await ctx.answerCbQuery();
