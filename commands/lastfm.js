@@ -30,7 +30,7 @@ module.exports = (bot) => {
           limit: 1
         },
         headers: {
-          'User-Agent': "lastfm-node"
+          'User-Agent': "lynx-@LynxBR_bot-node-telegram-bot"
         }
       });
 
