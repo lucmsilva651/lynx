@@ -31,16 +31,15 @@
   "funEmojiResult": "*Você lançou {emoji} e obteve *`{value}`*!*\nVocê não sabe o que isso significa? Nem eu!",
   "gifErr": "*Algo deu errado ao enviar o GIF. Tente novamente mais tarde.*\n\n{err}",
   "lastFmNoUser": "*Por favor, forneça um nome de usuário do Last.fm.*\nExemplo: `/lt username`",
-  "lastFmNoRecent": "*Nenhas faixas recentes encontradas para o usuário do Last.fm* `{lastfmUser}`*.*",
+  "lastFmNoRecent": "*Nenhuma faixa recente encontrada para o usuário do Last.fm* `{lastfmUser}`*.*",
   "lastFmListeningNow": "Ouvindo agora",
   "lastFmLastPlayed": "Última reprodução",
-  "lastFmStatusFor": "*Status do Last.fm para o usuário* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} por {artistName}\n\n*Numero de plays*: {plays}",
+  "lastFmStatusFor": "*Status do Last.fm para o usuário* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} por {artistName}\n\n*Número de reproduções*: {plays}",
   "lastFmErr": "*Erro ao recuperar dados para o usuário do Last.fm* {lastfmUser}.",
   "currentCommit": "*Commit atual:* `{commitHash}`",
-  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}",
-  "provideLocation": "*Por favor, forneça uma localização válida.*",
+  "errorRetrievingCommit": "*Erro ao obter o commit:*\n\n`{error}`",
+  "provideLocation": "*Por favor, forneça uma localização.*",
   "invalidLocation": "*Localização inválida. Tente novamente.*",
   "weatherStatus": "*Clima em {addressFirst}:*\n\n*Estado:* `{getStatusEmoji(iconCode)} {wxPhraseLong}`\n*Temperatura:* `{temperature} °{temperatureUnit}`\n*Sensação térmica:* `{temperatureFeelsLike} °{temperatureUnit2}`\n*Umidade:* `{relativeHumidity}%`\n*Velocidade do vento:* `{windSpeed} {speedUnit}`",
   "weatherErr": "*Ocorreu um erro ao obter o clima. Tente novamente mais tarde.*\n\n`{error}`"
-
 }
