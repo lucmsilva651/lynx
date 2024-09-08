@@ -110,7 +110,9 @@ function formatPhone(phone) {
     .map(([label, key]) => `<b>${label}:</b> <code>${formattedPhone[key]}</code>`)
     .join("\n\n");
 
-  return `<b>${formattedPhone.name}</b>\n\n${attributes}`;
+  const deviceImage = phone.picture ? `<b>Device Image</b>: ${phone.picture}` : '';
+
+  return `<b>${formattedPhone.name}</b>\n\n${attributes}\n\n${deviceImage}`;
 }
 
 async function fetchHtml(url) {
