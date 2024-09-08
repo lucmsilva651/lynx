@@ -4,9 +4,13 @@ const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(is
 
 async function getUserInfo(ctx) {
   const Strings = getStrings(ctx.from.language_code);
+  let lastName = ctx.from.last_name;
+  if (lastName === undefined) {
+    lastName = " ";
+  }
 
   userInfo = Strings.userInfo
-    .replace('{userName}', `${ctx.from.first_name} ${ctx.from.last_name}` || Strings.unKnown)
+    .replace('{userName}', `${ctx.from.first_name} ${lastName}` || Strings.unKnown)
     .replace('{userId}', ctx.from.id || Strings.unKnown)
     .replace('{userHandle}', ctx.from.username ? `@${ctx.from.username}` : Strings.varNone)
     .replace('{userPremium}', ctx.from.is_premium ? Strings.varYes : Strings.varNo)
