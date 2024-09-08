@@ -4,6 +4,18 @@ const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 const os = require('os');
 
+function getGitCommitHash() {
+  return new Promise((resolve, reject) => {
+    exec('git rev-parse --short HEAD', (error, stdout, stderr) => {
+      if (error) {
+        reject(`Error: ${stderr}`);
+      } else {
+        resolve(stdout.trim());
+      }
+    });
+  });
+}
+
 function formatUptime(uptime) {
   const hours = Math.floor(uptime / 3600);
   const minutes = Math.floor((uptime % 3600) / 60);
