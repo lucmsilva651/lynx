@@ -3,6 +3,7 @@ const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 const os = require('os');
+const { exec } = require('child_process');
 
 function getGitCommitHash() {
   return new Promise((resolve, reject) => {
