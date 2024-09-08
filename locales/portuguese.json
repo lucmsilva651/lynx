@@ -35,5 +35,7 @@
   "lastFmListeningNow": "Ouvindo agora",
   "lastFmLastPlayed": "Última reprodução",
   "lastFmStatusFor": "*Status do Last.fm para o usuário* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} por {artistName}\n\n*Numero de plays*: {plays}",
-  "lastFmErr": "*Erro ao recuperar dados para o usuário do Last.fm* {lastfmUser}."
+  "lastFmErr": "*Erro ao recuperar dados para o usuário do Last.fm* {lastfmUser}.",
+  "currentCommit": "*Commit atual:* `{commitHash}`",
+  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}"
 }
