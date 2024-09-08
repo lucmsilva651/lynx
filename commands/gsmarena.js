@@ -110,9 +110,11 @@ function formatPhone(phone) {
     .map(([label, key]) => `<b>${label}:</b> <code>${formattedPhone[key]}</code>`)
     .join("\n\n");
 
+  
+  const deviceUrl = `<b>GSMArena page:</b> ${formattedPhone.url}`;
   const deviceImage = phone.picture ? `<b>Device Image</b>: ${phone.picture}` : '';
 
-  return `<b>${formattedPhone.name}</b>\n\n${attributes}\n\n${deviceImage}`;
+  return `<b>\n\nName: </b><code>${formattedPhone.name}</code>\n\n${attributes}\n\n${deviceImage}\n\n${deviceUrl}`;
 }
 
 async function fetchHtml(url) {
@@ -230,7 +232,7 @@ module.exports = (bot) => {
 
     if (phoneDetails.name) {
       const message = formatPhone(phoneDetails);
-      ctx.editMessageText(`<b><a href="tg://user?id=${userId}">${userName}</a>, there are the details of your device: </b>` + message, { parse_mode: 'HTML', disable_web_page_preview: false });
+      ctx.editMessageText(`<b><a href="tg://user?id=${userId}">${userName}</a>, there are the details of your device:</b>` + message, { parse_mode: 'HTML', disable_web_page_preview: false });
     } else {
       ctx.reply("Error fetching phone details.", { reply_with_message_id: ctx.message.message_id });
     }
