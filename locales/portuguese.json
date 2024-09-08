@@ -37,5 +37,10 @@
   "lastFmStatusFor": "*Status do Last.fm para o usuário* {lastfmUser}*:*\n\n*{nowPlaying}*: {trackName} por {artistName}\n\n*Numero de plays*: {plays}",
   "lastFmErr": "*Erro ao recuperar dados para o usuário do Last.fm* {lastfmUser}.",
   "currentCommit": "*Commit atual:* `{commitHash}`",
-  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}"
+  "errorRetrievingCommit": "*Erro ao obter o commit:* {error}",
+  "provideLocation": "*Por favor, forneça uma localização válida.*",
+  "invalidLocation": "*Localização inválida. Tente novamente.*",
+  "weatherStatus": "*Clima em {addressFirst}:*\n\n*Estado:* `{getStatusEmoji(iconCode)} {wxPhraseLong}`\n*Temperatura:* `{temperature} °{temperatureUnit}`\n*Sensação térmica:* `{temperatureFeelsLike} °{temperatureUnit2}`\n*Umidade:* `{relativeHumidity}%`\n*Velocidade do vento:* `{windSpeed} {speedUnit}`",
+  "weatherErr": "*Ocorreu um erro ao obter o clima. Tente novamente mais tarde.*\n\n`{error}`"
+
 }

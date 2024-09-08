@@ -109,7 +109,6 @@ function formatPhone(phone) {
     .filter(([_, key]) => formattedPhone[key])
     .map(([label, key]) => `<b>${label}:</b> <code>${formattedPhone[key]}</code>`)
     .join("\n\n");
-
   
   const deviceUrl = `<b>GSMArena page:</b> ${formattedPhone.url}`;
   const deviceImage = phone.picture ? `<b>Device Image</b>: ${phone.picture}` : '';
