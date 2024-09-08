@@ -60,6 +60,24 @@ module.exports = (bot) => {
     }, '', Strings.errorRetrievingStats);
   });
 
+  bot.command('getbotcommit', spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
+    handleAdminCommand(ctx, async () => {
+      try {
+        const commitHash = await getGitCommitHash();
+        await ctx.reply(Strings.currentCommit.replace('{commitHash}', commitHash), {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      } catch (error) {
+        ctx.reply(Strings.errorRetrievingCommit.replace('{error}', error), {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      }
+    }, '', Strings.errorRetrievingCommit);
+  });
+  
   bot.command('setbotname', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const botName = ctx.message.text.split(' ').slice(1).join(' ');
