@@ -9,15 +9,15 @@ async function sendHelpMessage(ctx, isEditing) {
     parse_mode: 'Markdown',
     reply_markup: {
       inline_keyboard: [
-        [{ text: Strings.information, callback_data: '1' }, { text: Strings.check, callback_data: '2' }],
-        [{ text: Strings.intemojis, callback_data: '3' }, { text: Strings.botinfo, callback_data: '4' }]
+        [{ text: Strings.mainCommands, callback_data: '1' }, { text: Strings.usefulCommands, callback_data: '2' }],
+        [{ text: Strings.interactiveEmojis, callback_data: '3' }, { text: Strings.funnyCommands, callback_data: '4' }]
       ]
     }
   };
   const helpText = Strings.lynxHelp;
-  if(isEditing){
+  if (isEditing) {
     await ctx.editMessageText(helpText, options);
-  }else{
+  } else {
     await ctx.reply(helpText, options);
   }
 }
@@ -27,10 +27,10 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     ctx.replyWithPhoto(
       resources.lunaCat, {
-        caption: Strings.lynxWelcome,
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id
-      }
+      caption: Strings.lynxWelcome,
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    }
     );
   });
 
@@ -41,34 +41,38 @@ module.exports = (bot) => {
   bot.on('callback_query', async (ctx) => {
     const callbackData = ctx.callbackQuery.data;
     const Strings = getStrings(ctx.from.language_code);
-    const options = {reply_markup: JSON.stringify({
-      inline_keyboard: [
-        [{ text: Strings.goback, callback_data: '5' }],
-      ]})
+    const options = {
+      parse_mode: 'Markdown',
+      reply_markup: JSON.stringify({
+        inline_keyboard: [
+          [{ text: Strings.goBack, callback_data: '5' }],
+        ]
+      })
     };
+
     switch (callbackData) {
       case '1':
         await ctx.answerCbQuery();
-        await ctx.editMessageText(Strings.informationHelp, options);
+        await ctx.editMessageText(Strings.mainCommandsDesc, options);
         break;
       case '2':
         await ctx.answerCbQuery();
-        await ctx.editMessageText(Strings.funnyChecksHelp, options);
+        await ctx.editMessageText(Strings.usefulCommandsDesc, options);
         break;
       case '3':
         await ctx.answerCbQuery();
-        await ctx.editMessageText(Strings.interactiveEmojisHelp, options);
+        await ctx.editMessageText(Strings.interactiveEmojisDesc, options);
         break;
       case '4':
         await ctx.answerCbQuery();
-        await ctx.editMessageText(Strings.botInfoHelp, options);
+        await ctx.editMessageText(Strings.funnyCommandsDesc, options);
         break;
       case '5':
         await ctx.answerCbQuery();
         await sendHelpMessage(ctx, true);
         break;
       default:
-        await ctx.answerCbQuery('Woops! Invalid option');
+        await ctx.answerCbQuery(Strings.invalidOption);
         break;
     }
   });
@@ -77,10 +81,10 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     ctx.reply(
       Strings.lynxPrivacy, {
-        parse_mode: 'Markdown',
-        disable_web_page_preview: true,
-        reply_to_message_id: ctx.message.message_id
-      }
+      parse_mode: 'Markdown',
+      disable_web_page_preview: true,
+      reply_to_message_id: ctx.message.message_id
+    }
     );
   });
 };
