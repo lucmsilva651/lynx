@@ -1,4 +1,8 @@
 # Lynx (Node.js Telegram Bot)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+![GitHub License](https://img.shields.io/github/license/lucmsilva651/lynx)
+
+
 Lynx is a a simple Telegram bot made in Node.js.
  - You can find Lynx at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
 
