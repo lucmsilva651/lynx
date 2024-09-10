@@ -54,10 +54,9 @@ module.exports = (bot) => {
       const artistUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}`;
       const userUrl = `https://www.last.fm/user/${encodeURIComponent(lastfmUser)}`;
 
-      // Requesting the number of plays of last song
       let num_plays = '';
-      try{
-      const response_plays = await axios.get(scrobbler_url, {
+      try {
+        const response_plays = await axios.get(scrobbler_url, {
           params: {
             method: 'track.getInfo',
             api_key,
@@ -71,9 +70,12 @@ module.exports = (bot) => {
           }
         });
         num_plays = response_plays.data.track.userplaycount;
-      }catch (err){
+      } catch (err) {
         console.log(err)
-        ctx.reply('Error!', {
+        const message = Strings.lastFmErr
+          .replace("{lastfmUser}", `[${lastfmUser}](${userUrl})`)
+          .replace("{err}", err);
+        ctx.reply(message, {
           parse_mode: "Markdown",
           reply_to_message_id: ctx.message.message_id
         });
@@ -84,8 +86,7 @@ module.exports = (bot) => {
         .replace("{nowPlaying}", nowPlaying)
         .replace("{trackName}", `[${trackName}](${trackUrl})`)
         .replace("{artistName}", `[${artistName}](${artistUrl})`)
-        .replace("{plays}", `${num_plays}`)
-        ;
+        .replace("{plays}", `${num_plays}`);
 
       if (imageUrl) {
         ctx.replyWithPhoto(imageUrl, {
@@ -99,7 +100,6 @@ module.exports = (bot) => {
           reply_to_message_id: ctx.message.message_id
         });
       };
-
     } catch (err) {
       const userUrl = `https://www.last.fm/user/${encodeURIComponent(lastfmUser)}`;
       const message = Strings.lastFmErr
