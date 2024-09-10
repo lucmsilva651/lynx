@@ -8,32 +8,23 @@ const bot = new Telegraf(Config.botToken);
 const MAX_RETRIES = 5;
 let restartCount = 0;
 
-
 const loadCommands = () => {
   const commandsPath = path.join(__dirname, 'commands');
 
   try {
-    fs.readdirSync(commandsPath).forEach((file) => {
+    const files = fs.readdirSync(commandsPath);
+    files.forEach((file) => {
       try {
         const command = require(path.join(commandsPath, file));
         if (typeof command === 'function') {
           command(bot, isOnSpamWatch);
         }
-      } catch (fileError) {
-        console.error(`Failed to load command file ${file}: ${fileError.message}`);
+      } catch (error) {
+        console.error(`Failed to load command file ${file}: ${error.message}`);
       }
     });
-  } catch (dirError) {
-    console.error(`Failed to read commands directory: ${dirError.message}`);
-  }
-};
-
-
-const sendMessage = async (ctx, text, options = {}) => {
-  try {
-    await ctx.reply(text, options);
   } catch (error) {
-    console.error('Error sending message:', error.message);
+    console.error(`Failed to read commands directory: ${error.message}`);
   }
 };
 
