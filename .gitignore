@@ -1,5 +1,6 @@
 *.env
 *.txt
+*.log
 node_modules
 __pycache__
 !requirements.txt
