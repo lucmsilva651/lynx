@@ -46,7 +46,7 @@
   "mainCommands": "Comandos principais",
   "mainCommandsDesc": "*Comandos principais*\n\n- /help: Exibe a ajuda do bot\n- /start: Inicia o bot\n- /privacy: Leia a política de privacidade do bot",
   "usefulCommands": "Comandos úteis",
-  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /lt | /lmu | /last | /lfm `<usuário>`: Mostra a última música de um perfil especificado no Last.fm + o número de reproduções.",
+  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /lt | /lmu | /last | /lfm `<usuário>`: Mostra a última música de um perfil especificado no Last.fm + o número de reproduções.\n- /weather | /clima `cidade`: Veja o status do clima para uma localização específica",
   "funnyCommands": "Comandos engraçados",
   "funnyCommandsDesc": "*Comandos engraçados*\n\n- /gay: Verifique se você é gay\n- /furry: Verifique se você é furry\n- /random: Escolhe um número aleatório entre 0-10",
   "interactiveEmojis": "Emojis interativos",
