@@ -46,7 +46,7 @@
   "mainCommands": "Main commands",
   "mainCommandsDesc": "*Main commands*\n\n- /help: Show bot's help\n- /start: Start the bot\n- /privacy: Read the bot's Privacy Policy",
   "usefulCommands": "Useful commands",
-  "usefulCommandsDesc": "*Useful commands*\n\n- /chatinfo: Send information about the group\n- /userinfo: Send information about yourself\n- /d | /device `<model>`: Search for a device on GSMArena and show its specs.\n- /lt | /lmu | /last | /lfm `<username>`: Show the last song from a specified Last.fm profile + number of plays.",
+  "usefulCommandsDesc": "*Useful commands*\n\n- /chatinfo: Send information about the group\n- /userinfo: Send information about yourself\n- /d | /device `<model>`: Search for a device on GSMArena and show its specs.\n- /lt | /lmu | /last | /lfm `<username>`: Show the last song from a specified Last.fm profile + number of plays.\n- /weather | /clima `city`: See weather status for a specific location.",
   "funnyCommands": "Funny commands",
   "funnyCommandsDesc": "*Funny commands*\n\n- /gay: Check if you are gay\n- /furry: Check if you are a furry\n- /random: Pick a random number between 0-10",
   "interactiveEmojis": "Interactive emojis",
