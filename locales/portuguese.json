@@ -46,10 +46,12 @@
   "mainCommands": "Comandos principais",
   "mainCommandsDesc": "*Comandos principais*\n\n- /help: Exibe a ajuda do bot\n- /start: Inicia o bot\n- /privacy: Leia a política de privacidade do bot",
   "usefulCommands": "Comandos úteis",
-  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /lt | /lmu | /last | /lfm `<usuário>`: Mostra a última música de um perfil especificado no Last.fm + o número de reproduções.\n- /weather | /clima `cidade`: Veja o status do clima para uma localização específica",
+  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /lt | /lmu | /last | /lfm `<usuário>`: Mostra a última música de um perfil especificado no Last.fm + o número de reproduções.\n- /weather | /clima `<cidade>`: Veja o status do clima para uma localização específica\n- /modarchive | /tma `<id do módulo>`: Baixa um módulo do The Mod Archive",
   "funnyCommands": "Comandos engraçados",
   "funnyCommandsDesc": "*Comandos engraçados*\n\n- /gay: Verifique se você é gay\n- /furry: Verifique se você é furry\n- /random: Escolhe um número aleatório entre 0-10",
   "interactiveEmojis": "Emojis interativos",
   "interactiveEmojisDesc": "*Emojis interativos*\n\n- /dice: Jogue um dado\n- /idice: Role infinitamente um dado colorido\n- /slot: Tente combinar as figuras!\n- /ball: Tente chutar a bola no gol!\n- /bowling: Tente derrubar os pinos!\n- /dart: Tente acertar o alvo!",
-  "goBack": "Voltar"
+  "goBack": "Voltar",
+  "maInvalidModule": "Por favor, forneça um ID de módulo válido do The Mod Archive.\nExemplo: `/modarchive 81574`",
+  "maDownloadError": "Erro ao baixar o arquivo. Verifique o ID do módulo e tente novamente."
 }
