@@ -1,5 +1,6 @@
 // Ported and improved from BubbalooTeam's PyCoala bot
 // Copyright (c) 2024 BubbalooTeam. (https://github.com/BubbalooTeam)
+// Minor code changes by lucmsilva (https://github.com/lucmsilva651)
 
 const axios = require('axios');
 const Config = require('../props/config.json');
@@ -14,7 +15,7 @@ const statusEmojis = {
   22: '🌫', 23: '🌬', 24: '🌬', 25: '🌨', 26: '☁️', 27: '🌥', 28: '🌥',
   29: '⛅️', 30: '⛅️', 31: '🌙', 32: '☀️', 33: '🌤', 34: '🌤', 35: '⛈',
   36: '🔥', 37: '🌩', 38: '🌩', 39: '🌧', 40: '🌧', 41: '❄️', 42: '❄️',
-  43: '❄️', 44: 'n/a', 45: '🌧', 46: '🌨', 47: '🌩',
+  43: '❄️', 44: 'n/a', 45: '🌧', 46: '🌨', 47: '🌩'
 };
 
 const getStatusEmoji = (statusCode) => statusEmojis[statusCode] || 'n/a';
@@ -35,16 +36,16 @@ module.exports = (bot) => {
   bot.command(['clima', 'weather'], spamwatchMiddleware, async (ctx) => {
     const userLang = ctx.from.language_code || "en-US";
     const Strings = getStrings(userLang);
-    const args = ctx.message.text;
+    const args = ctx.message.text.split(' ');
 
-    if (args.length < 9) {
+    if (args.length !== 2) {
       return ctx.reply(Strings.provideLocation, {
         parse_mode: "Markdown",
         reply_to_message_id: ctx.message.message_id
       });
     }
 
-    const location = args.slice(9).trim();
+    const location = args[1];
     const apiKey = Config.weatherKey;
 
     try {
@@ -95,7 +96,10 @@ module.exports = (bot) => {
         .replace('{windSpeed}', windSpeed)
         .replace('{speedUnit}', speedUnit);
 
-      ctx.reply(weatherMessage, { parse_mode: 'Markdown' });
+      ctx.reply(weatherMessage, { 
+        parse_mode: "Markdown",
+        reply_to_message_id: ctx.message.message_id
+      });
     } catch (error) {
       const message = Strings.weatherErr.replace('{error}', error.message);
       ctx.reply(message, {
