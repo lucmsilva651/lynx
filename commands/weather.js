@@ -36,16 +36,16 @@ module.exports = (bot) => {
   bot.command(['clima', 'weather'], spamwatchMiddleware, async (ctx) => {
     const userLang = ctx.from.language_code || "en-US";
     const Strings = getStrings(userLang);
-    const args = ctx.message.text.split(' ');
+    const args = ctx.message.text;
 
-    if (args.length !== 2) {
+    if (args.length < 9) {
       return ctx.reply(Strings.provideLocation, {
         parse_mode: "Markdown",
         reply_to_message_id: ctx.message.message_id
       });
     }
 
-    const location = args[1];
+    const location = args.slice(9);
     const apiKey = Config.weatherKey;
 
     try {
