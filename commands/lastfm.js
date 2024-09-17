@@ -36,7 +36,6 @@ module.exports = (bot) => {
 
       const track = response.data.recenttracks.track[0];
 
-
       if (!track) {
         const noRecent = Strings.lastFmNoRecent.replace('{lastfmUser}', lastfmUser);
         return ctx.reply(noRecent, {
@@ -49,7 +48,10 @@ module.exports = (bot) => {
       const artistName = track.artist['#text'];
       const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.lastFmListeningNow : Strings.lastFmLastPlayed;
 
-      const imageUrl = track.image.find(img => img.size === 'extralarge')['#text'] || track.image.find(img => img.size === 'mega')['#text'];
+      const imageExtralarge = track.image.find(img => img.size === 'extralarge');
+      const imageMega = track.image.find(img => img.size === 'mega');
+      const imageUrl = (imageExtralarge && imageExtralarge['#text']) || (imageMega && imageMega['#text']) || '';
+      
       const trackUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}/_/${encodeURIComponent(trackName)}`;
       const artistUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}`;
       const userUrl = `https://www.last.fm/user/${encodeURIComponent(lastfmUser)}`;
@@ -80,7 +82,7 @@ module.exports = (bot) => {
           reply_to_message_id: ctx.message.message_id
         });
       };
-
+      
       const message = Strings.lastFmStatusFor
         .replace("{lastfmUser}", `[${lastfmUser}](${userUrl})`)
         .replace("{nowPlaying}", nowPlaying)
