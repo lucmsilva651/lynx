@@ -90,7 +90,7 @@ module.exports = (bot) => {
       }
     }, '', Strings.errorRetrievingCommit);
   });
-  
+
   bot.command('setbotname', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const botName = ctx.message.text.split(' ').slice(1).join(' ');
@@ -116,5 +116,16 @@ module.exports = (bot) => {
       });
       await ctx.telegram.leaveChat(ctx.chat.id);
     }, '', Strings.kickingMyselfErr);
+  });
+
+  bot.command('getfile', spamwatchMiddleware, async (ctx) => {
+    const botFile = ctx.message.text.split(' ').slice(1).join(' ');
+    handleAdminCommand(ctx, async () => {
+      try{
+          await ctx.replyWithDocument({source: botFile});
+      }catch (error){
+        console.log('ERROR');
+      }
+    });
   });
 };
