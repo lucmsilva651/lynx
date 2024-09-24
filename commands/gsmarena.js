@@ -55,10 +55,14 @@ function parseSpecs(specsData) {
     "memory": ["Memory", ["Internal"]],
     "main_camera_single": ["Main Camera", ["Single"]],
     "main_camera_dual": ["Main Camera", ["Dual"]],
+    "main_camera_triple": ["Main Camera", ["Triple"]],
+    "main_camera_quad": ["Main Camera", ["Quad"]],
     "main_camera_features": ["Main Camera", ["Features"]],
     "main_camera_video": ["Main Camera", ["Video"]],
     "selfie_camera_single": ["Selfie Camera", ["Single"]],
     "selfie_camera_dual": ["Selfie Camera", ["Dual"]],
+    "selfie_camera_triple": ["Selfie Camera", ["Triple"]],
+    "selfie_camera_quad": ["Selfie Camera", ["Quad"]],
     "selfie_camera_features": ["Selfie Camera", ["Features"]],
     "selfie_camera_video": ["Selfie Camera", ["Video"]]
   };
@@ -96,13 +100,17 @@ function formatPhone(phone) {
     "GPU": "platform_gpu",
     "Memory": "memory",
     "Rear Camera (Single)": "main_camera_single",
-    "Rear Camera (Dual)": "main_camera_single",
-    "Rear Camera (Features)": "main_camera_single",
-    "Rear Camera (Video)": "main_camera_single",
+    "Rear Camera (Dual)": "main_camera_dual",
+    "Rear Camera (Triple)": "main_camera_triple",
+    "Rear Camera (Quad)": "main_camera_quad",
+    "Rear Camera (Features)": "main_camera_features",
+    "Rear Camera (Video)": "main_camera_video",
     "Front Camera (Single)": "selfie_camera_single",
-    "Front Camera (Dual)": "selfie_camera_single",
-    "Front Camera (Features)": "selfie_camera_single",
-    "Front Camera (Video)": "selfie_camera_single"
+    "Front Camera (Dual)": "selfie_camera_dual",
+    "Front Camera (Triple)": "selfie_camera_triple",
+    "Front Camera (Quad)": "selfie_camera_quad",
+    "Front Camera (Features)": "selfie_camera_features",
+    "Front Camera (Video)": "selfie_camera_video"
   };
 
   const attributes = Object.entries(attributesDict)
@@ -194,12 +202,12 @@ module.exports = (bot) => {
 
     const phone = ctx.message.text.split(" ").slice(1).join(" ");
     if (!phone) {
-      return ctx.reply("Please provide the phone name.", { reply_with_message_id: ctx.message.message_id });
+      return ctx.reply("Please provide the phone name.", { reply_to_message_id: ctx.message.message_id });
     }
 
     const results = await searchPhone(phone);
     if (results.length === 0) {
-      return ctx.reply("No phones found.", { reply_with_message_id: ctx.message.message_id });
+      return ctx.reply("No phones found.", { reply_to_message_id: ctx.message.message_id });
     }
 
     const testUser = `<a href="tg://user?id=${userId}">${userName}</a>, Select a device:`;
@@ -233,7 +241,7 @@ module.exports = (bot) => {
       const message = formatPhone(phoneDetails);
       ctx.editMessageText(`<b><a href="tg://user?id=${userId}">${userName}</a>, there are the details of your device:</b>` + message, { parse_mode: 'HTML', disable_web_page_preview: false });
     } else {
-      ctx.reply("Error fetching phone details.", { reply_with_message_id: ctx.message.message_id });
+      ctx.reply("Error fetching phone details.", { reply_to_message_id: ctx.message.message_id });
     }
   });
 };
