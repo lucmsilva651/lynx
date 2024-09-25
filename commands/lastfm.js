@@ -46,6 +46,7 @@ module.exports = (bot) => {
     if (!lastUser) {
       return ctx.reply(Strings.lastFmNoUser, {
         parse_mode: "Markdown",
+        disable_web_page_preview: true,
         reply_to_message_id: ctx.message.message_id
       });
     };
@@ -57,6 +58,7 @@ module.exports = (bot) => {
 
     ctx.reply(message, {
       parse_mode: "Markdown",
+      disable_web_page_preview: true,
       reply_to_message_id: ctx.message.message_id
     });
   });
@@ -69,6 +71,7 @@ module.exports = (bot) => {
     if (!lastfmUser) {
       return ctx.reply(Strings.lastFmNoSet, {
         parse_mode: "Markdown",
+        disable_web_page_preview: true,
         reply_to_message_id: ctx.message.message_id
       });
     };
@@ -93,6 +96,7 @@ module.exports = (bot) => {
         const noRecent = Strings.lastFmNoRecent.replace('{lastfmUser}', lastfmUser);
         return ctx.reply(noRecent, {
           parse_mode: "Markdown",
+          disable_web_page_preview: true,
           reply_to_message_id: ctx.message.message_id
         });
       };
@@ -100,6 +104,7 @@ module.exports = (bot) => {
       const trackName = track.name;
       const artistName = track.artist['#text'];
       const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.lastFmListeningNow : Strings.lastFmLastPlayed;
+
 
       const imageExtralarge = track.image.find(img => img.size === 'extralarge');
       const imageMega = track.image.find(img => img.size === 'mega');
@@ -132,6 +137,7 @@ module.exports = (bot) => {
           .replace("{err}", err);
         ctx.reply(message, {
           parse_mode: "Markdown",
+          disable_web_page_preview: true,
           reply_to_message_id: ctx.message.message_id
         });
       };
@@ -147,11 +153,13 @@ module.exports = (bot) => {
         ctx.replyWithPhoto(imageUrl, {
           caption: message,
           parse_mode: "Markdown",
+          disable_web_page_preview: true,
           reply_to_message_id: ctx.message.message_id
         });
       } else {
         ctx.reply(message, {
           parse_mode: "Markdown",
+          disable_web_page_preview: true,
           reply_to_message_id: ctx.message.message_id
         });
       };
@@ -162,6 +170,7 @@ module.exports = (bot) => {
         .replace("{err}", err);
       ctx.reply(message, {
         parse_mode: "Markdown",
+        disable_web_page_preview: true,
         reply_to_message_id: ctx.message.message_id
       });
     };
