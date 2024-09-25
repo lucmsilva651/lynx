@@ -34,7 +34,7 @@
   "lastFm": "Last.fm",
   "lastFmDesc": "*Last.fm*\n\n- /lt | /lmu | /last | /lfm: Mostra a última música do seu perfil no Last.fm + o número de reproduções.\n- /setuser `<usuário>`: Define o usuário para o comando acima.",
   "lastFmNoUser": "*Por favor, forneça um nome de usuário do Last.fm.*\nExemplo: `/setuser <username>`",
-  "lastFmNoSet": "*Você ainda não definiu seu nome de usuário do Last.fm.*\nUse o comando /setuser para definir.\n\nExemplo: `/set <username>`",
+  "lastFmNoSet": "*Você ainda não definiu seu nome de usuário do Last.fm.*\nUse o comando /setuser para definir.\n\nExemplo: `/setuser <username>`",
   "lastFmNoRecent": "*Nenhuma faixa recente encontrada para o usuário do Last.fm* `{lastfmUser}`*.*",
   "lastFmListeningNow": "Ouvindo agora",
   "lastFmUserSet": "*Seu nome de usuário do Last.fm foi definido como:* `{lastUser}`.",
