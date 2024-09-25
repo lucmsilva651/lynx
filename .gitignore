@@ -5,3 +5,4 @@ node_modules
 __pycache__
 !requirements.txt
 props/config.json
+props/lastfm.json
