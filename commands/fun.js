@@ -83,8 +83,8 @@ module.exports = (bot) => {
   });
 
   bot.command('idice', spamwatchMiddleware, async (ctx) => {
-    const stickerId = "CAACAgQAAxkBAAJxjWbSSP-8ZNEhEpAJjQsHsGf-UuEPAAJCAAPI-uwTAAEBVWWh4ucINQQ";
-    ctx.replyWithSticker(stickerId, {
+    ctx.replyWithSticker(
+      resources.infiniteDice, {
       reply_to_message_id: ctx.message.message_id
     });
   });
@@ -99,6 +99,7 @@ module.exports = (bot) => {
 
   bot.command('soggy', spamwatchMiddleware, async (ctx) => {
     const userInput = ctx.message.text.split(' ')[1];
+    
     switch (true) {
       case (userInput === "2" || userInput === "thumb"):
         ctx.replyWithPhoto(
@@ -110,8 +111,8 @@ module.exports = (bot) => {
         break;
 
       case (userInput === "3" || userInput === "sticker"):
-        const stickerId = "CAACAgEAAxkBAAJ9SWb0vY0Xgg4RtNQeU5iLOx3iTVRAAAKgAwACN-NRRFf8v9p0Nz1INgQ"
-        ctx.replyWithSticker(stickerId, {
+        ctx.replyWithSticker(
+          resources.soggyCatSticker, {
           reply_to_message_id: ctx.message.message_id
         });
         break;
