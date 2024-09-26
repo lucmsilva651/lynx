@@ -14,7 +14,7 @@ function sendRandomReply(ctx, gifUrl, textKey, notTextKey) {
       reply_to_message_id: ctx.message.message_id
     }).catch(err => {
       gifErr = gifErr.replace('{err}', err);
-      
+
       ctx.reply(Strings.gifErr, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id
@@ -31,7 +31,7 @@ function sendRandomReply(ctx, gifUrl, textKey, notTextKey) {
 
 async function handleDiceCommand(ctx, emoji, delay) {
   const Strings = getStrings(ctx.from.language_code);
-  
+
   const result = await ctx.sendDice({ emoji, reply_to_message_id: ctx.message.message_id });
   const botResponse = Strings.funEmojiResult
     .replace('{emoji}', result.dice.emoji)
@@ -57,10 +57,9 @@ module.exports = (bot) => {
 
     ctx.reply(
       randomVStr, {
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id
-      }
-    );
+      parse_mode: 'Markdown',
+      reply_to_message_id: ctx.message.message_id
+    });
   });
 
   bot.command('dice', spamwatchMiddleware, async (ctx) => {
@@ -96,5 +95,35 @@ module.exports = (bot) => {
 
   bot.command('gay', spamwatchMiddleware, async (ctx) => {
     sendRandomReply(ctx, resources.gayFlag, 'isGay', 'isNtGay');
+  });
+
+  bot.command('soggy', spamwatchMiddleware, async (ctx) => {
+    const userInput = ctx.message.text.split(' ')[1];
+    switch (true) {
+      case (userInput === "2" || userInput === "thumb"):
+        ctx.replyWithPhoto(
+          resources.soggyCat2, {
+          caption: resources.soggyCat2,
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+        break;
+
+      case (userInput === "3" || userInput === "sticker"):
+        const stickerId = "CAACAgEAAxkBAAJ9SWb0vY0Xgg4RtNQeU5iLOx3iTVRAAAKgAwACN-NRRFf8v9p0Nz1INgQ"
+        ctx.replyWithSticker(stickerId, {
+          reply_to_message_id: ctx.message.message_id
+        });
+        break;
+
+      default:
+        ctx.replyWithPhoto(
+          resources.soggyCat, {
+          caption: resources.soggyCat,
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+        break;
+    };
   });
 };

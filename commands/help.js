@@ -32,6 +32,7 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     const options = {
       parse_mode: 'Markdown',
+      disable_web_page_preview: true,
       reply_markup: JSON.stringify({
         inline_keyboard: [
           [{ text: Strings.goBack, callback_data: '6' }],

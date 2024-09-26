@@ -52,7 +52,7 @@
   "usefulCommands": "Comandos úteis",
   "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /weather | /clima `<cidade>`: Veja o status do clima para uma localização específica\n- /modarchive | /tma `<id do módulo>`: Baixa um módulo do The Mod Archive",
   "funnyCommands": "Comandos engraçados",
-  "funnyCommandsDesc": "*Comandos engraçados*\n\n- /gay: Verifique se você é gay\n- /furry: Verifique se você é furry\n- /random: Escolhe um número aleatório entre 0-10",
+  "funnyCommandsDesc": "*Comandos engraçados*\n\n- /gay: Verifique se você é gay\n- /furry: Verifique se você é furry\n- /random: Escolhe um número aleatório entre 0-10\n- /soggy `<1 | 2 | 3 | orig | thumb | sticker>`: Envia o meme [Soggy cat](https://knowyourmeme.com/memes/soggy-cat)",
   "interactiveEmojis": "Emojis interativos",
   "interactiveEmojisDesc": "*Emojis interativos*\n\n- /dice: Jogue um dado\n- /idice: Role infinitamente um dado colorido\n- /slot: Tente combinar as figuras!\n- /ball: Tente chutar a bola no gol!\n- /bowling: Tente derrubar os pinos!\n- /dart: Tente acertar o alvo!",
   "goBack": "Voltar",
