@@ -9,8 +9,6 @@ const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(is
 
 const axios = require('axios');
 const { parse } = require('node-html-parser');
-const { Markup } = require('telegraf');
-const { inlineKeyboard } = require('telegraf/markup');
 
 class PhoneSearchResult {
   constructor(name, url) {
