@@ -117,6 +117,15 @@ module.exports = (bot) => {
         });
         break;
 
+      case (userInput === "4" || userInput === "alt"):
+        ctx.replyWithPhoto(
+          resources.soggyCatAlt, {
+          caption: resources.soggyCatAlt,
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+        break;
+
       default:
         ctx.replyWithPhoto(
           resources.soggyCat, {
