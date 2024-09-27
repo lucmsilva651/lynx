@@ -57,5 +57,7 @@
   "interactiveEmojisDesc": "*Emojis interativos*\n\n- /dice: Jogue um dado\n- /idice: Role infinitamente um dado colorido\n- /slot: Tente combinar as figuras!\n- /ball: Tente chutar a bola no gol!\n- /bowling: Tente derrubar os pinos!\n- /dart: Tente acertar o alvo!",
   "goBack": "Voltar",
   "maInvalidModule": "Por favor, forneça um ID de módulo válido do The Mod Archive.\nExemplo: `/modarchive 81574`",
-  "maDownloadError": "Erro ao baixar o arquivo. Verifique o ID do módulo e tente novamente."
+  "maDownloadError": "Erro ao baixar o arquivo. Verifique o ID do módulo e tente novamente.",
+  "downloading": "Fazendo download...",
+  "uploading": "Fazendo upload. Por favor, aguarde um momento..."
 }

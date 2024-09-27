@@ -1,5 +1,6 @@
 var exec = require('child_process').exec;
 const fs = require('fs');
+const { getStrings } = require('../plugins/checklang');
 
 async function DownloadFromYoutube(command) {
     return new Promise((resolve, reject) => {
@@ -16,19 +17,17 @@ async function DownloadFromYoutube(command) {
 
 module.exports = (bot) => {
     bot.command('yt', async (ctx) => {
+        const Strings = getStrings(ctx.from.language_code);
         const args = ctx.message.text.split(' ').slice(1).join(' ');
         const ytCommand = 'yt-dlp ' + args + ' -o video.mp4';
+        ctx.reply(Strings.downloading);
         await DownloadFromYoutube(ytCommand);
         try {
+            ctx.reply(Strings.uploading);
             await ctx.replyWithVideo({ source: 'video.mp4' });
         } catch (error) {
-            console.log(error);
+            ctx.reply('Error!')
         }
-        try {
-            fs.unlinkSync('video.mp4');
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    )
+        fs.unlinkSync('video.mp4');
+    })
 }

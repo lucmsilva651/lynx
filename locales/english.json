@@ -57,5 +57,7 @@
   "interactiveEmojisDesc": "*Interactive emojis*\n\n- /dice: Roll a dice\n- /idice: Infinitely roll a colored dice\n- /slot: Try to combine the figures!\n- /ball: Try to kick the ball into the goal!\n- /bowling: Try to hit the pins!\n- /dart: Try to hit the target!",
   "goBack": "Back",
   "maInvalidModule": "Please provide a valid module ID from The Mod Archive.\nExample: `/modarchive 81574`",
-  "maDownloadError": "Error downloading the file. Check the module ID and try again."
+  "maDownloadError": "Error downloading the file. Check the module ID and try again.",
+  "downloading": "Downloading...",
+  "uploading": "Uploading. Please, hold on..."
 }
