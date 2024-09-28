@@ -130,6 +130,10 @@ module.exports = (bot) => {
           }
         });
         num_plays = response_plays.data.track.userplaycount;
+
+        if (!num_plays || num_plays === undefined) {
+          num_plays = 0;
+        };
       } catch (err) {
         console.log(err)
         const message = Strings.lastFmErr
