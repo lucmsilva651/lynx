@@ -58,6 +58,8 @@
   "goBack": "Back",
   "maInvalidModule": "Please provide a valid module ID from The Mod Archive.\nExample: `/modarchive 81574`",
   "maDownloadError": "Error downloading the file. Check the module ID and try again.",
-  "downloading": "Downloading...",
-  "uploading": "Uploading. Please, hold on..."
+  "ytDownloading": "*Downloading video...*",
+  "ytUploading": "*Uploading video...*",
+  "ytUploadDesc": "*[{userName}](tg://user?id={userId}), there is your downloaded video.*",
+  "ytDownloadErr": "*Error during YT video download:*\n\n`{err}`"
 }

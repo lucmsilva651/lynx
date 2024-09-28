@@ -58,6 +58,8 @@
   "goBack": "Voltar",
   "maInvalidModule": "Por favor, forneça um ID de módulo válido do The Mod Archive.\nExemplo: `/modarchive 81574`",
   "maDownloadError": "Erro ao baixar o arquivo. Verifique o ID do módulo e tente novamente.",
-  "downloading": "Fazendo download...",
-  "uploading": "Fazendo upload. Por favor, aguarde um momento..."
+  "ytDownloading": "*Baixando vídeo...*",
+  "ytUploading": "*Enviando video...*",
+  "ytUploadDesc": "*[{userName}](tg://user?id={userId}), aqui está o seu vídeo baixado.*",
+  "ytDownloadErr": "*Erro durante o download do vídeo do YT:*\n\n`{err}`"
 }

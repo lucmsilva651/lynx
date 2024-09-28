@@ -6,3 +6,5 @@ __pycache__
 props
 !props/resources.json
 *.mp4
+plugins/yt-dlp
+tmp
