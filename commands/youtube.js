@@ -60,30 +60,51 @@ module.exports = (bot) => {
       });
 
       if (fs.existsSync(mp4File)) {
-        const userId = parseInt(ctx.match[2]);
-        const userName = ctx.from.first_name;
         const message = strings.ytUploadDesc
           .replace("{userId}", userId)
-          .replace("{userName}", userName);
+          .replace("{userName}", ctx.from.first_name);
 
-        await ctx.replyWithVideo({
-          source: mp4File,
-          caption: `${message}`,
-          parse_mode: 'Markdown'
+        fs.stat(mp4File, async (err, stats) => {
+          if (err) {
+            console.error(err);
+            return;
+          };
+
+          const mbSize = stats.size / (1024 * 1024);
+
+          if (mbSize > 50) {
+            await ctx.reply(strings.ytUploadLimit, {
+              parse_mode: 'Markdown',
+              reply_to_message_id: ctx.message.message_id,
+            });
+
+            fs.unlinkSync(mp4File);
+          } else {
+            try {
+              await ctx.replyWithVideo({
+                source: mp4File,
+                caption: `${message}`,
+                parse_mode: 'Markdown',
+              });
+            } catch (error) {
+              await ctx.reply(`\`${error}\``, {
+                parse_mode: 'Markdown',
+                reply_to_message_id: ctx.message.message_id,
+              });
+            };
+          };
         });
-
-        fs.unlinkSync(mp4File);
-      }
-    } catch (error) {
+      };
+    } catch (downloadError) {
       fs.unlinkSync(mp4File);
       const message = strings.ytDownloadErr
         .replace("{err}", error)
         .replace("{userName}", ctx.from.first_name);
 
-      ctx.reply(message, {
+      await ctx.reply(message, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id,
       });
     }
   });
-};  
+};

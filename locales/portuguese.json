@@ -61,5 +61,6 @@
   "ytDownloading": "*Baixando vídeo...*",
   "ytUploading": "*Enviando video...*",
   "ytUploadDesc": "*[{userName}](tg://user?id={userId}), aqui está o seu vídeo baixado.*",
-  "ytDownloadErr": "*Erro durante o download do vídeo do YT:*\n\n`{err}`"
+  "ytDownloadErr": "*Erro durante o download do vídeo do YT:*\n\n`{err}`",
+  "ytUploadLimit": "*Você atingiu o limite de upload de 50MB para o bot. Tente outro vídeo. Estamos tentando o máximo para aumentar o limite.*"
 }
