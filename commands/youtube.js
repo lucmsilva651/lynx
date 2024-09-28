@@ -1,7 +1,7 @@
 const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -17,9 +17,9 @@ function getYtDlpPath() {
   return ytDlpPaths[platform] || ytDlpPaths.linux;
 };
 
-async function downloadFromYoutube(command) {
+async function downloadFromYoutube(command, args) {
   return new Promise((resolve, reject) => {
-    exec(command, (error, stdout, stderr) => {
+    execFile(command, args, (error, stdout, stderr) => {
       if (error) {
         reject({ error, stdout, stderr });
       } else {
@@ -39,7 +39,8 @@ module.exports = (bot) => {
     const mp4File = `tmp/${userId}.mp4`;
     const cmdArgs = "--max-filesize 2G --no-playlist --merge-output-format mp4 -o";
     const videoFormat = "-f bestvideo+bestaudio";
-    const dlpCommand = `${ytDlpPath} ${videoUrl} ${videoFormat} ${cmdArgs} ${mp4File}`;
+    const dlpCommand = ytDlpPath;
+    const dlpArgs = [videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File];
 
     const downloadingMessage = await ctx.reply(strings.ytDownloading, {
       parse_mode: 'Markdown',
@@ -47,7 +48,7 @@ module.exports = (bot) => {
     });
 
     try {
-      await downloadFromYoutube(dlpCommand);
+      await downloadFromYoutube(dlpCommand, dlpArgs);
 
       await ctx.telegram.editMessageText(
         ctx.chat.id,
