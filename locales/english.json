@@ -62,5 +62,8 @@
   "ytUploading": "*Uploading video...*",
   "ytUploadDesc": "*[{userName}](tg://user?id={userId}), there is your downloaded video.*",
   "ytDownloadErr": "*Error during YT video download:*\n\n`{err}`",
-  "ytUploadLimit": "*You have reached the 50MB upload limit for the bot. Try another video. We're trying our best to increase the limit.*"
+  "ytUploadLimit": "*You have reached the 50MB upload limit for the bot. Try another video. We're trying our best to increase the limit.*",
+  "fileError": "Error uploading file",
+  "botUpdated": "Bot updated with success.",
+  "errorUpdatingBot": "Error updating bot\n\n{error}"
 }

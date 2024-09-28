@@ -17,6 +17,18 @@ function getGitCommitHash() {
   });
 }
 
+function updateBot() {
+  return new Promise((resolve, reject) => {
+    exec('git pull', (error, stdout, stderr) => {
+      if (error) {
+        reject(`Error: ${stderr}`);
+      } else {
+        resolve(stdout.trim());
+      }
+    });
+  });
+}
+
 function formatUptime(uptime) {
   const hours = Math.floor(uptime / 3600);
   const minutes = Math.floor((uptime % 3600) / 60);
@@ -91,12 +103,30 @@ module.exports = (bot) => {
     }, '', Strings.errorRetrievingCommit);
   });
 
+  bot.command('updatebot', spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
+    handleAdminCommand(ctx, async () => {
+      try {
+        await ctx.reply(Strings.botUpdated, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+        updateBot();
+      } catch (error) {
+        ctx.reply(Strings.errorUpdatingBot.replace('{error}', error), {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      }
+    }, '', Strings.errorUpdatingBot);
+  });
+
   bot.command('setbotname', spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const botName = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
       await ctx.telegram.setMyName(botName);
-    }, Strings.botNameChanged.replace('{botName}', botName), Strings.botNameErr.replace('{tgErr}', '{error}'));
+    }, Strings.botNameChanged.replace('{botName}', botName), Strings.botNameErr.replace('{error}', '{error}'));
   });
 
   bot.command('setbotdesc', spamwatchMiddleware, async (ctx) => {
@@ -104,7 +134,7 @@ module.exports = (bot) => {
     const botDesc = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
       await ctx.telegram.setMyDescription(botDesc);
-    }, Strings.botDescChanged.replace('{botDesc}', botDesc), Strings.botDescErr.replace('{tgErr}', '{error}'));
+    }, Strings.botDescChanged.replace('{botDesc}', botDesc), Strings.botDescErr.replace('{error}', '{error}'));
   });
 
   bot.command('botkickme', spamwatchMiddleware, async (ctx) => {
@@ -119,13 +149,20 @@ module.exports = (bot) => {
   });
 
   bot.command('getfile', spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
     const botFile = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
-      try{
-          await ctx.replyWithDocument({source: botFile});
-      }catch (error){
-        console.log('ERROR');
+      try {
+        await ctx.replyWithDocument({
+          source: botFile,
+          caption: botFile
+        });
+      } catch (error) {
+        ctx.reply(Strings.fileError.replace('{error}', error.message), {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
       }
-    });
+    }, '', Strings.fileError);
   });
 };
