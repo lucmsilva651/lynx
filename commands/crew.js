@@ -107,11 +107,11 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     handleAdminCommand(ctx, async () => {
       try {
-        await ctx.reply(Strings.botUpdated, {
+        const updateMessage = await updateBot();
+        await ctx.reply(Strings.botUpdated.replace('{updateMessage}', updateMessage), {
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
-        updateBot();
       } catch (error) {
         ctx.reply(Strings.errorUpdatingBot.replace('{error}', error), {
           parse_mode: 'Markdown',
