@@ -4,6 +4,7 @@ const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 const os = require('os');
 const { exec } = require('child_process');
+const { error } = require('console');
 
 function getGitCommitHash() {
   return new Promise((resolve, reject) => {
@@ -126,7 +127,7 @@ module.exports = (bot) => {
     const botName = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
       await ctx.telegram.setMyName(botName);
-    }, Strings.botNameChanged.replace('{botName}', botName), Strings.botNameErr.replace('{error}', '{error}'));
+    }, Strings.botNameChanged.replace('{botName}', botName), Strings.botNameErr.replace('{error}', error));
   });
 
   bot.command('setbotdesc', spamwatchMiddleware, async (ctx) => {
@@ -134,7 +135,7 @@ module.exports = (bot) => {
     const botDesc = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
       await ctx.telegram.setMyDescription(botDesc);
-    }, Strings.botDescChanged.replace('{botDesc}', botDesc), Strings.botDescErr.replace('{error}', '{error}'));
+    }, Strings.botDescChanged.replace('{botDesc}', botDesc), Strings.botDescErr.replace('{error}', error));
   });
 
   bot.command('botkickme', spamwatchMiddleware, async (ctx) => {
