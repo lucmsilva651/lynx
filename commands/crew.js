@@ -194,4 +194,10 @@ module.exports = (bot) => {
       });
     }, '', "Nope!");
   });
+
+  bot.command('crash', (ctx) => {
+    handleAdminCommand(ctx, async () => {
+      throw new Error('This is a forced crash!');
+    }, '', "Nope!");
+  });
 };
