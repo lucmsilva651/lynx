@@ -63,6 +63,7 @@
   "ytUploadDesc": "*[{userName}](tg://user?id={userId}), aqui está o seu vídeo baixado.*",
   "ytDownloadErr": "*Erro durante o download do vídeo do YT:*\n\n`{err}`",
   "ytUploadLimit": "*Este vídeo excede o limite de carregamento de 50 MB imposto pelo Telegram ao nosso bot. Por favor, tente outro vídeo. Estamos fazendo o possível para aumentar esse limite.*",
+  "ytUploadLimit2": "*Esse vídeo teve a qualidade reduzida por estar excedendo o limite de 50MB para uploads imposto pelo Telegram.*",
   "fileError": "Erro ao enviar o arquivo",
   "botUpdated": "Bot atualizado com sucesso.",
   "errorUpdatingBot": "Erro ao atualizar o bot\n\n{error}"
