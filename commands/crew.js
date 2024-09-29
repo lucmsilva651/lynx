@@ -165,4 +165,32 @@ module.exports = (bot) => {
       }
     }, '', Strings.fileError);
   });
+
+  bot.command('run', (ctx) => {
+    const command = ctx.message.text.split(' ').slice(1).join(' ');
+    handleAdminCommand(ctx, async () => {
+      if (!command) {
+        return ctx.reply('Por favor, forneça um comando para executar.');
+      }
+
+      exec(command, (error, stdout, stderr) => {
+        if (error) {
+          return ctx.reply(`\`${error.message}\``, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          });
+        }
+        if (stderr) {
+          return ctx.reply(`\`${stderr}\``, {
+            parse_mode: 'Markdown',
+            reply_to_message_id: ctx.message.message_id
+          });
+        }
+        ctx.reply(`\`${stdout}\``, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      });
+    }, '', "Nope!");
+  });
 };
