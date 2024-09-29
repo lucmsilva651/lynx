@@ -107,8 +107,8 @@ module.exports = (bot) => {
     const Strings = getStrings(ctx.from.language_code);
     handleAdminCommand(ctx, async () => {
       try {
-        const updateMessage = await updateBot();
-        await ctx.reply(Strings.botUpdated.replace('{updateMessage}', updateMessage), {
+        const result = await updateBot();
+        await ctx.reply(Strings.botUpdated.replace('{result}', result), {
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
