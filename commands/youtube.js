@@ -29,8 +29,29 @@ async function downloadFromYoutube(command, args) {
   });
 };
 
+async function getApproxSize(command, videoUrl) {
+  const args = [videoUrl, '--compat-opt', 'manifest-filesize-approx', '-O', 'filesize_approx'];
+
+  return new Promise((resolve, reject) => {
+    execFile(command, args, (error, stdout, stderr) => {
+      if (error) {
+        reject({ error, stdout, stderr });
+      } else {
+        const sizeInBytes = parseInt(stdout.trim(), 10);
+
+        if (!isNaN(sizeInBytes)) {
+          const sizeInMB = sizeInBytes / (1024 * 1024);
+          resolve(sizeInMB);
+        } else {
+          reject(new Error('Invalid size received from yt-dlp'));
+        }
+      }
+    });
+  });
+};
+
 module.exports = (bot) => {
-  bot.command('yt', spamwatchMiddleware, async (ctx) => {
+  bot.command(['yt', 'ytdl'], spamwatchMiddleware, async (ctx) => {
     const strings = getStrings(ctx.from.language_code);
     const ytDlpPath = getYtDlpPath();
     const userId = ctx.from.id;
@@ -48,57 +69,52 @@ module.exports = (bot) => {
     });
 
     try {
-      await downloadFromYoutube(dlpCommand, dlpArgs);
+      const approxSizeInMB = await getApproxSize(ytDlpPath, videoUrl);
 
-      await ctx.telegram.editMessageText(
-        ctx.chat.id,
-        downloadingMessage.message_id,
-        null,
-        strings.ytUploading, {
-        parse_mode: 'Markdown',
-        reply_to_message_id: ctx.message.message_id,
-      });
+      if (approxSizeInMB >= 50) {
+        await ctx.telegram.editMessageText(
+          ctx.chat.id,
+          downloadingMessage.message_id,
+          null,
+          strings.ytUploadLimit, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id,
+        });
+      } else {
+        await downloadFromYoutube(dlpCommand, dlpArgs);
 
-      if (fs.existsSync(mp4File)) {
-        const message = strings.ytUploadDesc
-          .replace("{userId}", userId)
-          .replace("{userName}", ctx.from.first_name);
+        await ctx.telegram.editMessageText(
+          ctx.chat.id,
+          downloadingMessage.message_id,
+          null,
+          strings.ytUploading, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id,
+        });
 
-        fs.stat(mp4File, async (err, stats) => {
-          if (err) {
-            console.error(err);
-            return;
-          };
+        if (fs.existsSync(mp4File)) {
+          const message = strings.ytUploadDesc
+            .replace("{userId}", userId)
+            .replace("{userName}", ctx.from.first_name);
 
-          const mbSize = stats.size / (1024 * 1024);
-
-          if (mbSize > 50) {
-            await ctx.reply(strings.ytUploadLimit, {
+          try {
+            await ctx.replyWithVideo({
+              source: mp4File,
+              caption: `${message}`,
+              parse_mode: 'Markdown',
+            });
+          } catch (error) {
+            await ctx.reply(`\`${error}\``, {
               parse_mode: 'Markdown',
               reply_to_message_id: ctx.message.message_id,
             });
-
-            fs.unlinkSync(mp4File);
-          } else {
-            try {
-              await ctx.replyWithVideo({
-                source: mp4File,
-                caption: `${message}`,
-                parse_mode: 'Markdown',
-              });
-            } catch (error) {
-              await ctx.reply(`\`${error}\``, {
-                parse_mode: 'Markdown',
-                reply_to_message_id: ctx.message.message_id,
-              });
-            };
-          };
-        });
-      };
+          }
+        }
+      }
     } catch (downloadError) {
       fs.unlinkSync(mp4File);
       const message = strings.ytDownloadErr
-        .replace("{err}", error)
+        .replace("{err}", downloadError.error ? downloadError.error.message : 'Unknown error')
         .replace("{userName}", ctx.from.first_name);
 
       await ctx.reply(message, {
