@@ -115,6 +115,8 @@ module.exports = (bot) => {
             parse_mode: 'Markdown',
             reply_to_message_id: ctx.message.message_id,
           });
+
+          fs.unlinkSync(mp4File);
         }
       }
     } catch (error) {
@@ -126,7 +128,7 @@ module.exports = (bot) => {
       } else {
         errStatus = error.error ? error.error.message : 'Unknown error';
       }
-      
+
       const message = strings.ytDownloadErr
         .replace("{err}", errStatus)
         .replace("{userName}", ctx.from.first_name);

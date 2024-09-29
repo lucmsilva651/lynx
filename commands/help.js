@@ -10,7 +10,7 @@ async function sendHelpMessage(ctx, isEditing) {
       inline_keyboard: [
         [{ text: Strings.mainCommands, callback_data: '1' }, { text: Strings.usefulCommands, callback_data: '2' }],
         [{ text: Strings.interactiveEmojis, callback_data: '3' }, { text: Strings.funnyCommands, callback_data: '4' }],
-        [{ text: Strings.lastFm, callback_data: '5' }]
+        [{ text: Strings.lastFm, callback_data: '5' }, { text: Strings.ytDlp, callback_data: '6' }]
       ]
     }
   };
@@ -35,7 +35,7 @@ module.exports = (bot) => {
       disable_web_page_preview: true,
       reply_markup: JSON.stringify({
         inline_keyboard: [
-          [{ text: Strings.goBack, callback_data: '6' }],
+          [{ text: Strings.goBack, callback_data: '7' }],
         ]
       })
     };
@@ -62,6 +62,10 @@ module.exports = (bot) => {
         await ctx.editMessageText(Strings.lastFmDesc, options);
         break;
       case '6':
+        await ctx.answerCbQuery();
+        await ctx.editMessageText(Strings.ytDlpDesc, options);
+        break;
+      case '7':
         await ctx.answerCbQuery();
         await sendHelpMessage(ctx, true);
         break;
