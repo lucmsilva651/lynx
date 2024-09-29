@@ -7,14 +7,16 @@ const fs = require('fs');
 const path = require('path');
 
 const ytDlpPaths = {
-  linux: path.resolve(__dirname, '../plugins/yt-dlp/yt-dlp'),
   win32: path.resolve(__dirname, '../plugins/yt-dlp/yt-dlp.exe'),
   darwin: path.resolve(__dirname, '../plugins/yt-dlp/yt-dlp_macos'),
 };
 
 function getYtDlpPath() {
   const platform = os.platform();
-  return ytDlpPaths[platform] || ytDlpPaths.linux;
+  if (platform === 'linux') {
+    return 'yt-dlp';
+  }l
+  return ytDlpPaths[platform] || 'yt-dlp';
 };
 
 async function downloadFromYoutube(command, args) {
