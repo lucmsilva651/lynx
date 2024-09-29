@@ -12,6 +12,7 @@ Lynx is a a simple Telegram bot made in Node.js.
  - Python 3 (or above, for use with SpamWatch API)
  - Python dependencies: use ``pip install -r requirements.txt``
  - Node.js dependencies: use ``npm install .``
+ - FFmpeg
 
 ## Run it yourself, develop or contribute with Lynx
 First, clone the repo with Git:
