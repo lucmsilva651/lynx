@@ -124,7 +124,7 @@ function formatPhone(phone) {
 
 async function fetchHtml(url) {
   try {
-    const response = await axios.get(`https://cors-bypass.amano.workers.dev/${url}`, { headers: HEADERS });
+    const response = await axios.get(url, { headers: HEADERS });
     return response.data;
   } catch (error) {
     console.error("Error fetching HTML:", error);
