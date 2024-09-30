@@ -60,7 +60,7 @@ module.exports = (bot) => {
     const videoUrl = ctx.message.text.split(' ').slice(1).join(' ');
 
     const mp4File = `tmp/${userId}.mp4`;
-    const cmdArgs = "--max-filesize 2G --no-playlist --merge-output-format mp4 -o";
+    const cmdArgs = "--max-filesize 2G --no-playlist --cookies props/cookies.txt --merge-output-format mp4 -o";
     const dlpCommand = ytDlpPath;
 
     try {
