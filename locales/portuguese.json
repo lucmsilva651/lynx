@@ -61,6 +61,8 @@
   "maInvalidModule": "Por favor, forneça um ID de módulo válido do The Mod Archive.\nExemplo: `/modarchive 81574`",
   "maDownloadError": "Erro ao baixar o arquivo. Verifique o ID do módulo e tente novamente.",
   "ytDownloading": "*Baixando vídeo...*",
+  "ytCheckingSize": "Verificando se o vídeo excede o limite de 50 MB...",
+  "ytFileErr": "*Parece que o executável do yt-dlp não existe no nosso servidor...\n\nNesse caso, o problema está no nosso lado! Aguarde até que tenhamos notado e resolvido o problema.*",
   "ytUploading": "*Enviando video...*",
   "ytUploadDesc": "*[{userName}](tg://user?id={userId}), aqui está o seu vídeo baixado.*",
   "ytDownloadErr": "*Erro durante o download do vídeo do YT:*\n\n`{err}`",

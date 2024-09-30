@@ -61,6 +61,8 @@
   "maInvalidModule": "Please provide a valid module ID from The Mod Archive.\nExample: `/modarchive 81574`",
   "maDownloadError": "Error downloading the file. Check the module ID and try again.",
   "ytDownloading": "*Downloading video...*",
+  "ytFileErr": "*It seems that the yt-dlp executable does not exist on our server...\n\nIn that case, the problem is on our end! Please wait until we have noticed and solved the problem.*",
+  "ytCheckingSize": "*Checking if the video exceeds the 50MB limit...*",
   "ytUploading": "*Uploading video...*",
   "ytUploadDesc": "*[{userName}](tg://user?id={userId}), there is your downloaded video.*",
   "ytDownloadErr": "*Error during YT video download:*\n\n`{err}`",
