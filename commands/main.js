@@ -11,8 +11,7 @@ module.exports = (bot) => {
       caption: Strings.lynxWelcome,
       parse_mode: 'Markdown',
       reply_to_message_id: ctx.message.message_id
-    }
-    );
+    });
   });
 
   bot.command('privacy', spamwatchMiddleware, async (ctx) => {
@@ -22,7 +21,6 @@ module.exports = (bot) => {
       parse_mode: 'Markdown',
       disable_web_page_preview: true,
       reply_to_message_id: ctx.message.message_id
-    }
-    );
+    });
   });
 };
