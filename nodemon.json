@@ -1,3 +1,9 @@
-{   
-  "ignore": ["props", "tmp"] 
+{
+  "ignore": [
+    "props",
+    "tmp"
+  ],
+  "watch": [
+    "restart.txt"
+  ]
 }
