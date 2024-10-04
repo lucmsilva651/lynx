@@ -4,7 +4,7 @@ const fs = require('fs');
 const Config = require('./props/config.json');
 const { isOnSpamWatch } = require('./plugins/lib-spamwatch/spamwatch.js');
 require('./plugins/ytdlp-wrapper.js');
-// require('./plugins/termlogger.js');
+require('./plugins/termlogger.js');
 
 const bot = new Telegraf(Config.botToken);
 const MAX_RETRIES = 5;
