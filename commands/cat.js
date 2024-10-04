@@ -3,8 +3,8 @@ const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 module.exports = (bot) => {
-  const Strings = getStrings(ctx.from.language_code);
   bot.command("cat", spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
     const userInput = ctx.message.text.split(' ').slice(1).join(' ').replace(/\s+/g, '');
     let request = "";
 
