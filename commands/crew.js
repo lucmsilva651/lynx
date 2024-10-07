@@ -20,7 +20,7 @@ function getGitCommitHash() {
 
 function updateBot() {
   return new Promise((resolve, reject) => {
-    exec('git pull', (error, stdout, stderr) => {
+    exec('git pull && echo "A" >> restart.txt', (error, stdout, stderr) => {
       if (error) {
         reject(`Error: ${stderr}`);
       } else {
