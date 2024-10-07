@@ -14,7 +14,7 @@ function mediaWikiToMarkdown(input) {
   input = input.replace(/^\#\s/gm, '1. ');
   input = input.replace(/{{Quote(.*?)}}/g, "```\n$1```\n");
   input = input.replace(/\[\[(.*?)\|?(.*?)\]\]/g, (_, link, text) => {
-    const sanitizedLink = link.replace(/ /g, '_'); // Substituir espaços por underscores
+    const sanitizedLink = link.replace(/ /g, '_');
     return text ? `[${text}](${sanitizedLink})` : `[${sanitizedLink}](${sanitizedLink})`;
   });
   input = input.replace(/\[\[File:(.*?)\|.*?\]\]/g, '![$1](https://en.wikipedia.org/wiki/File:$1)');
@@ -27,12 +27,10 @@ module.exports = (bot) => {
     const userInput = capitalizeFirstLetter(ctx.message.text.split(' ')[1]);
     const apiUrl = `https://en.wikipedia.org/w/index.php?title=${userInput}&action=raw`;
     const response = await axios(apiUrl, { headers: { 'Accept': "text/plain" } });
-    
-    // Limpa a resposta e remove a infobox
     const convertedResponse = response.data.replace(/<\/?div>/g, "").replace(/{{Infobox.*?}}/s, "");
-    
+
     const result = mediaWikiToMarkdown(convertedResponse).slice(0, 2048);
-    
+
     ctx.reply(result, { parse_mode: 'Markdown', disable_web_page_preview: true, reply_to_message_id: ctx.message.message_id });
   });
 };
