@@ -50,7 +50,7 @@
   "mainCommands": "Comandos principales",
   "mainCommandsDesc": "*Comandos principales*\n\n- /help: Muestra la ayuda del bot\n- /start: Inicia el bot\n- /privacy: Lee la política de privacidad del bot",
   "usefulCommands": "Comandos útiles",
-  "usefulCommandsDesc": "*Comandos útiles*\n\n- /chatinfo: Envía información sobre el grupo\n- /userinfo: Envía información sobre ti\n- /d | /device `<modelo>`: Busca un dispositivo en GSMArena y muestra sus especificaciones.\n- /weather | /clima `<ciudad>`: Ve el estado del clima para una ubicación específica\n- /modarchive | /tma `<id del módulo>`: Descarga un módulo del The Mod Archive.",
+  "usefulCommandsDesc": "*Comandos útiles*\n\n- /chatinfo: Envía información sobre el grupo\n- /userinfo: Envía información sobre ti\n- /d | /device `<modelo>`: Busca un dispositivo en GSMArena y muestra sus especificaciones.\n- /weather | /clima `<ciudad>`: Ve el estado del clima para una ubicación específica\n- /modarchive | /tma `<id del módulo>`: Descarga un módulo del The Mod Archive.\n- /wiki <página de la wiki> (WIP): Muestra contenido de una página de Wikipedia, convirtiendo algunas cosas a un formato más familiar en Telegram.",
   "funnyCommands": "Comandos graciosos",
   "funnyCommandsDesc": "*Comandos graciosos*\n\n- /gay: Verifica si eres gay\n- /furry: Verifica si eres furry\n- /random: Elige un número aleatorio entre 0-10\n- /soggy `<1 | 2 | 3 | 4 | orig | thumb | sticker | alt>`: Envía el meme [Soggy cat](https://knowyourmeme.com/memes/soggy-cat)\n- /cat `<tags>` - Envía una foto aleatoria de un gato. Puedes especificar algunas etiquetas en inglés, separando cada una por una coma. Ejemplo: `/cat orange, cute`",
   "interactiveEmojis": "Emojis interactivos",
