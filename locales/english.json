@@ -72,5 +72,7 @@
   "botUpdated": "Bot updated with success.\n\n```{result}```",
   "errorUpdatingBot": "Error updating bot\n\n{error}",
   "catImgErr": "Sorry, but I couldn't get the cat GIF you wanted.",
-  "catGifErr": "Sorry, but I couldn't get the cat photo you wanted."
+  "catGifErr": "Sorry, but I couldn't get the cat photo you wanted.",
+  "quoteResult": "Here is a random quote for you:",
+  "quoteErr": "Sorry, but something went wrong while displaying the quote."
 }
