@@ -197,7 +197,7 @@ module.exports = (bot) => {
 
   bot.command('crash', (ctx) => {
     handleAdminCommand(ctx, async () => {
-      throw new Error('This is a forced crash!');
+      ctx.reply(null);
     }, '', "Nope!");
   });
 };
