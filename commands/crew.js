@@ -167,7 +167,7 @@ module.exports = (bot) => {
     }, '', Strings.fileError);
   });
 
-  bot.command('run', (ctx) => {
+  bot.command('run', spamwatchMiddleware, async (ctx) => {
     const command = ctx.message.text.split(' ').slice(1).join(' ');
     handleAdminCommand(ctx, async () => {
       if (!command) {
@@ -195,7 +195,27 @@ module.exports = (bot) => {
     }, '', "Nope!");
   });
 
-  bot.command('crash', (ctx) => {
+  bot.command('eval', spamwatchMiddleware, async (ctx) => {
+    const code = ctx.message.text.split(' ').slice(1).join(' ');
+    if (!code) {
+      return ctx.reply('Por favor, forneça um código para avaliar.');
+    }
+
+    try {
+      const result = eval(code);
+      ctx.reply(`Result: ${result}`, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+    } catch (error) {
+      ctx.reply(`Error: ${error.message}`, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
+    }
+  });
+
+  bot.command('crash', spamwatchMiddleware, async (ctx) => {
     handleAdminCommand(ctx, async () => {
       ctx.reply(null);
     }, '', "Nope!");
