@@ -48,7 +48,7 @@
   "mainCommands": "Comandos principais",
   "mainCommandsDesc": "*Comandos principais*\n\n- /help: Exibe a ajuda do bot\n- /start: Inicia o bot\n- /privacy: Leia a política de privacidade do bot",
   "usefulCommands": "Comandos úteis",
-  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /weather | /clima `<cidade>`: Veja o status do clima para uma localização específica\n- /modarchive | /tma `<id do módulo>`: Baixa um módulo do The Mod Archive.\n- /wiki <página da wiki> (WIP): Exibe conteúdo de uma página da Wikipedia, convertendo algumas coisas para um formato mais familiar no Telegram.",
+  "usefulCommandsDesc": "*Comandos úteis*\n\n- /chatinfo: Envia informações sobre o grupo\n- /userinfo: Envia informações sobre você\n- /d | /device `<modelo>`: Pesquisa um dispositivo no GSMArena e mostra suas especificações.\n- /weather | /clima `<cidade>`: Veja o status do clima para uma localização específica\n- /modarchive | /tma `<id do módulo>`: Baixa um módulo do The Mod Archive.\n- /wiki `<página da wiki>` (WIP): Exibe conteúdo de uma página da Wikipedia, convertendo algumas coisas para um formato mais familiar no Telegram.\n- /http `<código HTTP>`: Envia detalhes sobre um código HTTP específico. Exemplo: `/http 404`",
   "funnyCommands": "Comandos engraçados",
   "funnyCommandsDesc": "*Comandos engraçados*\n\n- /gay: Verifique se você é gay\n- /furry: Verifique se você é furry\n- /random: Escolhe um número aleatório entre 0-10",
   "interactiveEmojis": "Emojis interativos",
@@ -77,5 +77,9 @@
   "catGifErr": "Desculpe, mas não consegui obter o GIF do gato que você queria.",
   "quoteResult": "Aqui está uma citação aleatória pra você (em inglês):",
   "quoteErr": "Desculpe, mas algo deu errado ao exibir a citação.",
-  "dogImgErr": "Desculpe, mas não consegui obter a foto do cacbhorro que você queria."
+  "dogImgErr": "Desculpe, mas não consegui obter a foto do cacbhorro que você queria.",
+  "httpCodeInvalid": "Por favor, insira um código HTTP válido.",
+  "httpCodeErr": "Ocorreu um erro ao buscar o código HTTP.",
+  "httpCodeNotFound": "Código HTTP não encontrado.",
+  "httpCodeResult": "*Código HTTP*: {code}\n*Descrição*: {description}"
 }
