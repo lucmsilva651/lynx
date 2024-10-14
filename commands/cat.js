@@ -24,6 +24,22 @@ module.exports = (bot) => {
           reply_to_message_id: ctx.message.message_id
         });
       };
+    } else if (userInput && userInput.includes("http")) {
+      request = `/${userInput.replace("http", "")}`;
+      const apiUrl = `https://http.cat${request}`;
+      
+      try {
+        await ctx.replyWithPhoto(apiUrl, {
+          caption: `🐱`,
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      } catch (error) {
+        ctx.reply(Strings.catImgErr, {
+          parse_mode: 'Markdown',
+          reply_to_message_id: ctx.message.message_id
+        });
+      };
     } else {
       request = userInput ? `/${userInput}` : '';
       const apiUrl = `https://cataas.com/cat${request}`;
