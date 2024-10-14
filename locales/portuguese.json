@@ -71,8 +71,8 @@
   "fileError": "Erro ao enviar o arquivo",
   "botUpdated": "Bot atualizado com sucesso.\n\n```{result}```",
   "errorUpdatingBot": "Erro ao atualizar o bot\n\n{error}",
-  "catImgErr": "Desculpe, mas não consegui obter o GIF do gato que você queria.",
-  "catGifErr": "Desculpe, mas não consegui obter a foto do gato que você queria.",
+  "catImgErr": "Desculpe, mas não consegui obter a foto do gato que você queria.",
+  "catGifErr": "Desculpe, mas não consegui obter o GIF do gato que você queria.",
   "quoteResult": "Aqui está uma citação aleatória pra você (em inglês):",
   "quoteErr": "Desculpe, mas algo deu errado ao exibir a citação."
 }

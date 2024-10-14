@@ -14,7 +14,7 @@ module.exports = (bot) => {
 
       try {
         await ctx.replyWithAnimation(apiUrl, {
-          caption: `🐱 ${apiUrl}`,
+          caption: `🐱`,
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
@@ -30,7 +30,7 @@ module.exports = (bot) => {
 
       try {
         await ctx.replyWithPhoto(apiUrl, {
-          caption: `🐱 ${apiUrl}`,
+          caption: `🐱`,
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
