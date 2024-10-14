@@ -74,5 +74,6 @@
   "catImgErr": "Sorry, but I couldn't get the cat photo you wanted.",
   "catGifErr": "Sorry, but I couldn't get the cat GIF you wanted.",
   "quoteResult": "Here is a random quote for you:",
-  "quoteErr": "Sorry, but something went wrong while displaying the quote."
+  "quoteErr": "Sorry, but something went wrong while displaying the quote.",
+  "dogImgErr": "Sorry, but I couldn't get the dog photo you wanted."
 }

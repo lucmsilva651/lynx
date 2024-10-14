@@ -74,5 +74,6 @@
   "catImgErr": "Desculpe, mas não consegui obter a foto do gato que você queria.",
   "catGifErr": "Desculpe, mas não consegui obter o GIF do gato que você queria.",
   "quoteResult": "Aqui está uma citação aleatória pra você (em inglês):",
-  "quoteErr": "Desculpe, mas algo deu errado ao exibir a citação."
+  "quoteErr": "Desculpe, mas algo deu errado ao exibir a citação.",
+  "dogImgErr": "Desculpe, mas não consegui obter a foto do cacbhorro que você queria."
 }
