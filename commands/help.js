@@ -8,9 +8,10 @@ async function sendHelpMessage(ctx, isEditing) {
     parse_mode: 'Markdown',
     reply_markup: {
       inline_keyboard: [
-        [{ text: Strings.mainCommands, callback_data: '1' }, { text: Strings.usefulCommands, callback_data: '2' }],
-        [{ text: Strings.interactiveEmojis, callback_data: '3' }, { text: Strings.funnyCommands, callback_data: '4' }],
-        [{ text: Strings.lastFm, callback_data: '5' }, { text: Strings.ytDlp, callback_data: '6' }]
+        [{ text: Strings.mainCommands, callback_data: 'helpMain' }, { text: Strings.usefulCommands, callback_data: 'helpUseful' }],
+        [{ text: Strings.interactiveEmojis, callback_data: 'helpInteractive' }, { text: Strings.funnyCommands, callback_data: 'helpFunny' }],
+        [{ text: Strings.lastFm, callback_data: 'helpLast' }, { text: Strings.animalCommands, callback_data: 'helpAnimals' }],
+        [{ text: Strings.ytDlp, callback_data: 'helpYouTube' }]
       ]
     }
   };
@@ -35,37 +36,41 @@ module.exports = (bot) => {
       disable_web_page_preview: true,
       reply_markup: JSON.stringify({
         inline_keyboard: [
-          [{ text: Strings.goBack, callback_data: '7' }],
+          [{ text: Strings.goBack, callback_data: 'helpBack' }],
         ]
       })
     };
 
     switch (callbackData) {
-      case '1':
+      case 'helpMain':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.mainCommandsDesc, options);
         break;
-      case '2':
+      case 'helpUseful':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.usefulCommandsDesc, options);
         break;
-      case '3':
+      case 'helpInteractive':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.interactiveEmojisDesc, options);
         break;
-      case '4':
+      case 'helpFunny':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.funnyCommandsDesc, options);
         break;
-      case '5':
+      case 'helpLast':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.lastFmDesc, options);
         break;
-      case '6':
+      case 'helpYouTube':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.ytDlpDesc, options);
         break;
-      case '7':
+      case 'helpAnimals':
+        await ctx.answerCbQuery();
+        await ctx.editMessageText(Strings.animalCommandsDesc, options);
+        break;
+      case 'helpBack':
         await ctx.answerCbQuery();
         await sendHelpMessage(ctx, true);
         break;
