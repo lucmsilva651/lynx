@@ -10,8 +10,8 @@ module.exports = (bot) => {
     try {
       const response = await axios.get('https://quotes-api-self.vercel.app/quote');
       const data = response.data;
-      const escapedQuote = data.quote.replace(/([_*~`>.!-])/g, '\\$1');
-      const escapedAuthor = `- ${data.author}.`.replace(/([_*~`>.!-])/g, '\\$1');
+      const escapedQuote = data.quote.replace(/([\\_*~`>.!-])/g, '\\$1');
+      const escapedAuthor = `- ${data.author}.`.replace(/([\\_*~`>.!-])/g, '\\$1');
       const escapedData = `${Strings.quoteResult}\n>*${escapedQuote}*\n_${escapedAuthor}_`;
 
       ctx.reply(escapedData, {
