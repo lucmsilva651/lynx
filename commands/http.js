@@ -25,6 +25,7 @@ module.exports = (bot) => {
       if (codeInfo) {
         const message = Strings.httpCodeResult
           .replace("{code}", codeInfo.code)
+          .replace("{message}", codeInfo.message)
           .replace("{description}", codeInfo.description);
         await ctx.reply(message, {
           parse_mode: 'Markdown',

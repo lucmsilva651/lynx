@@ -81,5 +81,5 @@
   "httpCodeInvalid": "Por favor, insira um código HTTP válido.",
   "httpCodeErr": "Ocorreu um erro ao buscar o código HTTP.",
   "httpCodeNotFound": "Código HTTP não encontrado.",
-  "httpCodeResult": "*Código HTTP*: {code}\n*Descrição*: {description}"
+  "httpCodeResult": "*Código HTTP*: `{code}`\n*Nome*: `{message}`\n*Descrição*: `{description}`"
 }
