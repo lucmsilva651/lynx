@@ -86,9 +86,8 @@ module.exports = (bot) => {
           },
         );
 
-        const ffmpegArgs = '&& which ffmpeg';
-
-        const dlpArgs = [videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File, ffmpegArgs];
+        const ffmpegLocation = '--ffmpeg-location /usr/bin/ffmpeg'
+        const dlpArgs = [ffmpegLocation, videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File];
         await downloadFromYoutube(dlpCommand, dlpArgs);
 
         await ctx.telegram.editMessageText(
