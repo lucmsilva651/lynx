@@ -1,6 +1,7 @@
 const { exec } = require('child_process');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const path = require('path');
+const fs = require('fs');
 const os = require('os');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 const { getStrings } = require('../plugins/checklang.js');
@@ -15,7 +16,7 @@ const ffmpegPaths = {
     return ffmpegPaths[platform] || ffmpegPaths.linux;
   };
 
-function getVideo(command) {
+async function getVideo(command) {
     return new Promise((resolve, reject) => {
         exec(command, (error, stdout, stderr) => {
             if (error) {
@@ -35,7 +36,7 @@ module.exports = (bot) => {
         const mp4File = userId + '.f137.mp4';
         const webmFile = userId + '.f251.webm';
         const ffmpegCommand = 'cd tmp && ' + ffmpegPath + ' -i ' + mp4File + ' -i ' + webmFile + ' -c:v copy -c:a copy -strict -2 output.mp4';
-        getVideo(ffmpegCommand);
+        await getVideo(ffmpegCommand);
         const message = strings.ytUploadDesc
               .replace("{userId}", userId)
               .replace("{userName}", ctx.from.first_name);
@@ -51,5 +52,7 @@ module.exports = (bot) => {
                 reply_to_message_id: ctx.message.message_id
             });
         }
+        // Delete tmp folder
+        fs.rmSync('tmp', { recursive: true, force: true })
     });
 }
