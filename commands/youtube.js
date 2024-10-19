@@ -99,8 +99,6 @@ module.exports = (bot) => {
           },
         );
 
-        if(fs.existsSync)
-
         if (fs.existsSync(mp4File)) {
           const message = strings.ytUploadDesc
             .replace("{userId}", userId)
