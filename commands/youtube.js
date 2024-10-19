@@ -71,8 +71,7 @@ module.exports = (bot) => {
 
       if (fs.existsSync(ytDlpPath)) {
         const approxSizeInMB = await Promise.race([
-          getApproxSize(ytDlpPath, videoUrl),
-          timeoutPromise(12000),
+          getApproxSize(ytDlpPath, videoUrl)
         ]);
 
         let videoFormat = approxSizeInMB >= 50 ? '-f best' : "-f bestvideo+bestaudio";
