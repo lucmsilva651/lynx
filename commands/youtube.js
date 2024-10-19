@@ -86,7 +86,9 @@ module.exports = (bot) => {
           },
         );
 
-        const dlpArgs = [videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File];
+        const ffmpegArgs = '&& which ffmpeg';
+
+        const dlpArgs = [videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File, ffmpegArgs];
         await downloadFromYoutube(dlpCommand, dlpArgs);
 
         await ctx.telegram.editMessageText(
@@ -98,6 +100,8 @@ module.exports = (bot) => {
             reply_to_message_id: ctx.message.message_id,
           },
         );
+
+        if(fs.existsSync)
 
         if (fs.existsSync(mp4File)) {
           const message = strings.ytUploadDesc
