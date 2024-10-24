@@ -90,7 +90,7 @@ module.exports = (bot) => {
     const userInput = ctx.message.text.split(' ').slice(1).join(' ');
 
     if (!userInput) {
-      ctx.reply(Strings.ponyApiNoEpisodeName, {
+      ctx.reply(Strings.ponyApiNoEpisodeNum, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id
       });
