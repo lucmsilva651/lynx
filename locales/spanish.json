@@ -59,6 +59,8 @@
   "lastFmDesc": "*Last.fm*\n\n- /lt | /lmu | /last | /lfm: Muestra la última canción de tu perfil en Last.fm + el número de reproducciones.\n- /setuser `<usuario>`: Define el usuario para el comando anterior.",
   "animalCommands": "Animales",
   "animalCommandsDesc": "*Animales*\n\n- /soggy `<1 | 2 | 3 | 4 | orig | thumb | sticker | alt>`: Envía el [meme del gato empapado](https://knowyourmeme.com/memes/soggy-cat)\n- /cat `<tags>` - Envía una foto aleatoria de un gato. Puedes especificar algunas tags en inglés, separando cada una por una coma. Ejemplo: `/cat orange, cute`\n- /dog - Envía una foto aleatoria de un perro.\n- /httpcat `<código http>`: Envía memes de gato de http.cat con tu código HTTP especificado. Ejemplo: `/httpcat 404`",
+  "myLittlePony": "My Little Pony",
+  "myLittlePonyDesc": "*My Little Pony*\n\n- /mlp: Muestra este mensaje de ayuda.\n- /mlpchar `<nombre del personaje>`: Muestra información específica sobre un personaje de My Little Pony en inglés. Ejemplo: `/mlpchar twilight`\n- /mlpep: Muestra información específica sobre un episodio de My Little Pony en inglés. Ejemplo: `/mlpep 136`",
   "goBack": "Volver",
   "maInvalidModule": "Por favor, proporciona un ID de módulo válido del The Mod Archive.\nEjemplo: `/modarchive 81574`",
   "maDownloadError": "Error al descargar el archivo. Verifica el ID del módulo e inténtalo de nuevo.",
@@ -81,5 +83,7 @@
   "httpCodeInvalid": "Por favor, ingrese un código HTTP válido.",
   "httpCodeErr": "Ocurrió un error al buscar el código HTTP.",
   "httpCodeNotFound": "Código HTTP no encontrado.",
-  "httpCodeResult": "*Código HTTP*: {code}\n*Nombre*: `{message}`\n*Descripción*: {description}"
+  "httpCodeResult": "*Código HTTP*: {code}\n*Nombre*: `{message}`\n*Descripción*: {description}",
+  "ponyApiCharRes": "*Información del Personaje MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*Alias:* `{alias}`\n*URL del Fandom:* [{url}]({url})\n*Sexo:* `{sex}`\n*Residencia:* `{residence}`\n*Ocupación:* `{occupation}`\n*Tipo:* `{kind}`",
+  "ponyApiEpRes": "*Información del Episodio MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*URL del Fandom:* [{url}]({url})\n*Temporada:* `{season}`\n*Episodio:* `{episode}`\n*Episodio General:* `{overall}`\n*Fecha de Lanzamiento:* `{airdate}`\n*Historia por:* `{storyby}`\n*Escrito por:* `{writtenby}`\n*Storyboard:* `{storyboard}`"
 }
