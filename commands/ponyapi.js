@@ -97,7 +97,7 @@ module.exports = (bot) => {
       return;
     };
     
-    const apiUrl = `http://ponyapi.net/v1/comics-story/${userInput}`;
+    const apiUrl = `http://ponyapi.net/v1/episode/by-overall/${userInput}`;
 
     try {
       const response = await axios(apiUrl);
