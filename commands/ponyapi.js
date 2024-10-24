@@ -24,12 +24,15 @@ module.exports = (bot) => {
     const userInput = ctx.message.text.split(' ').slice(1).join(' ');
 
     if (!userInput) {
-      ctx.reply('Por favor, forneça o nome do personagem.');
+      ctx.reply(Strings.ponyApiNoCharName, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
       return;
     };
 
     const capitalizedInput = capitalizeFirstLetter(userInput);
-    const apiUrl = `https://ponyapi.net/v1/character/${capitalizedInput}`;
+    const apiUrl = `http://ponyapi.net/v1/character/${capitalizedInput}`;
 
     try {
       const response = await axios(apiUrl);
@@ -68,16 +71,15 @@ module.exports = (bot) => {
           reply_to_message_id: ctx.message.message_id
         });
       } else {
-        ctx.reply('Nenhum personagem encontrado.', {
+        ctx.reply(Strings.ponyApiNoCharFound, {
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
       };
     } catch (error) {
       console.error(error);
-      ctx.reply('Ocorreu um erro ao buscar os dados da API.', {
+      ctx.reply(Strings.ponyApiErr, {
         parse_mode: 'Markdown',
-        disable_web_page_preview: true,
         reply_to_message_id: ctx.message.message_id
       });
     };
@@ -88,11 +90,14 @@ module.exports = (bot) => {
     const userInput = ctx.message.text.split(' ').slice(1).join(' ');
 
     if (!userInput) {
-      ctx.reply('Por favor, forneça o nome do personagem.');
+      ctx.reply(Strings.ponyApiNoEpisodeName, {
+        parse_mode: 'Markdown',
+        reply_to_message_id: ctx.message.message_id
+      });
       return;
     };
     
-    const apiUrl = `https://ponyapi.net/v1/comics-story/${userInput}`;
+    const apiUrl = `http://ponyapi.net/v1/comics-story/${userInput}`;
 
     try {
       const response = await axios(apiUrl);
@@ -135,16 +140,15 @@ module.exports = (bot) => {
           reply_to_message_id: ctx.message.message_id
         });
       } else {
-        ctx.reply('Nenhum personagem encontrado.', {
+        ctx.reply(Strings.ponyApiNoEpisodeFound, {
           parse_mode: 'Markdown',
           reply_to_message_id: ctx.message.message_id
         });
       };
     } catch (error) {
       console.error(error);
-      ctx.reply('Ocorreu um erro ao buscar os dados da API.', {
+      ctx.reply(Strings.ponyApiErr, {
         parse_mode: 'Markdown',
-        disable_web_page_preview: true,
         reply_to_message_id: ctx.message.message_id
       });
     };

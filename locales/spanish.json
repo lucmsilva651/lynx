@@ -85,5 +85,10 @@
   "httpCodeNotFound": "Código HTTP no encontrado.",
   "httpCodeResult": "*Código HTTP*: {code}\n*Nombre*: `{message}`\n*Descripción*: {description}",
   "ponyApiCharRes": "*Información del Personaje MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*Alias:* `{alias}`\n*URL del Fandom:* [{url}]({url})\n*Sexo:* `{sex}`\n*Residencia:* `{residence}`\n*Ocupación:* `{occupation}`\n*Tipo:* `{kind}`",
-  "ponyApiEpRes": "*Información del Episodio MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*URL del Fandom:* [{url}]({url})\n*Temporada:* `{season}`\n*Episodio:* `{episode}`\n*Episodio General:* `{overall}`\n*Fecha de Lanzamiento:* `{airdate}`\n*Historia por:* `{storyby}`\n*Escrito por:* `{writtenby}`\n*Storyboard:* `{storyboard}`"
+  "ponyApiEpRes": "*Información del Episodio MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*URL del Fandom:* [{url}]({url})\n*Temporada:* `{season}`\n*Episodio:* `{episode}`\n*Episodio General:* `{overall}`\n*Fecha de Lanzamiento:* `{airdate}`\n*Historia por:* `{storyby}`\n*Escrito por:* `{writtenby}`\n*Storyboard:* `{storyboard}`",
+  "ponyApiNoCharName": "Por favor, proporciona el nombre del personaje.",
+  "ponyApiNoCharFound": "Ningún personaje encontrado.",
+  "ponyApiNoEpisodeNum": "Por favor, proporciona el número del episodio.",
+  "ponyApiNoEpisodeFound": "Ningún episodio encontrado.",
+  "ponyApiErr": "Ocurrió un error al obtener datos de la API."
 }
