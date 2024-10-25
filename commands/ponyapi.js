@@ -40,9 +40,18 @@ module.exports = (bot) => {
 
       if (Array.isArray(response.data.data)) {
         response.data.data.forEach(character => {
+          let aliases = [];
+          if (character.alias) {
+            if (typeof character.alias === 'string') {
+              aliases.push(character.alias);
+            } else if (Array.isArray(character.alias)) {
+              aliases = aliases.concat(character.alias);
+            }
+          }
+
           charactersArray.push({
             name: character.name,
-            alias: character.alias ? character.alias.join(', ') : 'N/A',
+            alias: aliases.length > 0 ? aliases.join(', ') : 'N/A',
             url: character.url,
             sex: character.sex,
             residence: character.residence ? character.residence.replace(/\n/g, ' / ') : 'N/A',
@@ -84,7 +93,7 @@ module.exports = (bot) => {
       });
     };
   });
-  
+
   bot.command("mlpep", spamwatchMiddleware, async (ctx) => {
     const Strings = getStrings(ctx.from.language_code);
     const userInput = ctx.message.text.split(' ').slice(1).join(' ');
@@ -96,7 +105,7 @@ module.exports = (bot) => {
       });
       return;
     };
-    
+
     const apiUrl = `http://ponyapi.net/v1/episode/by-overall/${userInput}`;
 
     try {

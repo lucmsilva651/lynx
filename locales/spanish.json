@@ -84,7 +84,7 @@
   "httpCodeErr": "Ocurrió un error al buscar el código HTTP.",
   "httpCodeNotFound": "Código HTTP no encontrado.",
   "httpCodeResult": "*Código HTTP*: {code}\n*Nombre*: `{message}`\n*Descripción*: {description}",
-  "ponyApiCharRes": "*Información del Personaje MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*Alias:* `{alias}`\n*URL del Fandom:* [{url}]({url})\n*Sexo:* `{sex}`\n*Residencia:* `{residence}`\n*Ocupación:* `{occupation}`\n*Tipo:* `{kind}`",
+  "ponyApiCharRes": "*Información del Personaje MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n\n*Alias:* `{alias}`\n\n*URL del Fandom:* [{url}]({url})\n\n*Sexo:* `{sex}`\n\n*Residencia:* `{residence}`\n\n*Ocupación:* `{occupation}`\n\n*Tipo:* `{kind}`",
   "ponyApiEpRes": "*Información del Episodio MLP para* `{input}`*:*\n\n*Nombre:* `{name}`\n*URL del Fandom:* [{url}]({url})\n*Temporada:* `{season}`\n*Episodio:* `{episode}`\n*Episodio General:* `{overall}`\n*Fecha de Lanzamiento:* `{airdate}`\n*Historia por:* `{storyby}`\n*Escrito por:* `{writtenby}`\n*Storyboard:* `{storyboard}`",
   "ponyApiNoCharName": "Por favor, proporciona el nombre del personaje.",
   "ponyApiNoCharFound": "Ningún personaje encontrado.",
