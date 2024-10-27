@@ -1,8 +1,6 @@
 # Lynx (Node.js Telegram Bot)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 ![GitHub License](https://img.shields.io/github/license/lucmsilva651/lynx)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucmsilva651%2Flynx.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucmsilva651%2Flynx?ref=badge_shield)
-
 
 Lynx is a a simple Telegram bot made in Node.js.
  - You can find Lynx at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
@@ -49,6 +47,3 @@ After editing the file, save all changes and run the bot with ``npm start``.
 
 ## About/License
 BSD-3-Clause - 2024 Lucas Gabriel (lucmsilva).
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucmsilva651%2Flynx.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucmsilva651%2Flynx?ref=badge_large)
