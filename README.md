@@ -1,6 +1,6 @@
 # Lynx (Node.js Telegram Bot)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
-![GitHub License](https://img.shields.io/github/license/lucmsilva651/lynx)
+![GitHub License](https://img.shields.io/github/license/ABOCN/TelegramBot)
 
 Lynx is a a simple Telegram bot made in Node.js.
  - You can find Lynx at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
@@ -16,7 +16,7 @@ Lynx is a a simple Telegram bot made in Node.js.
 ## Run it yourself, develop or contribute with Lynx
 First, clone the repo with Git:
 ```
-git clone https://github.com/lucmsilva651/lynx
+git clone https://github.com/ABOCN/TelegramBot
 ```
 And now, init the submodules with these commands (this is very important):
 ```
