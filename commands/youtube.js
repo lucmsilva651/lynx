@@ -17,6 +17,17 @@ const getYtDlpPath = () => {
   return ytDlpPaths[platform] || ytDlpPaths.linux;
 };
 
+
+const ffmpegPaths = {
+  linux: '/usr/bin/ffmpeg',
+  win32: path.resolve(__dirname, '../plugins/ffmpeg/bin/ffmpeg.exe'),
+};
+
+const getFfmpegPath = () => {
+  const platform = os.platform();
+  return ffmpegPaths[platform] || ffmpegPaths.linux;
+};
+
 const downloadFromYoutube = async (command, args) => {
   return new Promise((resolve, reject) => {
     execFile(command, args, (error, stdout, stderr) => {
@@ -44,14 +55,6 @@ const getApproxSize = async (command, videoUrl) => {
   }
 };
 
-const timeoutPromise = (timeout) => {
-  return new Promise((_, reject) => {
-    setTimeout(() => {
-      reject(new Error('Timeout: Check took too long'));
-    }, timeout);
-  });
-};
-
 module.exports = (bot) => {
   bot.command(['yt', 'ytdl'], spamwatchMiddleware, async (ctx) => {
     const strings = getStrings(ctx.from.language_code);
@@ -60,8 +63,12 @@ module.exports = (bot) => {
     const videoUrl = ctx.message.text.split(' ').slice(1).join(' ');
 
     const mp4File = `tmp/${userId}.mp4`;
+    const tempMp4File = `tmp/${userId}.f137.mp4`;
+    const tempWebmFile = `tmp/${userId}.f251.webm`;
     const cmdArgs = "--max-filesize 2G --no-playlist --cookies props/cookies.txt --merge-output-format mp4 -o";
     const dlpCommand = ytDlpPath;
+    const ffmpegPath = getFfmpegPath();
+    const ffmpegArgs = ['-i', tempMp4File, '-i', tempWebmFile, '-c:v copy -c:a copy -strict -2', mp4File];
 
     try {
       const downloadingMessage = await ctx.reply(strings.ytCheckingSize, {
@@ -74,8 +81,6 @@ module.exports = (bot) => {
           getApproxSize(ytDlpPath, videoUrl)
         ]);
 
-        let videoFormat = approxSizeInMB >= 50 ? '-f best' : "-f bestvideo+bestaudio";
-
         await ctx.telegram.editMessageText(
           ctx.chat.id,
           downloadingMessage.message_id,
@@ -86,7 +91,7 @@ module.exports = (bot) => {
           },
         );
 
-        const dlpArgs = [videoUrl, videoFormat, ...cmdArgs.split(' '), mp4File];
+        const dlpArgs = [videoUrl, ...cmdArgs.split(' '), mp4File];
         await downloadFromYoutube(dlpCommand, dlpArgs);
 
         await ctx.telegram.editMessageText(
@@ -98,6 +103,10 @@ module.exports = (bot) => {
             reply_to_message_id: ctx.message.message_id,
           },
         );
+
+        if(fs.existsSync(tempMp4File)){
+          await downloadFromYoutube(ffmpegPath, ffmpegArgs);
+        }
 
         if (fs.existsSync(mp4File)) {
           const message = strings.ytUploadDesc
@@ -133,7 +142,7 @@ module.exports = (bot) => {
             fs.unlinkSync(mp4File);
           }
         } else {
-          await ctx.reply(`\`${error.message}\``, {
+          await ctx.reply(mp4File, {
             parse_mode: 'Markdown',
             reply_to_message_id: ctx.message.message_id,
           });
