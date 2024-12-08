@@ -51,10 +51,8 @@ const startBot = async () => {
 
 const handleShutdown = (signal) => {
   console.log(`Received ${signal}. Stopping bot...`);
-  bot.stop(signal).then(() => {
-    console.log('Bot stopped.');
-    process.exit(0);
-  });
+  bot.stop(signal);
+  process.exit(0);
 };
 
 process.once('SIGINT', () => handleShutdown('SIGINT'));
