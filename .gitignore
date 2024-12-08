@@ -132,6 +132,7 @@ dist
 # Specific
 *.txt
 props/*
+package-lock.json
 !props/resources.json
 *.mp4
 plugins/*
