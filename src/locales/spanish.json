@@ -1,6 +1,6 @@
 {
-  "lynxWelcome": "*¡Hola! Soy Lynx!*\n¡Fui creado con cariño por Lucas Gabriel (@lukig1)! \n\n*Antes de usar, necesitas leer la política de privacidad (/privacy) para entender a dónde van tus datos al usar este bot.*\n\nAdemás, puedes usar /help para ver los comandos del bot!\n\n*¡Agradecimiento especial a @givfnz2 por sus diversas contribuciones al bot!*",
-  "lynxHelp": "*Hola, soy Lynx, un bot simple hecho desde cero en Telegraf y Node.js por Lucas Gabriel (lucmsilva).* \n\n¡Haz clic en los botones de abajo para ver qué comandos puedes usar!",
+  "lynxWelcome": "*¡Hola! Soy Lynx!*\n¡Fui creado con cariño por algunos nerds a los que les gusta programar! \n\n*Antes de usar, necesitas leer la política de privacidad (/privacy) para entender a dónde van tus datos al usar este bot.*\n\nAdemás, puedes usar /help para ver los comandos del bot!\n\n*¡Agradecimiento especial a @givfnz2 por sus diversas contribuciones al bot!*",
+  "lynxHelp": "*Hola, soy Lynx, un bot simple hecho desde cero en Telegraf y Node.js por algunos nerds a los que les gusta programar.* \n\n¡Haz clic en los botones de abajo para ver qué comandos puedes usar!",
   "lynxPrivacy": "Accede [a este enlace](https://blog.eleu.me/posts/lynx-privacy-policy) para leer la política de privacidad del bot.",
   "unKnown": "Desconocido",
   "varYes": "Sí",
