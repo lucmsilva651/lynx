@@ -1,9 +1,9 @@
-# Lynx (Node.js Telegram Bot)
+# Kowalski (Node.js Telegram Bot)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 ![GitHub License](https://img.shields.io/github/license/ABOCN/TelegramBot)
 
-Lynx is a a simple Telegram bot made in Node.js.
- - You can find Lynx at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
+Kowalski is a a simple Telegram bot made in Node.js.
+ - You can find Kowalski at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
 
 ## Requirements
  - A Telegram bot (create one at [@BotFather](https://t.me/botfather))
@@ -13,7 +13,7 @@ Lynx is a a simple Telegram bot made in Node.js.
  - Node.js dependencies: use ``npm install .``
  - FFmpeg
 
-## Run it yourself, develop or contribute with Lynx
+## Run it yourself, develop or contribute with Kowalski
 First, clone the repo with Git:
 ```
 git clone https://github.com/ABOCN/TelegramBot
