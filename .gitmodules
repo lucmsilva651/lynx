@@ -1,0 +1,3 @@
+[submodule "src/plugins/lib-spamwatch"]
+	path = src/plugins/lib-spamwatch
+	url = https://github.com/ABOCN/TelegramBot-SpamWatch
