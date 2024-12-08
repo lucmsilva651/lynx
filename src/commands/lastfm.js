@@ -8,7 +8,7 @@ const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(is
 const scrobbler_url = 'http://ws.audioscrobbler.com/2.0/';
 const api_key = Config.lastKey;
 
-const dbFile = 'props/lastfm.json';
+const dbFile = 'src/props/lastfm.json';
 let users = {};
 
 function loadUsers() {

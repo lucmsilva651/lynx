@@ -3,10 +3,11 @@ const path = require('path');
 const fs = require('fs');
 const Config = require('./props/config.json');
 const { isOnSpamWatch } = require('./plugins/lib-spamwatch/spamwatch.js');
+require('@dotenvx/dotenvx').config({ path: "config.env" });
 require('./plugins/ytdlp-wrapper.js');
 // require('./plugins/termlogger.js');
 
-const bot = new Telegraf(Config.botToken);
+const bot = new Telegraf(process.env.botToken);
 const MAX_RETRIES = 5;
 let restartCount = 0;
 

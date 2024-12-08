@@ -130,6 +130,7 @@ dist
 .pnp.*
 
 # Specific
+*.env
 *.txt
 props/*
 package-lock.json
