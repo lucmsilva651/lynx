@@ -1,9 +1,9 @@
 {
   "name": "lynxbot",
   "version": "1.0.0",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "scripts": {
-    "start": "nodemon bot.js",
+    "start": "nodemon src/bot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lucas Gabriel (lucmsilva)",
