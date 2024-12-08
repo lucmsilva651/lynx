@@ -1,3 +1,0 @@
-[submodule "plugins/lib-spamwatch"]
-	path = plugins/lib-spamwatch
-	url = https://github.com/lucmsilva651/lynx-spamwatch.git
