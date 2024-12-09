@@ -1,4 +1,3 @@
-const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
@@ -54,7 +53,7 @@ function getSystemInfo() {
 async function handleAdminCommand(ctx, action, successMessage, errorMessage) {
   const Strings = getStrings(ctx.from.language_code);
   const userId = ctx.from.id;
-  if (Config.admins.includes(userId)) {
+  if (process.env.botAdmins.includes(userId)) {
     try {
       await action();
       ctx.reply(successMessage, {

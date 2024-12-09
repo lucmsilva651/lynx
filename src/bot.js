@@ -1,7 +1,6 @@
 const { Telegraf } = require('telegraf');
 const path = require('path');
 const fs = require('fs');
-const Config = require('./props/config.json');
 const { isOnSpamWatch } = require('./plugins/lib-spamwatch/spamwatch.js');
 require('@dotenvx/dotenvx').config({ path: "config.env" });
 require('./plugins/ytdlp-wrapper.js');

@@ -132,9 +132,9 @@ dist
 # Specific
 *.env
 *.txt
-props/*
-package-lock.json
-!props/resources.json
+*.json
 *.mp4
+package-lock.json
+!resources.json
 plugins/*
 tmp/*

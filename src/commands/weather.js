@@ -3,7 +3,6 @@
 // Minor code changes by lucmsilva (https://github.com/lucmsilva651)
 
 const axios = require('axios');
-const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
@@ -46,7 +45,7 @@ module.exports = (bot) => {
     }
 
     const location = args.slice(9);
-    const apiKey = Config.weatherKey;
+    const apiKey = process.env.weatherKey;
 
     try {
       const locationResponse = await axios.get('https://api.weather.com/v3/location/search', {

@@ -1,12 +1,11 @@
 const fs = require('fs');
 const axios = require('axios');
-const Config = require('../props/config.json');
 const { getStrings } = require('../plugins/checklang.js');
 const { isOnSpamWatch } = require('../plugins/lib-spamwatch/spamwatch.js');
 const spamwatchMiddleware = require('../plugins/lib-spamwatch/Middleware.js')(isOnSpamWatch);
 
 const scrobbler_url = 'http://ws.audioscrobbler.com/2.0/';
-const api_key = Config.lastKey;
+const api_key = process.env.lastKey;
 
 const dbFile = 'src/props/lastfm.json';
 let users = {};
