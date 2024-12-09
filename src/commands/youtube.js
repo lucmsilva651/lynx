@@ -61,11 +61,18 @@ module.exports = (bot) => {
     const ytDlpPath = getYtDlpPath();
     const userId = ctx.from.id;
     const videoUrl = ctx.message.text.split(' ').slice(1).join(' ');
+    let cookieFlag = "";
+
+    if (fs.existsSync("./src/props/cookies.txt")) {
+      cookieFlag = "--cookies src/props/cookies.txt";
+    } else {
+      cookieFlag = "";
+    };
 
     const mp4File = `tmp/${userId}.mp4`;
     const tempMp4File = `tmp/${userId}.f137.mp4`;
     const tempWebmFile = `tmp/${userId}.f251.webm`;
-    const cmdArgs = "--max-filesize 2G --no-playlist --cookies props/cookies.txt --merge-output-format mp4 -o";
+    const cmdArgs = `--max-filesize 2G --no-playlist ${cookieFlag} --merge-output-format mp4 -o`;
     const dlpCommand = ytDlpPath;
     const ffmpegPath = getFfmpegPath();
     const ffmpegArgs = ['-i', tempMp4File, '-i', tempWebmFile, '-c:v copy -c:a copy -strict -2', mp4File];
