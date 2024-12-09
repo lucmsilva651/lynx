@@ -53,7 +53,8 @@ function getSystemInfo() {
 async function handleAdminCommand(ctx, action, successMessage, errorMessage) {
   const Strings = getStrings(ctx.from.language_code);
   const userId = ctx.from.id;
-  if (process.env.botAdmins.includes(userId)) {
+  const adminArray = JSON.parse("[" + process.env.botAdmins + "]");
+  if (adminArray.includes(userId)) {
     try {
       await action();
       ctx.reply(successMessage, {

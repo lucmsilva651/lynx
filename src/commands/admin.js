@@ -9,7 +9,7 @@ async function collectInfo(ctx) {
   const userId = parseInt(ctx.message.text.split(' ')[1], 10);
   const admins = await ctx.telegram.getChatAdministrators(chatId);
   const isAdmin = admins.some(admin => admin.user.id === adminId);
-  const onCrew = process.env.botAdmins.includes(adminId);
+  const onCrew = JSON.parse("[" + process.env.botAdmins + "]");
 
   return { Strings, chatId, userId, isAdmin, onCrew };
 }
