@@ -15,7 +15,7 @@ async function sendHelpMessage(ctx, isEditing) {
       ]
     }
   };
-  const helpText = Strings.lynxHelp;
+  const helpText = Strings.kowalskiHelp;
   if (isEditing) {
     await ctx.editMessageText(helpText, options);
   } else {

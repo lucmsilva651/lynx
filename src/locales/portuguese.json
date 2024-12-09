@@ -1,7 +1,7 @@
 {
-  "lynxWelcome": "*Olá! Eu sou o Kowalski!*\nFui feito com carinho por uns nerds que gostam de programação!\n\n*Antes de usar, você precisa ler a política de privacidade (/privacy) para entender onde seus dados vão ao usar este bot.*\n\nAlém disso, você pode usar /help para ver os comandos do bot!\n\n*Agradecimento especial ao @givfnz2 pelas suas várias contribuições ao bot!*",
-  "lynxHelp": "*Oi, eu sou o Kowalski, um bot simples feito do zero em Telegraf e Node.js por uns nerds que gostam de programação (lucmsilva).*\n\nClique nos botões abaixo para ver quais comandos você pode usar!\n",
-  "lynxPrivacy": "Acesse [este link](https://blog.eleu.me/posts/lynx-privacy-policy) para ler a política de privacidade do bot.",
+  "kowalskiWelcome": "*Olá! Eu sou o Kowalski!*\nFui feito com carinho por uns nerds que gostam de programação!\n\n*Antes de usar, você precisa ler a política de privacidade (/privacy) para entender onde seus dados vão ao usar este bot.*\n\nAlém disso, você pode usar /help para ver os comandos do bot!\n\n*Agradecimento especial ao @givfnz2 pelas suas várias contribuições ao bot!*",
+  "kowalskiHelp": "*Oi, eu sou o Kowalski, um bot simples feito do zero em Telegraf e Node.js por uns nerds que gostam de programação (lucmsilva).*\n\nClique nos botões abaixo para ver quais comandos você pode usar!\n",
+  "kowalskiPrivacy": "Acesse [este link](https://blog.eleu.me/posts/lynx-privacy-policy) para ler a política de privacidade do bot.",
   "unKnown": "Desconhecido",
   "varYes": "Sim",
   "varNo": "Não",

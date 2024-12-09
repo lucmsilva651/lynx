@@ -85,7 +85,7 @@ module.exports = (bot) => {
           limit: 1
         },
         headers: {
-          'User-Agent': "lynx-@LynxBR_bot-node-telegram-bot"
+          'User-Agent': "kowalski-@KowalskiNodeBot-node-telegram-bot"
         }
       });
 
@@ -125,7 +125,7 @@ module.exports = (bot) => {
             format: 'json',
           },
           headers: {
-            'User-Agent': "lynx-@LynxBR_bot-node-telegram-bot"
+            'User-Agent': "kowalski-@KowalskiNodeBot-node-telegram-bot"
           }
         });
         num_plays = response_plays.data.track.userplaycount;

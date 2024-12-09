@@ -3,7 +3,7 @@
 ![GitHub License](https://img.shields.io/github/license/ABOCN/TelegramBot)
 
 Kowalski is a a simple Telegram bot made in Node.js.
- - You can find Kowalski at [@LynxBR_bot](https://t.me/LynxBR_bot) on Telegram.
+ - You can find Kowalski at [@KowalskiNodeBot](https://t.me/KowalskiNodeBot) on Telegram.
 
 ## Requirements
  - A Telegram bot (create one at [@BotFather](https://t.me/botfather))
@@ -16,11 +16,11 @@ Kowalski is a a simple Telegram bot made in Node.js.
 ## Run it yourself, develop or contribute with Kowalski
 First, clone the repo with Git:
 ```
-git clone https://github.com/ABOCN/TelegramBot
+git clone https://github.com/ABOCN/TelegramBot kowalski
 ```
 And now, init the submodules with these commands (this is very important):
 ```
-cd lynx
+cd kowalski
 git submodule update --init --recursive
 ```
 Next, inside the repository directory, create a `config.env` file with some content, which you can see the [example .env file](config.env.example) to fill info with. To see the meaning of each one, see [the Functions section](#configenv-functions).
