@@ -57,13 +57,13 @@ const getApproxSize = async (command, videoUrl) => {
 
 module.exports = (bot) => {
   bot.command(['yt', 'ytdl'], spamwatchMiddleware, async (ctx) => {
-    const strings = getStrings(ctx.from.language_code);
+    const Strings = getStrings(ctx.from.language_code);
     const ytDlpPath = getYtDlpPath();
     const userId = ctx.from.id;
     const videoUrl = ctx.message.text.split(' ').slice(1).join(' ');
     let cookieFlag = "";
 
-    if (fs.existsSync("./src/props/cookies.txt")) {
+    if (fs.existsSync(path.resolve(__dirname, "../props/cookies.txt"))) {
       cookieFlag = "--cookies src/props/cookies.txt";
     } else {
       cookieFlag = "";
@@ -78,7 +78,7 @@ module.exports = (bot) => {
     const ffmpegArgs = ['-i', tempMp4File, '-i', tempWebmFile, '-c:v copy -c:a copy -strict -2', mp4File];
 
     try {
-      const downloadingMessage = await ctx.reply(strings.ytCheckingSize, {
+      const downloadingMessage = await ctx.reply(Strings.ytCheckingSize, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id,
       });
@@ -92,7 +92,7 @@ module.exports = (bot) => {
           ctx.chat.id,
           downloadingMessage.message_id,
           null,
-          strings.ytDownloading, {
+          Strings.ytDownloading, {
             parse_mode: 'Markdown',
             reply_to_message_id: ctx.message.message_id,
           },
@@ -105,7 +105,7 @@ module.exports = (bot) => {
           ctx.chat.id,
           downloadingMessage.message_id,
           null,
-          strings.ytUploading, {
+          Strings.ytUploading, {
             parse_mode: 'Markdown',
             reply_to_message_id: ctx.message.message_id,
           },
@@ -116,14 +116,14 @@ module.exports = (bot) => {
         }
 
         if (fs.existsSync(mp4File)) {
-          const message = strings.ytUploadDesc
+          const message = Strings.ytUploadDesc
             .replace("{userId}", userId)
             .replace("{userName}", ctx.from.first_name);
 
           try {
             await ctx.replyWithVideo({
               source: mp4File,
-              caption: `${message}`,
+              caption: message,
               parse_mode: 'Markdown',
             });
 
@@ -132,7 +132,7 @@ module.exports = (bot) => {
                 ctx.chat.id,
                 downloadingMessage.message_id,
                 null,
-                strings.ytUploadLimit2, {
+                Strings.ytUploadLimit2, {
                   parse_mode: 'Markdown',
                   reply_to_message_id: ctx.message.message_id,
                 },
@@ -159,7 +159,7 @@ module.exports = (bot) => {
           ctx.chat.id,
           downloadingMessage.message_id,
           null,
-          strings.ytFileErr, {
+          Strings.ytFileErr, {
             parse_mode: 'Markdown',
             reply_to_message_id: ctx.message.message_id,
           },

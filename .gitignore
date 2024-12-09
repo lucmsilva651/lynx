@@ -134,6 +134,7 @@ dist
 *.txt
 *.json
 *.mp4
+*.exe
 package-lock.json
 !resources.json
 plugins/*
