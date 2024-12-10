@@ -4,14 +4,7 @@ const languageFiles = {
   'pt-pt': '../locales/portuguese.json',
   'en': '../locales/english.json',
   'en-us': '../locales/english.json',
-  'en-gb': '../locales/english.json',
-  'es': '../locales/spanish.json',
-  'es-es': '../locales/spanish.json',
-  'es-mx': '../locales/spanish.json',
-  'es-ar': '../locales/spanish.json',
-  'es-co': '../locales/spanish.json',
-  'es-cl': '../locales/spanish.json',
-  'es-pe': '../locales/spanish.json',
+  'en-gb': '../locales/english.json'
 };
 
 function getStrings(languageCode) {
