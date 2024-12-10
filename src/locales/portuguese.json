@@ -90,5 +90,7 @@
   "ponyApiNoCharFound": "Nenhum personagem encontrado.",
   "ponyApiNoEpisodeNum": "Por favor, forneça o número do episódio.",
   "ponyApiNoEpisodeFound": "Nenhum episódio encontrado.",
+  "ponyApiNoComicName": "Por favor, forneça o nome da comic.",
+  "ponyApiNoComicFound": "Nenhuma comic foi encontrada.",
   "ponyApiErr": "Ocorreu um erro ao buscar dados da API."
 }
