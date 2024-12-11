@@ -11,7 +11,8 @@ async function sendHelpMessage(ctx, isEditing) {
         [{ text: Strings.mainCommands, callback_data: 'helpMain' }, { text: Strings.usefulCommands, callback_data: 'helpUseful' }],
         [{ text: Strings.interactiveEmojis, callback_data: 'helpInteractive' }, { text: Strings.funnyCommands, callback_data: 'helpFunny' }],
         [{ text: Strings.lastFm, callback_data: 'helpLast' }, { text: Strings.animalCommands, callback_data: 'helpAnimals' }],
-        [{ text: Strings.ytDlp, callback_data: 'helpYouTube' }, { text: Strings.myLittlePony, callback_data: 'helpMLP' }]
+        [{ text: Strings.ytDlp, callback_data: 'helpYouTube' }, { text: Strings.myLittlePony, callback_data: 'helpMLP' }],
+        [{ text: Strings.aboutBot, callback_data: 'helpAbout' }]
       ]
     }
   };
@@ -27,6 +28,15 @@ module.exports = (bot) => {
   bot.help(spamwatchMiddleware, async (ctx) => {
     await sendHelpMessage(ctx);
   });
+
+  bot.command("about", spamwatchMiddleware, async (ctx) => {
+    const Strings = getStrings(ctx.from.language_code);
+    ctx.reply(Strings.kowalskiAbout, {
+      parse_mode: 'Markdown',
+      disable_web_page_preview: true,
+      reply_to_message_id: ctx.message.message_id
+    });
+  })
 
   bot.on('callback_query', async (ctx) => {
     const callbackData = ctx.callbackQuery.data;
@@ -73,6 +83,10 @@ module.exports = (bot) => {
       case 'helpMLP':
         await ctx.answerCbQuery();
         await ctx.editMessageText(Strings.myLittlePonyDesc, options);
+        break;
+      case 'helpAbout':
+        await ctx.answerCbQuery();
+        await ctx.editMessageText(Strings.kowalskiAbout, options);
         break;
       case 'helpBack':
         await ctx.answerCbQuery();
