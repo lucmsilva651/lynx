@@ -132,10 +132,13 @@ dist
 # Specific
 *.env
 *.txt
-*.json
 *.mp4
-*.exe
+lastfm.json
+sw-blocklist.txt
 package-lock.json
-!resources.json
-plugins/*
-tmp/*
+tmp/
+
+# Executables
+*.exe
+yt-dlp
+ffmpeg
