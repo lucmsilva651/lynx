@@ -63,19 +63,17 @@ module.exports = (bot) => {
     const videoUrl = ctx.message.text.split(' ').slice(1).join(' ');
     let cookieFlag = "";
 
-    if (fs.existsSync(path.resolve(__dirname, "../props/cookies.txt"))) {
-      cookieFlag = "--cookies src/props/cookies.txt";
-    } else {
-      cookieFlag = "";
-    };
-
     const mp4File = `tmp/${userId}.mp4`;
     const tempMp4File = `tmp/${userId}.f137.mp4`;
     const tempWebmFile = `tmp/${userId}.f251.webm`;
-    const cmdArgs = `--max-filesize 2G --no-playlist ${cookieFlag} --merge-output-format mp4 -o`;
+    let cmdArgs = `--max-filesize 2G --no-playlist --merge-output-format mp4 -o`;
     const dlpCommand = ytDlpPath;
     const ffmpegPath = getFfmpegPath();
     const ffmpegArgs = ['-i', tempMp4File, '-i', tempWebmFile, '-c:v copy -c:a copy -strict -2', mp4File];
+
+    if (fs.existsSync(path.resolve(__dirname, "../props/cookies.txt"))) {
+      cmdArgs = "--max-filesize 2G --no-playlist --cookies src/props/cookies.txt --merge-output-format mp4 -o";
+    }
 
     try {
       const downloadingMessage = await ctx.reply(Strings.ytCheckingSize, {
