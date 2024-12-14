@@ -10,6 +10,14 @@ body {
   padding: 2rem 13rem;
 }
 
+header{
+  gap: 1.25rem;
+}
+
+header a {
+  text-align: center;
+}
+
 @media (max-width: 1200px) {
   body {
     padding: 2rem 3rem;
