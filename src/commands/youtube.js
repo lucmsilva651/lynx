@@ -48,7 +48,7 @@ const getApproxSize = async (command, videoUrl) => {
     if (!isNaN(sizeInBytes)) {
       return sizeInBytes / (1024 * 1024);
     } else {
-      throw new Error('Invalid size received from yt-dlp');
+      return 0;
     }
   } catch (error) {
     throw error;
@@ -83,7 +83,7 @@ module.exports = (bot) => {
 
       if (fs.existsSync(ytDlpPath)) {
         const approxSizeInMB = await Promise.race([
-          getApproxSize(ytDlpPath, videoUrl)
+          getApproxSize(ytDlpPath, videoUrl),
         ]);
 
         await ctx.telegram.editMessageText(
