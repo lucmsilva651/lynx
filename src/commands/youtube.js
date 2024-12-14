@@ -139,7 +139,7 @@ module.exports = (bot) => {
 
             fs.unlinkSync(mp4File);
           } catch (error) {
-            await ctx.reply(`\`${error.message}\``, {
+            await ctx.reply(Strings.error, {
               parse_mode: 'Markdown',
               reply_to_message_id: ctx.message.message_id,
             });
@@ -165,7 +165,7 @@ module.exports = (bot) => {
       }
     } catch (error) {
       console.error(error);
-      await ctx.reply(`\`${error.message}\``, {
+      await ctx.reply(Strings.error, {
         parse_mode: 'Markdown',
         reply_to_message_id: ctx.message.message_id,
       });

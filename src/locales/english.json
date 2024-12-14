@@ -24,6 +24,7 @@
   "banErr": "Could not ban the user. Check if the ID is correct and if the bot has admin permissions.\n\n`{tgErr}`",
   "unBanSuccess": "User with ID `{userId}` has been unbanned.",
   "unBanErr": "Could not unban the user. Check if the ID is correct and if the bot has admin permissions.\n\n`{tgErr}`",
+  "error": "An unexpected error occured. Please, report to the developers.",
   "isGay": "Yes, you are *gay*!",
   "isNtGay": "Ah, you are not gay!",
   "isFurry": "Yes, you are *furry*!",
