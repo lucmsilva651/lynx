@@ -145,12 +145,20 @@ module.exports = (bot) => {
         });
       };
 
-      const message = Strings.lastFmStatusFor
+      let message = Strings.lastFmStatusFor
         .replace("{lastfmUser}", `[${lastfmUser}](${userUrl})`)
         .replace("{nowPlaying}", nowPlaying)
         .replace("{trackName}", `[${trackName}](${trackUrl})`)
         .replace("{artistName}", `[${artistName}](${artistUrl})`)
-        .replace("{plays}", `${num_plays}`);
+
+      if (`${num_plays}` !== "0" && `${num_plays}` !== "1" && `${num_plays}` !== "2" && `${num_plays}` !== "3") {
+        message = message
+          .replace("{playCount}", Strings.lastFmPlayCount)
+          .replace("{plays}", `${num_plays}`);
+      } else {
+        message = message
+          .replace("{playCount}", Strings.varTo);
+      };
 
       if (imageUrl) {
         ctx.replyWithPhoto(imageUrl, {

@@ -1,0 +1,3 @@
+{   
+  "ignore": ["src/props/*.json", "src/props/*.txt"]
+}
