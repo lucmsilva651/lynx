@@ -42,7 +42,7 @@
   "lastFmNoRecent": "*No recent tracks found for Last.fm user* `{lastfmUser}`*.*",
   "lastFmUserSet": "*Your Last.fm username has been set to:* `{lastUser}`.",
   "lastFmStatusFor": "{lastfmUser} *{nowPlaying} listening {playCount}*:\n\n{trackName} by {artistName}",
-  "lastFmPlayCount": " by the {plays}th time",
+  "lastFmPlayCount": "by the {plays}th time",
   "lastFmErr": "*Error retrieving data for Last.fm user* {lastfmUser}.\n\n`{err}`",
   "currentCommit": "*Current commit:* `{commitHash}`",
   "errorRetrievingCommit": "*Error retrieving commit:* {error}",
