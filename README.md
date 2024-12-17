@@ -8,7 +8,7 @@ Kowalski is a a simple Telegram bot made in Node.js.
 ## Self-host requirements
  - A Telegram bot (create one at [@BotFather](https://t.me/botfather))
  - Latest version of Node.js
- - FFmpeg
+ - FFmpeg (only for the /yt command)
 
 ## Run it yourself, develop or contribute with Kowalski
 First, clone the repo with Git:
