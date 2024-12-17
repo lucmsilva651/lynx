@@ -34,6 +34,27 @@ function saveUsers() {
   }
 }
 
+async function getFromMusicBrainz(mbid) {
+  try {
+    const response = await axios.get(`https://coverartarchive.org/release/${mbid}`);
+    const imageUrl = response.data.images[0]?.thumbnails?.large || '';
+    return imageUrl;
+  } catch (error) {
+    return undefined;
+  }
+}
+
+
+function getFromLast(track) {
+  if (!track || !track.image) return '';
+
+  const imageExtralarge = track.image.find(img => img.size === 'extralarge');
+  const imageMega = track.image.find(img => img.size === 'mega');
+  const imageUrl = (imageExtralarge?.['#text']) || (imageMega?.['#text']) || '';
+
+  return imageUrl;
+}
+
 module.exports = (bot) => {
   loadUsers();
 
@@ -104,6 +125,18 @@ module.exports = (bot) => {
       const trackName = track.name;
       const artistName = track.artist['#text'];
       const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.varIs : Strings.varWas;
+      const albumMbid = track.album.mbid;
+
+      let imageUrl = "";
+
+      if (albumMbid) {
+        imageUrl = await getFromMusicBrainz(albumMbid);
+      } 
+      
+      if (!imageUrl) {
+        imageUrl = getFromLast(track);
+      }
+
       if (imageUrl == genericImg) {
         imageUrl = "";
       }
