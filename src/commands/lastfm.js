@@ -66,7 +66,8 @@ module.exports = (bot) => {
     const userId = ctx.from.id;
     const Strings = getStrings(ctx.from.language_code);
     const lastfmUser = users[userId];
-
+    const genericImg = "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png";
+    
     if (!lastfmUser) {
       return ctx.reply(Strings.lastFmNoSet, {
         parse_mode: "Markdown",
@@ -103,11 +104,9 @@ module.exports = (bot) => {
       const trackName = track.name;
       const artistName = track.artist['#text'];
       const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.varIs : Strings.varWas;
-
-
-      const imageExtralarge = track.image.find(img => img.size === 'extralarge');
-      const imageMega = track.image.find(img => img.size === 'mega');
-      const imageUrl = (imageExtralarge && imageExtralarge['#text']) || (imageMega && imageMega['#text']) || '';
+      if (imageUrl == genericImg) {
+        imageUrl = "";
+      }
 
       const trackUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}/_/${encodeURIComponent(trackName)}`;
       const artistUrl = `https://www.last.fm/music/${encodeURIComponent(artistName)}`;
