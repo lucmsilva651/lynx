@@ -102,7 +102,7 @@ module.exports = (bot) => {
 
       const trackName = track.name;
       const artistName = track.artist['#text'];
-      const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.lastFmListeningNow : Strings.lastFmLastPlayed;
+      const nowPlaying = track['@attr'] && track['@attr'].nowplaying ? Strings.varIs : Strings.varWas;
 
 
       const imageExtralarge = track.image.find(img => img.size === 'extralarge');
