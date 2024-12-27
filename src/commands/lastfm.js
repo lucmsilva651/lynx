@@ -37,7 +37,8 @@ function saveUsers() {
 async function getFromMusicBrainz(mbid) {
   try {
     const response = await axios.get(`https://coverartarchive.org/release/${mbid}`);
-    const imageUrl = response.data.images[0]?.thumbnails?.large || '';
+    const imageUrlLarge = response.data.images[0]?.thumbnails?.large;
+    const imageUrl = response.data.images[0]?.thumbnails?.['1200'] || imageUrlLarge || '';
     return imageUrl;
   } catch (error) {
     return undefined;
